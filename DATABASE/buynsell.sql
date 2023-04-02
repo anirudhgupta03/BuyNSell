@@ -77,7 +77,9 @@ INSERT INTO `product_category` (`product_id`, `name`, `img_name`) VALUES
 (2, 'Electronics', 'electronic_items.jpg'),
 (3, 'Essentials', 'essentials.jpg'),
 (4, 'Sports and Fitness', 'sports_and_fitness.jpg'),
-(5, 'Stationery', 'stationery.png');
+(5, 'Stationery', 'stationery.png'),
+(6, 'Subscriptions', 'subscriptions.jpg'),
+(7, 'Music', 'music.jpg');
 
 --
 -- Table structure for table `product_images`

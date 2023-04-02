@@ -79,7 +79,7 @@ body {
     z-index: 5;
 }*/
 .bg-nav {
-    background-color: rgb(24, 44, 97) !important;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -127,7 +127,7 @@ tr:nth-child(1) {
         <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
         <div class="container">
           <a style="color: #ffc107;" class="navbar-brand" href="index.php">
-                <img style="max-width:130px; margin-top: -1px;" src="buynsell.jpg">&nbsp;
+                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
           </a>
           <ul class="navbar-nav">
 				<li class="nav-item">
