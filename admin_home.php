@@ -17,6 +17,7 @@ if(isset($_SESSION['admin_login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BuyNSell</title>
+    <link rel="icon" type="image/jpg" href="logo/auction.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -36,7 +37,7 @@ body {
 }
 
 .bg-nav {
-    background-color: rgb(24, 44, 97) !important;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -124,7 +125,7 @@ body {
     <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
         <div class="container">
           <a style="color: #ffc107;" class="navbar-brand" href="index.php">
-                <img style="max-width:130px; margin-top: -1px;" src="buynsell.jpg">&nbsp;
+                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
           </a>
           <ul class="navbar-nav">
 				<li class="nav-item">
@@ -152,7 +153,7 @@ body {
 
     <div class = "container_login_2">
     <div class="button2">
-          <a href = "view_product.php">
+          <a href = "admin_product.php">
             <button class="btn btn-success" type="submit">View All Products</button>
           </a>
         </div>

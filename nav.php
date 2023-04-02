@@ -2,7 +2,7 @@
 		<div class="container">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:130px; margin-top: -1px;" src="buynsell.jpg">&nbsp;
+				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
 			</a>
 			<div align="center">
 				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>

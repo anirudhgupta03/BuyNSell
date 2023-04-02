@@ -45,7 +45,7 @@ body {
 }
 
 .bg-nav {
-    background-color: rgb(24, 44, 97) !important;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299); !important;
     position: fixed;
     top: 0;
     left: 0;
