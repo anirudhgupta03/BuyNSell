@@ -65,14 +65,14 @@ INSERT INTO `admin` (`admin_id`, `username`, `password`, `mobile number`, `name`
 
 
 CREATE TABLE `product_category` (
-  `product_id` int(11) NOT NULL,
-   `name` varchar(100) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `img_name` varchar(100) NOT NULL
   -- `surname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-INSERT INTO `product_category` (`product_id`, `name`, `img_name`) VALUES
+INSERT INTO `product_category` (`category_id`, `name`, `img_name`) VALUES
 (1, 'Books', 'books.jpg'),
 (2, 'Electronics', 'electronic_items.jpg'),
 (3, 'Essentials', 'essentials.jpg'),
@@ -102,11 +102,22 @@ CREATE TABLE `products` (
   `name` varchar(20) NOT NULL,
   `price` int(11) NOT NULL,
   `description` varchar(250) NOT NULL,
-  `category` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   -- `bidstarttime` datetime NOT NULL,
   -- `bidendtime` datetime NOT NULL,
   `status` enum('On Sale','Sold','Disable') NOT NULL DEFAULT 'On Sale'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `tbl_purchase`
+--
+
+CREATE TABLE `tbl_purchase` (
+  `purchase_id` int(11) NOT NULL,
+  `pro_id` int(11) NOT NULL,
+  `buyer_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -132,7 +143,8 @@ ALTER TABLE `product_images`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`pro_id`),
-  ADD KEY `uid` (`uid`);
+  ADD KEY `uid` (`uid`),
+  ADD KEY `category_id` (`category_id`);
 
 --
 -- Indexes for table `user`
@@ -140,6 +152,22 @@ ALTER TABLE `products`
 ALTER TABLE `user`
   ADD PRIMARY KEY (`uid`),
   ADD UNIQUE KEY `email` (`email`);
+
+
+--
+-- Indexes for table `product_category`
+--
+ALTER TABLE `product_category`
+  ADD PRIMARY KEY (`category_id`);
+
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `tbl_purchase`
+  ADD PRIMARY KEY (`purchase_id`),
+  ADD KEY `pro_id` (`pro_id`);
+
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -179,11 +207,15 @@ ALTER TABLE `user`
 ALTER TABLE `products`
   ADD CONSTRAINT `tbl_product_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
 
+ALTER TABLE `products`
+  ADD CONSTRAINT `tbl_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`category_id`);
+
+
 --
 -- Constraints for table `tbl_purchase`
 --
--- ALTER TABLE `tbl_purchase`
---   ADD CONSTRAINT `tbl_purchase_ibfk_1` FOREIGN KEY (`bid_id`) REFERENCES `tbl_bid` (`bid_id`);
+ALTER TABLE `tbl_purchase`
+  ADD CONSTRAINT `tbl_purchase_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

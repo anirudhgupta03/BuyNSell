@@ -109,7 +109,7 @@ a.text:focus {
 <br><br><br>
 
     <?php
-    $query1 = "select * from products where status = 'On Sale' and category_id = 1 ORDER BY pro_id DESC;";
+    $query1 = "select * from products where status = 'On Sale' and category_id = 3 ORDER BY pro_id DESC;";
 	$run_q1 = $con->query($query1);
 	$showing_products = $run_q1->num_rows;
     ?>
@@ -145,7 +145,7 @@ a.text:focus {
 					// $total_bids = $run_q5->num_rows;
 					
 						?>
-							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" >	
+							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
 								<div class="card mt-3 mb-3">
 									<?php  
 									$query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
