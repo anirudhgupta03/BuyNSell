@@ -279,7 +279,7 @@ img[src="assets/images/blank.gif"] {
 }
 
 .outer-top-vs {
-  margin-top: 30px;
+  margin-top: 3px;
 }
 .outer-top-small {
   margin-top: 50px;
@@ -436,7 +436,7 @@ img[src="assets/images/blank.gif"] {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -25px;
+  top: -16px;
   right: 27px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -461,7 +461,7 @@ img[src="assets/images/blank.gif"] {
   position: absolute;
   width: 20px;
   height: 20px;
-  top: -25px;
+  top: -16px;
   right: 0px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -1109,7 +1109,7 @@ a {
 .top-bar .cnt-account ul > li {
   display: inline-block;
   line-height: 12px;
-  padding:3px 12px 3px 7px;
+  padding:3px 12px 9px 16px;
   border-right: 1px solid hsla(0,0%,100%,.2);
 
 }
@@ -1238,7 +1238,7 @@ header{
   -moz-border-radius: 5px 0 0 5px;
   border-radius: 5px 0 0 5px;
   padding:18px 13px;
-  width: 67%;
+  width: 92.7%;
   font-family: 'Barlow', sans-serif;
   font-size:14px
 }
@@ -1288,7 +1288,7 @@ header{
   display: inline-block;
   float: right;
   margin: 0px;
-  padding: 19px 25px 19px;
+  padding: 19px 25px 17px;
   text-align: center;
     background-color: #fa4299;
 
@@ -2753,7 +2753,7 @@ font-family: FontAwesome;
 .scroll-tabs .more-info-tab {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
-  padding: 20px 20px;
+  padding: 14px 506px;
 }
 .scroll-tabs .more-info-tab .new-product-title {
   margin-bottom: 0px;
@@ -3483,7 +3483,7 @@ font-family: FontAwesome;
     width: 100%;
     display: block;
     position: relative;
-    padding-top: 125%;
+    padding-top: 112%;
 }
 .item .products .image a img {
     width: 100%;

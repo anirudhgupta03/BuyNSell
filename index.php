@@ -51,6 +51,60 @@ if (isset($_SESSION['user'])) {
   <div class="top-bar animate-dropdown">
     <div class="container">
       <div class="header-top-inner">
+        
+        <!-- /.cnt-account -->
+        
+        
+      <!-- /.header-top-inner --> 
+    </div>
+    <!-- /.container --> 
+  </div>
+  <!-- /.header-top --> 
+  <!-- ============================================== TOP MENU : END ============================================== -->
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 logo-holder"> 
+          <!-- ============================================================= LOGO ============================================================= -->
+          <div class="logo"> <a href="home.html"> <img src="logo.png" alt="logo"> </a> </div>
+          <!-- /.logo --> 
+          <!-- ============================================================= LOGO : END ============================================================= --> </div>
+        <!-- /.logo-holder -->
+        
+        <div class="col-lg-8 col-md-15 col-sm-9 col-xs-12 top-search-holder"> 
+          <!-- /.contact-row --> 
+          <!-- ============================================================= SEARCH AREA ============================================================= -->
+          <div class="search-area">
+            <form>
+              <div class="control-group">
+                <!-- <ul class="categories-filter animate-dropdown">
+                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" >
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Books</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Essentials</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Sports and Fitness</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Stationery</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Subscriptions</a></li>
+                    </ul>
+                  </li>
+                </ul> -->
+                <input class="search-field" placeholder="Search here..." />
+                <a class="search-button" href="#" ></a> </div>
+            </form>
+          </div>
+          <!-- /.search-area --> 
+          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+        <!-- /.top-search-holder -->
+        
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
+          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+          
+          
+          <!-- /.dropdown-cart --> 
+          
+          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
+        <!-- /.top-cart-row --> 
         <div class="cnt-account">
           <ul class="list-unstyled">
             <?php
@@ -68,76 +122,6 @@ if (isset($_SESSION['user'])) {
             <li class="login"><a href="admin_login.php"><span>Admin Login</span></a></li>
           </ul>
         </div>
-        <!-- /.cnt-account -->
-        
-        <div class="cnt-block">
-          <ul class="list-unstyled list-inline">
-            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">INR </span><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">INR</a></li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-small lang"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">English</a></li>
-              </ul>
-            </li>
-          </ul>
-          <!-- /.list-unstyled --> 
-        </div>
-        <!-- /.cnt-cart -->
-        <div class="clearfix"></div>
-      </div>
-      <!-- /.header-top-inner --> 
-    </div>
-    <!-- /.container --> 
-  </div>
-  <!-- /.header-top --> 
-  <!-- ============================================== TOP MENU : END ============================================== -->
-  <div class="main-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
-          <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="logo.png" alt="logo"> </a> </div>
-          <!-- /.logo --> 
-          <!-- ============================================================= LOGO : END ============================================================= --> </div>
-        <!-- /.logo-holder -->
-        
-        <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder"> 
-          <!-- /.contact-row --> 
-          <!-- ============================================================= SEARCH AREA ============================================================= -->
-          <div class="search-area">
-            <form>
-              <div class="control-group">
-                <ul class="categories-filter animate-dropdown">
-                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu" >
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Books</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Essentials</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Sports and Fitness</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Staitionery</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Subscriptions</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <input class="search-field" placeholder="Search here..." />
-                <a class="search-button" href="#" ></a> </div>
-            </form>
-          </div>
-          <!-- /.search-area --> 
-          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
-        <!-- /.top-search-holder -->
-        
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
-          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-          
-          
-          <!-- /.dropdown-cart --> 
-          
-          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
-        <!-- /.top-cart-row --> 
       </div>
       <!-- /.row --> 
       
@@ -148,119 +132,6 @@ if (isset($_SESSION['user'])) {
   <!-- /.main-header --> 
   
   <!-- ============================================== NAVBAR ============================================== -->
-  <div class="header-nav animate-dropdown">
-    <div class="container">
-      <div class="yamm navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
-       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-        <div class="nav-bg-class">
-          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
-            <div class="nav-outer">
-              <ul class="nav navbar-nav">
-                <li class="active dropdown"> <a href="home.html">Home</a> </li>
-                
-                <li class="dropdown mega-menu"> 
-                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics </a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Laptops</h2>
-                            <ul class="links">
-                              <li><a href="#">Gaming</a></li>
-                              <li><a href="#">Laptop Skins</a></li>
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Dell</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Microsoft</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Adapters</a></li>
-                              <li><a href="#">Batteries</a></li>
-                              <li><a href="#">Cooling Pads</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Desktops</h2>
-                            <ul class="links">
-                              <li><a href="#">Routers & Modems</a></li>
-                              <li><a href="#">CPUs, Processors</a></li>
-                              <li><a href="#">PC Gaming Store</a></li>
-                              <li><a href="#">Graphics Cards</a></li>
-                              <li><a href="#">Components</a></li>
-                              <li><a href="#">Webcam</a></li>
-                              <li><a href="#">Memory (RAM)</a></li>
-                              <li><a href="#">Motherboards</a></li>
-                              <li><a href="#">Keyboards</a></li>
-                              <li><a href="#">Headphones</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Cameras</h2>
-                            <ul class="links">
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Binoculars</a></li>
-                              <li><a href="#">Telescopes</a></li>
-                              <li><a href="#">Camcorders</a></li>
-                              <li><a href="#">Digital</a></li>
-                              <li><a href="#">Film Cameras</a></li>
-                              <li><a href="#">Flashes</a></li>
-                              <li><a href="#">Lenses</a></li>
-                              <li><a href="#">Surveillance</a></li>
-                              <li><a href="#">Tripods</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          <!-- <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Mobile Phones</h2>
-                            <ul class="links">
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Samsung</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Motorola</a></li>
-                              <li><a href="#">LeEco</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Acer</a></li>
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Headphones</a></li>
-                              <li><a href="#">Memory Cards</a></li>
-                            </ul>
-                          </div> -->
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/top-menu-banner1.jpg"></a> </div>
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!-- /.yamm-content --> </li>
-                  </ul>
-                </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Books  </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Essentials</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Sports and Fitness</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Stationery</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Subscriptions</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Music</a> </li>
-              </ul>
-              <!-- /.navbar-nav -->
-              <div class="clearfix"></div>
-            </div>
-            <!-- /.nav-outer --> 
-          </div>
-          <!-- /.navbar-collapse --> 
-          
-        </div>
-        <!-- /.nav-bg-class --> 
-      </div>
-      <!-- /.navbar-default --> 
-    </div>
-    <!-- /.container-class --> 
-    
-  </div>
   <!-- /.header-nav --> 
   <!-- ============================================== NAVBAR : END ============================================== --> 
   
@@ -828,14 +699,14 @@ if (isset($_SESSION['user'])) {
        
         <!-- ============================================== SPECIAL OFFER : END ============================================== --> 
         <!-- ============================================== PRODUCT TAGS ============================================== -->
-        <div class="sidebar-widget product-tag">
+        <!-- <div class="sidebar-widget product-tag">
           <h3 class="section-title">Product tags</h3>
           <div class="sidebar-widget-body outer-top-xs">
-            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Laptop</a> <a class="item active" title="Vest" href="category.html">Kettle</a> <a class="item" title="Smartphone" href="category.html">Guitar</a> <a class="item" title="Furniture" href="category.html">Lamps</a> <a class="item" title="T-shirt" href="category.html">Cooler</a> <a class="item" title="Sweatpants" href="category.html">Room heaters</a> <a class="item" title="Sneaker" href="category.html">Lan Cable</a> <a class="item" title="Toys" href="category.html">Subscriptions</a> <a class="item" title="Rose" href="category.html">Cycle</a> <a class="item" title="Rose" href="category.html">Books</a> <a class="item" title="Rose" href="category.html">Dumbell</a> </div>
+            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Laptop</a> <a class="item active" title="Vest" href="category.html">Kettle</a> <a class="item" title="Smartphone" href="category.html">Guitar</a> <a class="item" title="Furniture" href="category.html">Lamps</a> <a class="item" title="T-shirt" href="category.html">Cooler</a> <a class="item" title="Sweatpants" href="category.html">Room heaters</a> <a class="item" title="Sneaker" href="category.html">Lan Cable</a> <a class="item" title="Toys" href="category.html">Subscriptions</a> <a class="item" title="Rose" href="category.html">Cycle</a> <a class="item" title="Rose" href="category.html">Books</a> <a class="item" title="Rose" href="category.html">Dumbell</a> </div> -->
             <!-- /.tag-list --> 
-          </div>
+          <!-- </div> -->
           <!-- /.sidebar-widget-body --> 
-        </div>
+        <!-- </div> -->
 
       
         <!-- /.sidebar-widget --> 
@@ -899,7 +770,7 @@ if (isset($_SESSION['user'])) {
       <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
         <!-- ========================================== SECTION – HERO ========================================= -->
         
-        <div id="hero">
+        <!-- <div id="hero">
           <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
             <div class="item" style="background-image: url(assets/images/sliders/011.jpg);">
               <div class="container-fluid">
@@ -908,30 +779,30 @@ if (isset($_SESSION['user'])) {
                   <div class="big-text fadeInDown-1"> New Collections </div>
                   <div class="excerpt fadeInDown-2 hidden-xs " style = "color:yellow; "> <span>Get functional laptops at discounts.</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
-                </div>
+                </div> -->
                 <!-- /.caption --> 
-              </div>
+              <!-- </div> -->
               <!-- /.container-fluid --> 
-            </div>
+            <!-- </div> -->
             <!-- /.item -->
             
-            <div class="item" style="background-image: url(assets/images/sliders/021.jpg);">
+            <!-- <div class="item" style="background-image: url(assets/images/sliders/021.jpg);">
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
                   <div class="slider-header fadeInDown-1" style = "color:red; "><strong>Ride</strong></div>
                   <div class="big-text fadeInDown-1"> Bicycle </div>
                   <div class="excerpt fadeInDown-2 hidden-xs" style = "color:yellow; "> <span>Grab your fitness and travel buddy.</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
-                </div>
+                </div> -->
                 <!-- /.caption --> 
-              </div>
+              <!-- </div> -->
               <!-- /.container-fluid --> 
-            </div>
+            <!-- </div> -->
             <!-- /.item --> 
             
-          </div>
+          <!-- </div> -->
           <!-- /.owl-carousel --> 
-        </div>
+        <!-- </div> -->
         
         <!-- ========================================= SECTION – HERO : END ========================================= --> 
         
@@ -940,12 +811,12 @@ if (isset($_SESSION['user'])) {
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
           <div class="more-info-tab clearfix ">
             <h3 class="new-product-title pull-left">Products</h3>
-            <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
+            <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
               <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
               <li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Books</a></li>
               <li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a></li>
               <li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Music</a></li>
-            </ul>
+            </ul> -->
             <!-- /.nav-tabs --> 
           </div>
           <div class="tab-content outer-top-xs">
