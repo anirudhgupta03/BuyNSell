@@ -26,7 +26,7 @@ if (isset($_REQUEST['insert_product'])) {
 	// 	echo "<script type='text/javascript'>alert('$error_date_enter');</script>"; 
 	// }
 	// else{
-	$query1 = "insert into products (name, price, description, category, uid) values ('$name', '$price', '$description', '$category', '$row_c->uid')";
+	$query1 = "insert into products (name, price, description, category_id, uid) values ('$name', '$price', '$description', '$category', '$row_c->uid')";
 
 	$file = $_FILES['img'];
 	print_r($file);
@@ -156,7 +156,7 @@ body {
 	position: absolute;
     top: 175%;
 	padding: 25px;
-	background-color: rgb(108, 92, 231);
+	background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 	border-radius: 5px;
 	color: #fff;
 }
@@ -194,7 +194,7 @@ table {
                                 $res_c = $con->query($sel_c);
                                 while ($row_c = $res_c->fetch_object()) {
                                     ?>
-                                    <option value="<?php echo $row_c->product_id; ?>"><?php echo $row_c->name; ?></option> 
+                                    <option value="<?php echo $row_c->category_id; ?>"><?php echo $row_c->name; ?></option> 
                                     <?php                                 
                                 }
                                 ?>

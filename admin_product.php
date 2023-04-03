@@ -28,67 +28,100 @@ if (isset($_REQUEST['sid'])) {
 
 <!DOCTYPE html>
 <html>
+<?php include 'head.php'; ?>
 <head>
 	<title>Admin Product</title>
     <link rel="icon" type="image/jpg" href="logo/auction.png">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<style>
-	body {
-		background-color:grey;
-    /* background-image: url(2255.jpg); */
-    /* background-repeat: no-repeat;
-    background-size: cover; */
+<style type="text/css">
+    /*
+    .align {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding-right: 10px;
+    }*/
+body {
+	
+    /* background-image: url(2254.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
 }
-div
-{
-  color: yellow;
-  background-color: 009900;
-  margin: 20px;
-  font-size: 25px;
-}
-a
-{
-  color: lightgreen;
-  background-color: 009900;
-  margin: 20px;
-  font-size: 25px;
-}
-tr:nth-child(odd) {
-	background-color: lightgray;
+/*
+.bg-nav {
+    background-color: rgba(24, 44, 97, .6);
+    background-color:  rgba(179, 55, 113, .6);
+    background-color: rgba(87, 75, 144, .6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 5;
+}*/
+.bg-nav {
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 5;
 }
 
-tr:nth-child(even) {
-	background-color: lightblue;
+.bg-darkblue {
+    background-color: rgb(24, 44, 97) !important;
 }
 
-tr:nth-child(1) {
-	background-color: #007bff;
-	color: white;
-}
 .right {
     margin: 20px;
     position: absolute;
     top: 0;
     right: 0;
 }
+
+tr:nth-child(odd) {
+    background-color: lightgray;
+}
+
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+tr:nth-child(1) {
+    background-color: #007bff;
+    color: white;
+}
 </style>
 <body>
 
-	<?php
+<?php
     if (isset($_SESSION['admin_login'])) {
         ?>
-        <div>
-		
-            <h2>Welcome Admin</h2>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
+        <div class="container">
+          <a style="color: #ffc107;" class="navbar-brand" href="index.php">
+                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+          </a>
+          <ul class="navbar-nav">
+				<li class="nav-item">
+					<!-- <a class="nav-link text-danger" href="logout.php">Logout</a> -->
+                    <a href="admin_home.php">
+            <button class="btn btn-primary" >Go to Admin Home Page</button>
             
+            </a>
+          <a href = "logout.php">
+            <button class="btn btn-success" type="submit">Logout</button>
+          </a>
+          
+				</li>
+			</ul>
         </div>
-        <div class="right">
-          <a class="btn btn-danger" href="logout.php">LOGOUT</a>
-        </div>
+    </nav>
         <?php
     }
     ?>
+    <br></br>
 	<form method="post">
 		<table class="mt-5 mb-3" align="center" cellspacing="0" cellpadding="7" width="65%">
 			<tr align="center">
@@ -114,7 +147,7 @@ tr:nth-child(1) {
  				<td><?php echo $row_q1->name; ?></td>
 				<td><?php echo $row_q1->uid; ?></td>
  				<td><?php echo $row_q1->price; ?></td>
-				 <td><?php echo $row_q1->category; ?></td>
+				 <td><?php echo $row_q1->category_id; ?></td>
 
  				<td><?php echo $row_q1->description; ?></td>
                 <td><?php echo $row_q1->status; ?></td>		
@@ -127,14 +160,6 @@ tr:nth-child(1) {
             ?>
 		</table>
 	</form>
-    <?php
-    if (isset($_SESSION['admin_login'])) {
-        ?>
-        <div>
-            <a class="btn btn-primary" href="admin_home.php">Go to Admin Home Page</a>
-        </div>
-        <?php
-    }
-    ?>
+    
 </body>
 </html>

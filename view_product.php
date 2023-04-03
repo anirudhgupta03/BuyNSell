@@ -140,7 +140,7 @@ if (isset($_REQUEST['pro_id'])) {
 
 
 .bg-nav {
-    background-color: rgb(24, 44, 97) !important;
+    background:  -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -175,11 +175,11 @@ if (isset($_REQUEST['pro_id'])) {
 	<nav class="navbar navbar-expand-sm navbar-dark bg-nav">
 		<div class="container">
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:100px; margin-top: -1px;" src="buynsell.jpg">&nbsp;
+				<img style="max-width:50px; margin-top: -7px;" src="logo/auction.svg">&nbsp;BuyNSell
 			</a>
-			<!-- <div align="center">
-				<a class="btn btn-warning" href="new_product.php">Add A Product For Bid</a>
-			</div> -->
+			<div align="center">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+			</div>
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link" href="index.php">Home</a>
@@ -187,10 +187,8 @@ if (isset($_REQUEST['pro_id'])) {
 				<li class="nav-item dropdown">
 					<a href="#" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
-						<a href="view.php" class="text-warning dropdown-item">View Profile</a>
-						<a href="bid.php" class="text-warning dropdown-item">Bids I made on Products</a>
+						<a href="view_profile.php" class="text-warning dropdown-item">View Profile</a>
 						<a href="product.php" class="text-warning dropdown-item">Products I put for Sale</a>
-						<a href="got.php" class="text-warning dropdown-item">Products You WON!</a>
 					</div>
 				</li>
 				<li class="nav-item">
@@ -216,22 +214,9 @@ if (isset($_REQUEST['pro_id'])) {
 				<p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
-					// $bid_s_time = $row_q1->bidstarttime;
-        			// $bid_e_time = $row_q1->bidendtime;
-        			// $product_id = $row_q1->pro_id;
-
-        			// $nt = new DateTime($bid_s_time);
-        			// $bid_s_time = $nt->getTimestamp();
-
-
-        			// $nt = new DateTime($bid_e_time);
-        			// $bid_e_time = $nt->getTimestamp();
-
-        			// $date = time();
 
 					$query4 = "select * from product_images where pro_id = $pro_id";
 					$run_q4 = $con->query($query4);
-
 					while ($row_q4 = $run_q4->fetch_object()) {
 						$image_name = $row_q4->img_name;
 						$image_destination = "product_images/".$image_name;
@@ -274,10 +259,28 @@ if (isset($_REQUEST['pro_id'])) {
 					?>
 				</div>
 				<br>
-				<h3 class="font-weight-light">Price: ₹<?php echo $row_q1->price; ?></h3>
+				<h3 class="font-weight-light">Price: <?php echo $row_q1->price; ?></h3>
+				
+				
+				<a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-secondary mt-3">Buy</a>
+				
 			
 			</div>
 		</div>
+
+
+		
+		
+		</div>
+
+
 	</div>
+
+
+
+
+	
+	
+	
 </body>
 </html>
