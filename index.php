@@ -149,10 +149,12 @@ if (isset($_SESSION['user'])) {
           <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
           <nav class="yamm megamenu-horizontal">
             <ul class="nav">
+
+            <li class="dropdown menu-item"> <a href="books.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
              
               <li class="dropdown menu-item"> <a href="electronics.php" ><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a> 
               
-              <li class="dropdown menu-item"> <a href="books.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
+              
                 
               
               <li class="dropdown menu-item"> <a href="essentials.php"><i class="icon fa fa-clock-o"></i>Essentials</a>
@@ -169,7 +171,7 @@ if (isset($_SESSION['user'])) {
               
               <li class="dropdown menu-item"> <a href="subscriptions.php"><i class="icon fa fa-star"></i>Subscriptions</a> 
 
-              <li class="dropdown menu-item"> <a href="music.php"><i class="icon fa fa-music"></i>Music</a> 
+              <li class="dropdown menu-item"> <a href="music instruments.php"><i class="icon fa fa-music"></i>Music Instruments</a> 
               
             </ul>
             <!-- /.nav --> 

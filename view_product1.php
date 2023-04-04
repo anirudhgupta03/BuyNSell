@@ -21,9 +21,9 @@ if (isset($_REQUEST['pro_id'])) {
 	$row_q1 = $run_q1->fetch_object();	
 }
 
-if($row_c -> uid == $row_q1 -> uid){
-	header("location:view_product1.php");
-}
+// if($row_c -> uid == $row_q1 -> uid){
+// 	header("location:view_product1.php");
+// }
 
 
 ?>
@@ -263,7 +263,7 @@ input.razorpay-payment-button {
 				
 				<!-- <a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-secondary mt-3">Buy</a> -->
 				
-				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>">
+				<!-- <form action="confirmation.php" method="POST">
             	<script
                 src="https://checkout.razorpay.com/v1/checkout.js"
                 data-key="rzp_test_6ylMbjZf5RYhOG"
@@ -275,7 +275,7 @@ input.razorpay-payment-button {
                 data-theme.color="#b21e8e"
             	></script>
 
-        </form>
+        </form> -->
 			</div>
 			
 		</div>

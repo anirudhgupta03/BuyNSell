@@ -7,9 +7,9 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
-if(!isset($_SESSION['user'])) {
-    header("location:index.php");
-}
+// if(!isset($_SESSION['user'])) {
+//     header("location:index.php");
+// }
 
 $home = true;
 $view = false;
@@ -125,25 +125,7 @@ a.text:focus {
 				<?php
 				
 				while ($row_q1 = $run_q1->fetch_object()) {
-					
-					// $bid_s_time = $row_q1->bidstarttime;
-        			// $bid_e_time = $row_q1->bidendtime;
-        	
-        			// $nt = new DateTime($bid_s_time);
-        			
-					// $bid_s_time = $nt->getTimestamp();
-
-        			// $nt = new DateTime($bid_e_time);
-        			// $bid_e_time = $nt->getTimestamp();
-
-        			// $date = time(); //Return current Unix timestamp
-
 					$pro_id = $row_q1->pro_id;
-					
-					// $query5 = "select * from tbl_bid where pro_id = $pro_id;";
-					// $run_q5 = $con->query($query5);
-					// $total_bids = $run_q5->num_rows;
-					
 						?>
 							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
 								<div class="card mt-3 mb-3">
@@ -159,9 +141,6 @@ a.text:focus {
 										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										
 										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
-										/* edit krna hai */
-										<a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-sm btn-light mt-3"> Buy </a>
-										
                                     </div>
 								</div>
 							</div>

@@ -17,15 +17,7 @@ if (isset($_REQUEST['insert_product'])) {
 	$description = $_REQUEST['desc'];
 	$category = $_REQUEST['category'];
 	$price = $_REQUEST['price'];
-	// $starttime= $_REQUEST['starttime'];
-	// $endtime =$_REQUEST['endtime'];
-	// $error_date_enter = "End Time for an auction must be greater than Start Time of it";
 	
-	// if($endtime<=$starttime)
-	// {
-	// 	echo "<script type='text/javascript'>alert('$error_date_enter');</script>"; 
-	// }
-	// else{
 	$query1 = "insert into products (name, price, description, category_id, uid) values ('$name', '$price', '$description', '$category', '$row_c->uid')";
 
 	$file = $_FILES['img'];

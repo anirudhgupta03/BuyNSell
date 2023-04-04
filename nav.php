@@ -34,6 +34,9 @@ if (isset($_SESSION['user'])){
 }
 ?>
 
+<?php
+if (!isset($_SESSION['user'])){
+?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
@@ -56,3 +59,6 @@ if (isset($_SESSION['user'])){
 			</ul>
 		</div>
 	</nav>
+	<?php
+}
+?>
