@@ -7,9 +7,9 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
-if(!isset($_SESSION['user'])) {
-    header("location:index.php");
-}
+// if(!isset($_SESSION['user'])) {
+//     header("location:index.php");
+// }
 
 $home = true;
 $view = false;
