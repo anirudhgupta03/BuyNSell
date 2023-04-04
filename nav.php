@@ -13,18 +13,19 @@ if (isset($_SESSION['user'])){
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
-				</li>
+				</li>&nbsp;&nbsp;&nbsp;&nbsp;
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
-						<a href="view.php" class="text-warning dropdown-item ">View Profile</a>
-						<a href="bid.php" class="text-warning dropdown-item ?>">Bids I made on Products</a>
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="bid.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
 						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
-						<a href="got.php" class="text-warning dropdown-item ">Products I WON!!</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
 					</div>
-				</li>
+				</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				<li class="nav-item">
-					<a class="nav-link text-danger" href="logout.php">Logout</a>
+					<a class="btn btn-danger " href="logout.php">Logout</a>
 				</li>
 			</ul>
 		</div>

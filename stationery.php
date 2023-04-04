@@ -7,9 +7,9 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
-// if(!isset($_SESSION['user'])) {
-//     header("location:index.php");
-// }
+if(!isset($_SESSION['user'])) {
+    header("location:index.php");
+}
 
 $home = true;
 $view = false;
@@ -109,7 +109,7 @@ a.text:focus {
 <br><br><br>
 
     <?php
-    $query1 = "select * from products where status = 'On Sale' and category_id = 2 ORDER BY pro_id DESC;";
+    $query1 = "select * from products where status = 'On Sale' and category_id = 5 ORDER BY pro_id DESC;";
 	$run_q1 = $con->query($query1);
 	$showing_products = $run_q1->num_rows;
     ?>
@@ -162,6 +162,7 @@ a.text:focus {
 										/* edit krna hai */
 										<a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-sm btn-light mt-3"> Buy </a>
 										
+                                    </div>
 								</div>
 							</div>
 						<?php
