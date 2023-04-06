@@ -200,7 +200,8 @@ ALTER TABLE `user`
 --
 -- Constraints for dumped tables
 --
-
+ALTER TABLE `tbl_purchase`
+  MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints for table `products`
 --
