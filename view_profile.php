@@ -20,8 +20,9 @@ $bids = false;
 $products = false;
 
 if (isset($_REQUEST['did'])) {
- 	echo $did = $_REQUEST['did'];
- 	echo $del = "delete from user where uid = '$did' ";
+ 	$did = $_REQUEST['did'];
+    $usr = json_decode( json_encode($did), true);
+ 	echo $del = "delete from user where uid = '$usr' ";
  	$con->query($del);
     if (isset($_SESSION['user'])) {
         header("location:logout.php");
@@ -138,13 +139,13 @@ tr:nth-child(1) {
  	<form>
  		<table class="mt-5" align="center" cellspacing="0" cellpadding="10" width="80%">
  			<tr align="center">
-                <th>Name</th>
+                <th style="border-radius:15px 0px 0px 0px;">Name</th>
  				<th>Email</th>
                 <th>Registered before</th>
                 <?php if (isset($_SESSION['admin_login'])): ?>
                 <th>Status</th>                    
                 <?php endif ?>
- 				<th colspan="2">Action</th>
+ 				<th style="border-radius:0px 15px 0px 0px;" colspan="2">Action</th>
  			</tr>
             <?php
             if(isset($_SESSION['user'])) {

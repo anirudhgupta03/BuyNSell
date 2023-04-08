@@ -105,7 +105,7 @@ a.text:focus {
 	<?php include 'nav.php'; ?>
 
 		
-<br><br><br>
+<br><br>
 
     <?php
     $query1 = "select * from product_category";

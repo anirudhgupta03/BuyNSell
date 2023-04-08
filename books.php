@@ -156,20 +156,31 @@ a.text:focus {
 									?>
 									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
 									<div class="card-body bg-gray">
-										<?php
+									<?php
 										if($row_c -> uid == $row_q1 -> uid){?>
-											<a class="card-title text-dark" href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+										<div>
+											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+										</div>	
+										<div>
+											<h4 class="font-weight-light"  >&#8377;<?php echo $row_q1->price; ?></h4>	
+										</div>
+										
 										<?php
 										}
 										?>
 										<?php
 										if($row_c -> uid !== $row_q1 -> uid){?>
-											<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+											<div>
+												<a class="card-title text-dark" style="display:inline-block;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+												
+											</div>
+											<div >
+												<h4 class="font-weight-light" style="display:inline-block;">&#8377;<?php echo $row_q1->price; ?></h4>
+												<a href="view_product.php?pro_id=<?php echo $pro_id; ?>" style="float:right;" class="btn btn-success" >Buy</a>
+											</div>
 										<?php
 										}
 										?>
-										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
-										<!-- /* edit krna hai */ -->
 										
                                     </div>
 									

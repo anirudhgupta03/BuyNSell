@@ -99,21 +99,6 @@ a.text:hover,
 a.text:focus {
   color: #57606f !important;
 }
-input.razorpay-payment-button {
-            display: block;
-            /* margin: 30px auto 0; */
-            padding: 10px;
-            cursor: pointer;
-            background: seagreen;
-            border-radius: 5px !important;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            font-weight: bold;
-        }
-        input.razorpay-payment-button:hover {
-            background: mediumseagreen;
-        }
 </style>
 
 <body>
@@ -124,7 +109,7 @@ input.razorpay-payment-button {
 <br><br><br>
 
     <?php
-    $query1 = "select * from products where status = 'On Sale' and category_id = 3 ORDER BY pro_id DESC;";
+    $query1 = "select * from products where status = 'On Sale' and category_id = 4 ORDER BY pro_id DESC;";
 	$run_q1 = $con->query($query1);
 	$showing_products = $run_q1->num_rows;
     ?>
@@ -154,32 +139,11 @@ input.razorpay-payment-button {
 									?>
 									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
 									<div class="card-body bg-gray">
-									<?php
-										if($row_c -> uid == $row_q1 -> uid){?>
-										<div>
-											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
-										</div>	
-										<div>
-											<h4 class="font-weight-light"  >&#8377;<?php echo $row_q1->price; ?></h4>	
-										</div>
+									
+										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										
-										<?php
-										}
-										?>
-										<?php
-										if($row_c -> uid !== $row_q1 -> uid){?>
-											<div>
-												<a class="card-title text-dark" style="display:inline-block;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
-												
-											</div>
-											<div >
-												<h4 class="font-weight-light" style="display:inline-block;">&#8377;<?php echo $row_q1->price; ?></h4>
-												<a href="view_product.php?pro_id=<?php echo $pro_id; ?>" style="float:right;" class="btn btn-success" >Buy</a>
-												
-											</div>
-										<?php
-										}
-										?>
+										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
+										<a href="home.php" class="btn btn-secondary mt-3">Buy</a>
                                     </div>
 								</div>
 							</div>

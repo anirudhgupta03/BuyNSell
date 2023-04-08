@@ -117,7 +117,19 @@ CREATE TABLE `products` (
 CREATE TABLE `tbl_purchase` (
   `purchase_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL,
-  `buyer_id` int(11) NOT NULL
+  `buyer_id` int(11) NOT NULL,
+  `transcn_id` varchar(500) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- Table structure for table `tbl_wishlist`
+--
+
+CREATE TABLE `tbl_wishlist` (
+  `wishlist_id` int(11) NOT NULL,
+  `pro_id` int(11) NOT NULL,
+  `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -130,6 +142,15 @@ CREATE TABLE `tbl_purchase` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`admin_id`);
+
+--
+-- Indexes for table `tbl_wishlist`
+--
+ALTER TABLE `tbl_wishlist`
+  ADD PRIMARY KEY (`wishlist_id`),
+  ADD KEY `pro_id` (`pro_id`),
+  ADD KEY `uid` (`uid`);
+
 
 --
 -- Indexes for table `product_images`
@@ -166,7 +187,8 @@ ALTER TABLE `product_category`
 --
 ALTER TABLE `tbl_purchase`
   ADD PRIMARY KEY (`purchase_id`),
-  ADD KEY `pro_id` (`pro_id`);
+  ADD KEY `pro_id` (`pro_id`),
+  ADD KEY `buyer_id` (`buyer_id`);
 
 
 --
@@ -186,7 +208,7 @@ ALTER TABLE `product_images`
   MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
--- AUTO_INCREMENT for table `tbl_product`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
@@ -198,25 +220,47 @@ ALTER TABLE `user`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for table `tbl_purchase`
 --
 ALTER TABLE `tbl_purchase`
   MODIFY `purchase_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `tbl_purchase`
+--
+ALTER TABLE `tbl_wishlist`
+  MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `tbl_product_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`);
+  ADD CONSTRAINT `tbl_product_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`category_id`) ON DELETE CASCADE;
 
-ALTER TABLE `products`
-  ADD CONSTRAINT `tbl_product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`category_id`);
+--
+-- Constraints for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE;
 
 
 --
 -- Constraints for table `tbl_purchase`
 --
 ALTER TABLE `tbl_purchase`
-  ADD CONSTRAINT `tbl_purchase_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`);
+  ADD CONSTRAINT `tbl_purchase_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_purchase_ibfk_2` FOREIGN KEY (`buyer_id`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
+
+
+--
+-- Constraints for table `tbl_wishlist`
+--
+ALTER TABLE `tbl_wishlist`
+  ADD CONSTRAINT `tbl_wishlist_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_wishlist_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
+
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
