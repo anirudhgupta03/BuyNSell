@@ -20,9 +20,22 @@ $bids = false;
 $products = false;
 
 if (isset($_REQUEST['did'])) {
+    
  	echo $did = $_REQUEST['did'];
+    $prod = "select * from tbl_purchase where buyer_id = '$did'; ";
+    $runy = $con->query($prod);
+
+  
  	echo $del = "delete from user where uid = '$did' ";
  	$con->query($del);
+
+     while($rowx = $runy->fetch_object()){
+        $proid = $rowx->pro_id;
+        $proid = json_decode( json_encode($proid), true);
+        echo $qury = "update products set status = 'On Sale' where pro_id = '$proid';"; 
+        $con->query($qury);
+    }
+    
     if (isset($_SESSION['user'])) {
         header("location:logout.php");
     } else {
@@ -126,7 +139,7 @@ tr:nth-child(1) {
         ?>
         <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
         <div class="container">
-          <a style="color: #ffc107;" class="navbar-brand" href="index.php">
+          <a style="color: #ffc107;" class="navbar-brand" href="admin_home.php">
                 <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
           </a>
           <ul class="navbar-nav">
@@ -155,7 +168,7 @@ tr:nth-child(1) {
  	<form>
  		<table class="mt-5" align="center" cellspacing="0" cellpadding="10" width="80%">
  			<tr align="center">
-                <th>Name</th>
+                <th style="border-radius:15px 0px 0px 0px;">Name</th>
                 <!-- <th>Surname</th> -->
  				<th>Email</th>
  				<!-- <th>Gender</th>
@@ -165,7 +178,7 @@ tr:nth-child(1) {
                 <?php if (isset($_SESSION['admin_login'])): ?>
                 <th>Status</th>                    
                 <?php endif ?>
- 				<th colspan="2">Action</th>
+ 				<th style="border-radius:0px 15px 0px 0px;" colspan="2">Action</th>
  			</tr>
             <?php
             if(isset($_SESSION['user'])) {

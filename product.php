@@ -181,12 +181,12 @@ body {/*
                 if($bid_num > 0)
                 {
                     $res_q2 = $run_q2->fetch_object();
-                    $buyer_id = $res_q2->uid;
+                    $buyer_id = $res_q2->buyer_id;
                     $query_user = "select * from user where uid = '$buyer_id'";
                     $run_user = $con->query($query_user);
                     $row_user = $run_user->fetch_object();
-                    $name = $row_user->name. " " . $row_user->surname;
-                    $final_price = ($res_q2)->bid_amount;
+                    $name = $row_user->name;
+                    // $final_price = ($res_q2)->bid_amount;
                 }
                 else
                 {
@@ -233,9 +233,9 @@ body {/*
                         <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Description:&nbsp;<?php echo $row_q1->description; ?></h5></div> 
                         <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Category:&nbsp;<?php echo $row_q33->name; ?></h5></div>
                          <h1 class="card-text mt-4 mb-3 font-weight-light">Price:&nbsp;&#8377;&nbsp;<?php echo $row_q1->price; ?></h1>
-                        <?php if ($row_q1->status == 'Sold') { ?>
+                        <!-- <?php if ($row_q1->status == 'Sold') { ?>
 						<h1 class="card-text mt-4 mb-3 font-weight-light">Sold Price:&nbsp;&#8377;&nbsp;<?php echo $final_price; ?></h1>
-                        <?php } ?>
+                        <?php } ?> -->
                         
                         
                     </div><!--End of card body-->

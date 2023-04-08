@@ -11,7 +11,7 @@ if(isset($_SESSION['user'])) {
 //     header("location:index.php");
 // }
 
-$home = true;
+$home = false;
 $view = false;
 $bids = false;
 $products = false;
@@ -95,10 +95,8 @@ body {
   color: #6c757d !important;
 }
 
-a.text:hover,
-a.text:focus {
-  color: #57606f !important;
-}
+
+
 </style>
 
 <body>
@@ -145,8 +143,8 @@ a.text:focus {
 					// $total_bids = $run_q5->num_rows;
 					
 						?>
-							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
-								<div class="card mt-3 mb-3">
+							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" >	
+								<div class="card mt-3 mb-3" >
 									<?php  
 									$query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
 									$run_q6 = $con->query($query6);
@@ -155,11 +153,35 @@ a.text:focus {
 									$image_destination = "product_images/".$image_name;
 									?>
 									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									
 									<div class="card-body bg-gray">
-										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+									<?php
+										if($row_c -> uid == $row_q1 -> uid){?>
+										<div>
+											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+										</div>	
+										<div>
+											<h4 class="font-weight-light"  >&#8377;<?php echo $row_q1->price; ?></h4>	
+										</div>
 										
-										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
-										
+										<?php
+										}
+										?>
+										<?php
+										if($row_c -> uid !== $row_q1 -> uid){?>
+											<div>
+												<a class="card-title text-dark" style="display:inline-block;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+												<!-- <i class='fa fa-heart whishstate'> -->
+												
+											</div>
+											<div>
+												<h4 class="font-weight-light" style="display:inline-block;">&#8377;<?php echo $row_q1->price; ?></h4>
+												<a href="view_product.php?pro_id=<?php echo $pro_id; ?>" style="float:right;" class="btn btn-success" >Buy</a>
+											</div>
+										<?php
+										}
+										?>
+									</div>	
 								</div>
 							</div>
 						<?php

@@ -66,7 +66,7 @@ if (isset($_SESSION['user'])) {
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-2 logo-holder"> 
           <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="logo.png" alt="logo"> </a> </div>
+          <div class="logo"> <a href="index.php"> <img src="logo.png" alt="logo"> </a> </div>
           <!-- /.logo --> 
           <!-- ============================================================= LOGO : END ============================================================= --> </div>
         <!-- /.logo-holder -->
@@ -136,7 +136,7 @@ if (isset($_SESSION['user'])) {
   <!-- ============================================== NAVBAR : END ============================================== --> 
   
 </header>
-
+<br><br>
 <!-- ============================================== HEADER : END ============================================== -->
 <div class="body-content outer-top-vs" id="top-banner-and-menu">
   <div class="container">
@@ -150,28 +150,28 @@ if (isset($_SESSION['user'])) {
           <nav class="yamm megamenu-horizontal">
             <ul class="nav">
 
-            <li class="dropdown menu-item"> <a href="books.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
+            <li class="dropdown menu-item"> <a href="books1.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
              
-              <li class="dropdown menu-item"> <a href="electronics.php" ><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a> 
+              <li class="dropdown menu-item"> <a href="electronics1.php" ><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a> 
               
               
                 
               
-              <li class="dropdown menu-item"> <a href="essentials.php"><i class="icon fa fa-clock-o"></i>Essentials</a>
+              <li class="dropdown menu-item"> <a href="essentials1.php"><i class="icon fa fa-clock-o"></i>Essentials</a>
               
-              <li class="dropdown menu-item"> <a href="sports and fitness.php"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a></li>
+              <li class="dropdown menu-item"> <a href="sports and fitness1.php"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a></li>
               <!-- /.menu-item -->
               
               
               
-              <li class="dropdown menu-item"> <a href="stationery.php"><i class="icon fa fa-pencil"></i>Stationery</a> 
+              <li class="dropdown menu-item"> <a href="stationery1.php"><i class="icon fa fa-pencil"></i>Stationery</a> 
                 
               
              
               
-              <li class="dropdown menu-item"> <a href="subscriptions.php"><i class="icon fa fa-star"></i>Subscriptions</a> 
+              <li class="dropdown menu-item"> <a href="subscriptions1.php"><i class="icon fa fa-star"></i>Subscriptions</a> 
 
-              <li class="dropdown menu-item"> <a href="music instruments.php"><i class="icon fa fa-music"></i>Music Instruments</a> 
+              <li class="dropdown menu-item"> <a href="music instruments1.php"><i class="icon fa fa-music"></i>Music Instruments</a> 
               
             </ul>
             <!-- /.nav --> 
@@ -388,7 +388,7 @@ if (isset($_SESSION['user'])) {
         
         
       </div>
-
+      
 
       <!-- /.sidemenu-holder --> 
       <!-- ============================================== SIDEBAR : END ============================================== --> 

@@ -25,7 +25,29 @@ if($row_c -> uid == $row_q1 -> uid){
 	header("location:view_product1.php");
 }
 
+if(isset($_REQUEST['pid'])) {
+    $pro_id = $_REQUEST['pid'];
+    // $uid = $_REQUEST['usid'];
+    $cmnd = $_REQUEST['do'];
+    echo $cmnd;
 
+    $cmd = json_decode( json_encode($cmnd), true);
+    if($cmd == 'rmv') {
+        $pro_id = json_decode( json_encode($pro_id), true);
+        $usr = json_decode( json_encode($row_c -> uid), true);
+        $query39 = "delete from tbl_wishlist where pro_id = $pro_id and uid = $usr";
+ 	    $con->query($query39);
+         header("location:view_product.php");
+    }
+    else {
+        $pro_id = json_decode( json_encode($pro_id), true);
+        $usr = json_decode( json_encode($row_c -> uid), true);
+
+        $query29 = "insert into tbl_wishlist (pro_id, uid) values ($pro_id, $usr);";
+        $con->query($query29);
+        header("location:view_product.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -203,8 +225,27 @@ input.razorpay-payment-button {
 
 		<div class="card mt-5 mb-5">
 			<div class="card-body">
-				<h2 class="card-title"><?php echo $row_q1->name; ?></h2>
-				<p class="card-text"><?php echo $row_q1->description; ?></p>
+                <div>
+                    <h2 class="card-title" style="display:inline-block;"><?php echo $row_q1->name; ?></h2>
+                    <?php
+                    $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
+					$run_q89 = $con->query($query89);
+                    ?>
+                    <?php
+                    if($run_q89->num_rows > 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    if($run_q89->num_rows == 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    </div>
+                <p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
 
@@ -263,7 +304,7 @@ input.razorpay-payment-button {
 				
 				<!-- <a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-secondary mt-3">Buy</a> -->
 				
-				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>">
+				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>" method="POST">
             	<script
                 src="https://checkout.razorpay.com/v1/checkout.js"
                 data-key="rzp_test_6ylMbjZf5RYhOG"
@@ -289,7 +330,16 @@ input.razorpay-payment-button {
 	</div>
 
 
-	
+	<!-- <script>
+	    if ( window.history.replaceState ) {
+	        window.history.replaceState( null, null, window.location.href );
+	    }
+	    window.addEventListener("beforeunload", function (e) {
+		  var confirmationMessage = "Please print this receipt before moving!!!\o/";
+		  (e || window.event).returnValue = confirmationMessage; 
+		  return confirmationMessage;                            
+		});
+	</script> -->
 	
 	
 </body>

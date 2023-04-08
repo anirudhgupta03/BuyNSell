@@ -35,7 +35,7 @@
                 $res_q = $run->fetch_object();
                 $bid_id = ($res_q)->bid_id;
                 $buyer_id = ($res_q)->uid;
-                $purchase_qry = "INSERT  into tbl_purchase (bid_id, buyer_id) values ($bid_id, $buyer_id) ;";
+                $purchase_qry = "INSERT into tbl_purchase (bid_id, buyer_id) values ($bid_id, $buyer_id) ;";
          
                 mysqli_query($db_connect, $purchase_qry);
             }

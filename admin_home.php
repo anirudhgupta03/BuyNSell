@@ -7,7 +7,7 @@ include('db.php');
 if(isset($_SESSION['admin_login'])) {
     $row_c = $_SESSION['admin_login'];
 }
-
+$home = true;
 ?>
 
 <!DOCTYPE html>
@@ -490,7 +490,7 @@ nav .profile-details i{
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="order_list.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Order list</span>
           </a>
@@ -533,7 +533,14 @@ nav .profile-details i{
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Products</div>
-            <div class="number">40,876</div>
+              <?php 
+                $query444 = "select * from products where status = 'On Sale'";
+                $run_q444 = $con->query($query444);
+                $num_of_products = 0;
+                if ($run_q444 !== false && $run_q444->num_rows > 0)
+                  $num_of_products = $run_q444->num_rows;
+              ?>
+            <div class="number"> <?php echo $num_of_products; ?></div>
            
           </div>
           <i class='bx bx-cart-alt cart'></i>
@@ -541,7 +548,14 @@ nav .profile-details i{
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Users</div>
-            <div class="number">38,876</div>
+            <?php 
+                $query445 = "select * from user where status = 'Enable'";
+                $run_q445 = $con->query($query445);
+                $num_of_users = 0;
+                if ($run_q445 !== false && $run_q445->num_rows > 0)
+                  $num_of_users = $run_q445->num_rows;
+              ?>
+            <div class="number"> <?php echo $num_of_users; ?> </div>
             
           </div>
           <i class='bx bxs-cart-add cart two' ></i>
@@ -549,7 +563,14 @@ nav .profile-details i{
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Sales</div>
-            <div class="number">$12,876</div>
+              <?php 
+                  $query446 = "select * from tbl_purchase";
+                  $run_q446 = $con->query($query446);
+                  $num_of_sales = 0;
+                  if ($run_q446 !== false && $run_q446->num_rows > 0)
+                    $num_of_sales = $run_q446->num_rows;
+              ?>
+            <div class="number"><?php echo $num_of_sales ?></div>
             
           </div>
           <i class='bx bx-cart cart three' ></i>
