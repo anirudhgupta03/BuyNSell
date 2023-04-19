@@ -99,7 +99,7 @@ CREATE TABLE `product_images` (
 
 CREATE TABLE `products` (
   `pro_id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `price` int(11) NOT NULL,
   `description` varchar(250) NOT NULL,
   `category_id` int(11) NOT NULL,

@@ -7,6 +7,21 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
+if (isset($_REQUEST['did'])) {
+    
+    echo $did = $_REQUEST['did'];
+    // $pro_id = json_decode( json_encode($pro_id), true);
+    $usr = json_decode( json_encode($row_c -> uid), true);
+    $query39 = "delete from tbl_wishlist where pro_id = $did and uid = $usr";
+ 	$con->query($query39);
+   
+   if (isset($_SESSION['user'])) {
+       header("location:wishlist.php");
+   } else {
+       header("location:index.php");
+   }	
+} 
+
 if(isset($_REQUEST['pid'])) {
     $pro_id = $_REQUEST['pid'];
     // $uid = $_REQUEST['usid'];
@@ -172,7 +187,7 @@ tr:nth-child(1) {
                         </div>
 
                         <?php
-                            $query15 = "select * from tbl_wishlist ORDER BY pro_id DESC;";
+                            $query15 = "select * from tbl_wishlist where uid=$row_c->uid ORDER BY pro_id DESC;";
                             $run_q15 = $con->query($query15);
                             // $showing_products = $run_q15->num_rows;
                         ?>
@@ -207,7 +222,7 @@ tr:nth-child(1) {
                                     </div>
                                     <div class="col-md-2 col-5 my-auto">
                                         <div class="remove">
-                                            <a href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>" class="btn btn-danger btn-sm">
+                                            <a href="wishlist.php?did=<?php echo $pro_id; ?>" class="btn btn-danger btn-sm">
                                                 <i class="fa fa-trash"></i> Remove
                                             </a>
                                         </div>
