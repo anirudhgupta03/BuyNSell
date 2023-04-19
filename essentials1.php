@@ -144,7 +144,7 @@ a.text:focus {
 										
 										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
 										
-										<a href="home.php" class="btn btn-secondary mt-3">Buy</a>
+										<a href="home.php" class="btn btn-success mt-3">Buy</a>
 										
                                     </div>
 								</div>

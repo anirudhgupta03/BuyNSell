@@ -75,8 +75,8 @@ if (isset($_SESSION['user'])) {
           <!-- /.contact-row --> 
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
-            <form>
-              <div class="control-group">
+            <form action = "searchresult.php" method="POST">
+              <div class="control-group" style="display:flex;">
                 <!-- <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu" >
@@ -89,8 +89,10 @@ if (isset($_SESSION['user'])) {
                     </ul>
                   </li>
                 </ul> -->
-                <input class="search-field" placeholder="Search here..." />
-                <a class="search-button" href="#" ></a> </div>
+                <input class="search-field" name = "search" placeholder="Search here..." />
+                <button type="submit" class="search-button" > </button> 
+                <!-- <a class="search-button" href="#" ></a>  -->
+              </div>
             </form>
           </div>
           <!-- /.search-area --> 
@@ -462,32 +464,17 @@ if (isset($_SESSION['user'])) {
                        </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Books</a></h3>
-                          <div class="rating rateit-small"></div>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                     
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -515,26 +502,12 @@ if (isset($_SESSION['user'])) {
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Bicycle</a></h3>
-                          <div class="rating rateit-small"></div>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -556,32 +529,17 @@ if (isset($_SESSION['user'])) {
                            </div>
                           <!-- /.image -->
                           
-                          <div class="tag sale"><span>sale</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Guitar</a></h3>
-                          <div class="rating rateit-small"></div>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -609,26 +567,12 @@ if (isset($_SESSION['user'])) {
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Kettle</a></h3>
-                          <div class="rating rateit-small"></div>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -650,32 +594,18 @@ if (isset($_SESSION['user'])) {
                           </div>
                           <!-- /.image -->
                           
-                          <div class="tag hot"><span>hot</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Laptop</a></h3>
-                          <div class="rating rateit-small"></div>
+                          
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -697,32 +627,18 @@ if (isset($_SESSION['user'])) {
                           </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
+                          
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
                           <h3 class="name"><a href="detail.html">Cooler</a></h3>
-                          <div class="rating rateit-small"></div>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -794,13 +710,13 @@ if (isset($_SESSION['user'])) {
         <li>
           <div class="feature-box">
             <div class="fa fa-envelope" style="margin: 8px;"></div>
-            <div class="content-blocks"> <a href="#"> Mail </a></div>
+             <a href="mailto:teamBYS@gmail.com"><div class="content-blocks" style="color:black;"> Mail </div></a>
           </div>
         </li>
         <li>
           <div class="feature-box">
             <div class="icon-return"></div>
-            <div class="content">30 days return</div>
+            <div class="content">Buy and Sell</div>
           </div>
         </li>
         

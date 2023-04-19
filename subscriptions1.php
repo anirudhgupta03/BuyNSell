@@ -143,7 +143,7 @@ a.text:focus {
 										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										
 										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
-										<a href="home.php" class="btn btn-secondary mt-3">Buy</a>
+										<a href="home.php" class="btn btn-success mt-3">Buy</a>
                                     </div>
 								</div>
 							</div>
