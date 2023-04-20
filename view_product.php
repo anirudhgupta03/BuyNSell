@@ -227,20 +227,21 @@ input.razorpay-payment-button {
 			<div class="card-body">
                 <div>
                     <h2 class="card-title" style="display:inline-block;"><?php echo $row_q1->name; ?></h2>
+                    
                     <?php
                     $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
 					$run_q89 = $con->query($query89);
                     ?>
                     <?php
                     if($run_q89->num_rows > 0) {?>
-                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
+                        <a style = "float:right;" class="btn btn-info" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
                     <?php
                     }
                     ?>
                     
                     <?php
                     if($run_q89->num_rows == 0) {?>
-                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
+                        <a style = "float:right;" class="btn btn-info" style="background-color:pink;" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
                     <?php
                     }
                     ?>
@@ -317,6 +318,8 @@ input.razorpay-payment-button {
             	></script>
 
         </form>
+        <br>
+        <a style = "" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a>
 			</div>
 			
 		</div>

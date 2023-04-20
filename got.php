@@ -170,8 +170,11 @@ body {/*
                 <div class="col-12 mt-4">
 					<div class="card">
 						<div class="card-body">
-							<h3 class="text-dark"><h3 class="card-title mt-4">You&nbsp;purchased:&nbsp;<?php echo $row_pro->name; ?></h3></h3>
-							<?php
+                            <div>
+                                <h3 class="text-dark"><h3 class="card-title mt-4" style="display:inline-block;">You&nbsp;purchased:&nbsp;<?php echo $row_pro->name; ?></h3></h3>
+                                <a class="btn btn-warning"  style="float:right;height:38px;" href="show_rating.php?pro_id=<?php echo $row_pur->pro_id; ?>"><h5><?php echo "Ratings and Reviews"; ?></h5></a>
+                            </div>
+                            <?php
                             $query33 = "select * from product_category where category_id = $row_pro->category_id; ";
                             $run_q33 = $con->query($query33);
                             $row_q33 = $run_q33->fetch_object();

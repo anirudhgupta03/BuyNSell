@@ -132,6 +132,19 @@ CREATE TABLE `tbl_wishlist` (
   `uid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Table structure for table `review_table`
+--
+
+CREATE TABLE `review_table` (
+  `review_id` int(11) NOT NULL,
+  `user_rating` int(1) NOT NULL,
+  `user_review` text NOT NULL,  
+  `uid` int(11) NOT NULL,
+  `pro_id` int(11) NOT NULL,
+  `datetime` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Indexes for dumped tables
@@ -158,6 +171,17 @@ ALTER TABLE `tbl_wishlist`
 ALTER TABLE `product_images`
   ADD PRIMARY KEY (`img_id`),
   ADD KEY `pro_id` (`pro_id`);
+
+
+--
+-- Indexes for table `review_table`
+--
+ALTER TABLE `review_table`
+  ADD PRIMARY KEY (`review_id`),
+  ADD KEY `uid` (`uid`),
+  ADD KEY `pro_id` (`pro_id`);
+
+
 
 --
 -- Indexes for table `products`
@@ -207,6 +231,14 @@ ALTER TABLE `admin`
 ALTER TABLE `product_images`
   MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
+
+--
+-- AUTO_INCREMENT for table `review_table`
+--
+ALTER TABLE `review_table`
+  MODIFY `review_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+
 --
 -- AUTO_INCREMENT for table `products`
 --
@@ -243,6 +275,14 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_images`
   ADD CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE;
+
+
+--
+-- Constraints for table `review_table`
+--
+ALTER TABLE `review_table`
+  ADD CONSTRAINT `review_table_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `review_table_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
 
 
 --

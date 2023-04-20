@@ -203,7 +203,10 @@ input.razorpay-payment-button {
 
 		<div class="card mt-5 mb-5">
 			<div class="card-body">
-				<h2 class="card-title"><?php echo $row_q1->name; ?></h2>
+                <div>
+				    <h2 class="card-title" style = "display:inline-block;" ><?php echo $row_q1->name; ?></h2>
+                    <a style = "float:right;" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a>
+                </div>
 				<p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
