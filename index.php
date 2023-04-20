@@ -21,6 +21,8 @@ if (isset($_SESSION['user'])) {
 <meta name="robots" content="all">
 <title>BuyNSell</title>
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 <link rel="icon" type="image/jpg" href="logo/auction.png">
 <!-- Bootstrap Core CSS -->
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -138,19 +140,29 @@ if (isset($_SESSION['user'])) {
   <!-- ============================================== NAVBAR : END ============================================== --> 
   
 </header>
+<style>
+  .center {
+  margin: auto;
+  width: 80%;
+  justify-content: center;
+  /* display:flex; */
+  /* border: 3px solid green; */
+  /* padding: 10px; */
+}
+  </style>
 <br><br>
 <!-- ============================================== HEADER : END ============================================== -->
 <div class="body-content outer-top-vs" id="top-banner-and-menu">
   <div class="container">
     <div class="row"> 
       <!-- ============================================== SIDEBAR ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+      <!-- <div class="col-xs-12 col-sm-12 col-md-3 sidebar">  -->
         
         <!-- ================================== TOP NAVIGATION ================================== -->
-        <div class="side-menu animate-dropdown outer-bottom-xs">
-          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
-          <nav class="yamm megamenu-horizontal">
-            <ul class="nav">
+        <!-- <div class="side-menu animate-dropdown outer-bottom-xs"> -->
+          <!-- <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+          <nav class="yamm megamenu-horizontal"> -->
+            <!-- <ul class="nav">
 
             <li class="dropdown menu-item"> <a href="books1.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
              
@@ -162,24 +174,24 @@ if (isset($_SESSION['user'])) {
               <li class="dropdown menu-item"> <a href="essentials1.php"><i class="icon fa fa-clock-o"></i>Essentials</a>
               
               <li class="dropdown menu-item"> <a href="sports and fitness1.php"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a></li>
-              <!-- /.menu-item -->
+               /.menu-item -->
               
               
               
-              <li class="dropdown menu-item"> <a href="stationery1.php"><i class="icon fa fa-pencil"></i>Stationery</a> 
+              <!-- <li class="dropdown menu-item"> <a href="stationery1.php"><i class="icon fa fa-pencil"></i>Stationery</a> 
                 
               
              
               
               <li class="dropdown menu-item"> <a href="subscriptions1.php"><i class="icon fa fa-star"></i>Subscriptions</a> 
 
-              <li class="dropdown menu-item"> <a href="music instruments1.php"><i class="icon fa fa-music"></i>Music Instruments</a> 
+              <li class="dropdown menu-item"> <a href="music instruments1.php"><i class="icon fa fa-music"></i>Music Instruments</a>  -->
               
-            </ul>
+            <!-- </ul>  -->
             <!-- /.nav --> 
-          </nav>
+          <!-- </nav> -->
           <!-- /.megamenu-horizontal --> 
-        </div>
+        <!-- W</div> -->
         <!-- /.side-menu --> 
         <!-- ================================== TOP NAVIGATION : END ================================== --> 
         
@@ -396,7 +408,7 @@ if (isset($_SESSION['user'])) {
       <!-- ============================================== SIDEBAR : END ============================================== --> 
       
       <!-- ============================================== CONTENT ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+      <div class="center"> 
         <!-- ========================================== SECTION – HERO ========================================= -->
         
         <!-- <div id="hero">
@@ -439,7 +451,7 @@ if (isset($_SESSION['user'])) {
         <!-- ============================================== SCROLL TABS ============================================== -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
           <div class="more-info-tab clearfix ">
-            <h3 class="new-product-title pull-left">Products</h3>
+            <h3 class="new-product-title pull-left">Product Categories</h3>
             <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
               <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
               <li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Books</a></li>
@@ -458,7 +470,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                           <a href="detail.html">
-                             <img src="assets/images/products/a1.jpg" alt=""> 
+                             <img src="product_category/books.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p1_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                        </div>
@@ -468,7 +480,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Books</a></h3>
+                          <h3 class="name"><a href="books1.php">Books</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
@@ -490,7 +502,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                           <a href="detail.html">
-                             <img src="assets/images/products/a2.jpg" alt=""> 
+                             <img src="product_category/electronic_items.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p4_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                            </div>
@@ -501,7 +513,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bicycle</a></h3>
+                          <h3 class="name"><a href="electronics1.php">Electronic Items</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
@@ -523,7 +535,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                            <a href="detail.html">
-                             <img src="assets/images/products/a3.jpg" alt=""> 
+                             <img src="product_category/essentials.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p3_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                            </div>
@@ -533,7 +545,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Guitar</a></h3>
+                          <h3 class="name"><a href="essentials1.php">Essentials</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
@@ -555,7 +567,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                            <a href="detail.html">
-                             <img src="assets/images/products/a4.jpg" alt=""> 
+                             <img src="product_category/sports_and_fitness.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p2_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                           </div>
@@ -566,7 +578,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Kettle</a></h3>
+                          <h3 class="name"><a href="sports_and_fitness1.php">Sports and Fitness</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
@@ -588,7 +600,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                            <a href="detail.html">
-                             <img src="assets/images/products/a5.jpg" alt=""> 
+                             <img src="product_category/stationery.png" alt=""> 
                               <!-- <img src="assets/images/products/p6_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                           </div>
@@ -598,7 +610,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Laptop</a></h3>
+                          <h3 class="name"><a href="stationery1.php">Stationery</a></h3>
                           
                           <div class="description"></div>
                           <!-- /.product-price --> 
@@ -621,7 +633,7 @@ if (isset($_SESSION['user'])) {
                         <div class="product-image">
                           <div class="image"> 
                            <a href="detail.html">
-                             <img src="assets/images/products/a6.jpg" alt=""> 
+                             <img src="product_category/subscriptions.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                           </div>
@@ -632,7 +644,39 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Cooler</a></h3>
+                          <h3 class="name"><a href="subscriptions1.php">Subscriptions</a></h3>
+                          <div class="description"></div>
+                          <!-- /.product-price --> 
+                          
+                        </div>
+                        <!-- /.product-info -->
+                        
+                        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+
+                  <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> 
+                           <a href="detail.html">
+                             <img src="product_category/music.jpg" alt=""> 
+                              <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
+                          </a>
+                          </div>
+                          <!-- /.image -->
+                          
+                          
+                        </div>
+                        <!-- /.product-image -->
+                        
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="music1.php">Music Instruments</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
@@ -715,8 +759,10 @@ if (isset($_SESSION['user'])) {
         </li>
         <li>
           <div class="feature-box">
-            <div class="icon-return"></div>
-            <div class="content">Buy and Sell</div>
+          <i class="material-icons">feedback</i>
+            <a href="https://forms.gle/ZjbcvAZEgJu291t97"><div class="content-blocks" style="color:black;">Give Feedback</div></a>
+
+            <!-- <div class="content">Buy and Sell</div> -->
           </div>
         </li>
         
