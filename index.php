@@ -578,7 +578,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="sports_and_fitness1.php">Sports and Fitness</a></h3>
+                          <h3 class="name"><a href="sports and fitness1.php">Sports and Fitness</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           
