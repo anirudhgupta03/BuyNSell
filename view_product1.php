@@ -193,14 +193,10 @@ input.razorpay-payment-button {
 
 
 	
-<br>
-<br>
 
-	<div class="container">
+	<div class="container" style = "padding:120px; 0px; 0px; 0px;">
 
 
-		
-<br><br><br>
     <div style="border-radius: 15px; border-color: blue; width:100%;" class="card" >
     		<div style=" width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="color:white;"><?php echo $row_q1->name; ?> </h3></div>
     		

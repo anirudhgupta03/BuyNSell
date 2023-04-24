@@ -215,15 +215,11 @@ input.razorpay-payment-button {
 
 
 	
-<br>
-<br>
 
-	<div class="container">
 
-<br><br>
-		
+	<div class="container" style="padding:120px;">		
 
-    <div style="border-radius: 15px; border-color: blue; " class="card" >
+    <div style=" border-radius: 15px; border-color: blue; " class="card" >
     		<div style=" display:inline-block; width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="display:inline-block; color:white;"><?php echo $row_q1->name; ?> </h3>
             <?php
                     $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
