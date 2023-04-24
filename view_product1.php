@@ -200,13 +200,16 @@ input.razorpay-payment-button {
 
 
 		
-
-		<div class="card mt-5 mb-5">
-			<div class="card-body">
-                <div>
-				    <h2 class="card-title" style = "display:inline-block;" ><?php echo $row_q1->name; ?></h2>
-                    <a style = "float:right;" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a>
-                </div>
+<br><br><br>
+    <div style="border-radius: 15px; border-color: blue; width:100%;" class="card" >
+    		<div style=" width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="color:white;"><?php echo $row_q1->name; ?> </h3></div>
+    		
+			<div class="card-body" >
+                <!-- <div style = "background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%); border-radius:15px; width: 100%;"> -->
+				    <!-- <h2 class="card-header" align = "left" style = "display:inline-block; " >&nbsp; <?php echo $row_q1->name; ?></h2> -->
+                    <!-- <a style = "float:right;" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a> -->
+                <!-- </div> -->
+                
 				<p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
@@ -280,7 +283,7 @@ input.razorpay-payment-button {
 
         </form> -->
 			</div>
-			
+                </div>
 		</div>
 
 

@@ -178,13 +178,21 @@ input.razorpay-payment-button {
 <br>
     <?php
         $search_string = $_POST['search'];
+        $sound1 = " ";
+
+        $words1 = explode(" ", $search_string);
+
+        foreach($words1 as $word) {
+        $sound1.=metaphone($word)." ";
+        }
+  
         // $search_string = json_decode( json_encode($search_string), true);
         // $search_string = mysql_real_escape_string($search_string);
         // echo "Search: ".$search_string;        
         // $search_string1 = (int)$search_string;
         
         // $search_string1 = mysql_real_escape_string($search_string1);
-        $query1 = "select pro_id, category_id, name, price, description from products where (name LIKE '%$search_string%') OR (price LIKE '%$search_string%') OR (description LIKE '%$search_string%') AND status = 'On Sale'" ;
+        $query1 = "select pro_id, category_id, name, price, description from products where (indexing LIKE '%$sound1%') AND status = 'On Sale'" ;
         $run_q1 = $con->query($query1);
         $showing_products = 0;
         if ($run_q1 !== false && $run_q1->num_rows > 0){
@@ -196,13 +204,17 @@ input.razorpay-payment-button {
         // echo $search_string;
 		while ($row_q1 = $run_q1->fetch_object()) {
         ?>
-            <div class="container">
-                <div class="card mt-5 mb-5">
+            <div class="container" style="padding:30px;">
+            <div style="border-radius: 15px; border-color: blue; width:100%;" class="card" >
+    		<div style=" display:inline-block; width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="display:inline-block; color:white;"><?php echo $row_q1->name; ?> </h3>
+            <h2 class="card-title" style="float:right;"><a href="home.php" class="btn btn-warning">Buy</a></h2>
+            </div>
+    	
                     <div class="card-body">
-                        <div class="card-title">
+                        <!-- <div class="card-title">
                             <h2 class="card-title" style="display:inline-block;"><?php echo $row_q1->name; ?></h2>
                             <h2 class="card-title" style="float:right;"><a href="home.php" class="btn btn-success mt-3">Buy</a></h2>
-                        </div>
+                        </div> -->
                         <?php
                             $query44 = "select * from product_category where category_id = $row_q1->category_id";
                             $run_q44 = $con->query($query44);

@@ -106,7 +106,8 @@ CREATE TABLE `products` (
   `uid` int(11) NOT NULL,
   -- `bidstarttime` datetime NOT NULL,
   -- `bidendtime` datetime NOT NULL,
-  `status` enum('On Sale','Sold','Disable') NOT NULL DEFAULT 'On Sale'
+  `status` enum('On Sale','Sold','Disable') NOT NULL DEFAULT 'On Sale',
+  `indexing` varchar(1501) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 

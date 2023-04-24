@@ -435,8 +435,8 @@ img[src="assets/images/blank.gif"] {
 .custom-carousel .owl-controls .owl-prev {
   position: absolute;
   width: 20px;
-  height: 20px;
-  top: -16px;
+  height: 22px;
+  top: -19px;
   right: 27px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -460,8 +460,8 @@ img[src="assets/images/blank.gif"] {
 .custom-carousel .owl-controls .owl-next {
   position: absolute;
   width: 20px;
-  height: 20px;
-  top: -16px;
+  height: 22px;
+  top: -19px;
   right: 0px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
@@ -2744,7 +2744,7 @@ font-family: FontAwesome;
 /*===================================================================================*/
 
 .scroll-tabs {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   background-color: #fff;
   border-radius:5px
 
@@ -2753,7 +2753,7 @@ font-family: FontAwesome;
 .scroll-tabs .more-info-tab {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
-  padding: 14px 506px;
+  padding: 14px 457px;
 }
 .scroll-tabs .more-info-tab .new-product-title {
   margin-bottom: 0px;

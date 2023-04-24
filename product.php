@@ -196,7 +196,7 @@ body {/*
                 $run_q2 = $con->query($query2);
                 ?>
                 
-                <div class="card mt-5">
+                <div class="card mt-5" style="border-radius: 15px; border-color:skyblue;">
                     
 
                     <div class="card-body <?php if ($row_q1->status == 'Sold') { echo 'sold';} ?>">

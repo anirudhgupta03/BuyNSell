@@ -5,8 +5,8 @@ include('db.php');
 
 // $connect = new PDO("mysql:host=localhost;dbname=buynsell", "root", "");
 
-if(isset($_SESSION['user'])) {
-    $row_c = $_SESSION['user'];
+if(isset($_SESSION['admin_login'])) {
+    $row_c = $_SESSION['admin_login'];
 }
 
 if(isset($_REQUEST['pro_id']))
@@ -52,7 +52,32 @@ if(isset($_REQUEST['pro_id']))
 
 </style>
 <body>
-<?php include 'nav.php'; ?>
+<?php
+    if (isset($_SESSION['admin_login'])) {
+        ?>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
+        <div class="container">
+          <a style="color: #ffc107;" class="navbar-brand" href="admin_home.php">
+                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+          </a>
+          <ul class="navbar-nav">
+				<li class="nav-item">
+					<!-- <a class="nav-link text-danger" href="logout.php">Logout</a> -->
+                    <a href="admin_home.php">
+            <button class="btn btn-info" >Go to Admin Home Page</button>
+            
+            </a>
+          <a href = "logout.php">
+            <button class="btn btn-danger" type="submit">Logout</button>
+          </a>
+          
+				</li>
+			</ul>
+        </div>
+    </nav>
+        <?php
+    }
+    ?>
 <br>
 <br>
     <div class="container">
@@ -116,27 +141,7 @@ if(isset($_REQUEST['pro_id']))
                             </div>               
                         </p>
     				</div>
-    				<div class="col-sm-4 text-center">
-    					<h3 class="mt-4 mb-3">Write Review Here</h3>
-                        <?php
-                                $query44 = "select * from review_table where pro_id = $proid  and uid = $row_c->uid";
-                                $run_q44 = $con->query($query44);
-                                $query46 = "select * from products where pro_id = $proid  and uid = $row_c->uid";
-                                $run_q46 = $con->query($query46);
-                                if ($run_q46 !== false && $run_q46->num_rows > 0){
-                                    echo "You cannot rate or review your own product!";
-                                }
-                                else if($run_q44 !== false && $run_q44->num_rows > 0){
-                                    echo "You have already rated and reviewed the product!";
-                                    
-                                }
-                                else{?>
-                                    <button type="button" name="add_review" id="add_review" class="btn btn-success">Review</button>
-                                <?php
-                                }
-                                ?>
-    					
-    				</div>
+    				
     			</div>
     		</div>
     	</div>
@@ -145,37 +150,7 @@ if(isset($_REQUEST['pro_id']))
 </body>
 </html>
 
-<div id="review_modal" class="modal" tabindex="-1" role="dialog">
-  	<div class="modal-dialog" role="document">
-    	<div class="modal-content">
-	      	<div class="modal-header">
-	        	<h5 class="modal-title">Submit Review</h5>
-	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          		<span aria-hidden="true">&times;</span>
-	        	</button>
-	      	</div>
-	      	<div class="modal-body">
-	      		<h4 class="text-center mt-2 mb-4">
-	        		<i class="fas fa-star star-light submit_star mr-1" id="submit_star_1" data-rating="1"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_2" data-rating="2"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_3" data-rating="3"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_4" data-rating="4"></i>
-                    <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
-	        	</h4>
-	        	<div class="form-group">
-	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
-	        	</div>
-	        	<div class="form-group">
-	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
-	        	</div>
-	        	<div class="form-group text-center mt-4">
 
-	        		<button type="button" class="btn btn-success" id="save_review">Submit</button>
-	        	</div>
-	      	</div>
-    	</div>
-  	</div>
-</div>
 
 <style>
 .progress-label-left
@@ -270,7 +245,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, proid:<?php echo $proid;?>, uid:<?php echo $row_c->uid;?>},
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, proid:<?php echo $proid;?>},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
