@@ -17,8 +17,26 @@ if (isset($_REQUEST['insert_product'])) {
 	$description = $_REQUEST['desc'];
 	$category = $_REQUEST['category'];
 	$price = $_REQUEST['price'];
-	
-	$query1 = "insert into products (name, price, description, category_id, uid) values ('$name', '$price', '$description', '$category', '$row_c->uid')";
+
+	$sound = " ";
+    $words = explode(" ", $name);
+
+    foreach($words as $word) {
+      $sound.=metaphone($word)." ";
+    }
+
+    $words1 = explode(" ", $description);
+    
+    foreach ($words1 as $word) {
+      $sound.=metaphone($word)." ";
+    }
+
+
+	$sound.=$price." ";
+	$sound.=metaphone(strtolower($name))." ";
+	$sound.=metaphone(strtolower($description))." ";
+
+	$query1 = "insert into products (name, price, description, category_id, uid, indexing) values ('$name', '$price', '$description', '$category', '$row_c->uid', '$sound')";
 
 	$file = $_FILES['img'];
 	print_r($file);

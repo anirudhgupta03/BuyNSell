@@ -6,6 +6,7 @@ include 'db.php';
 if (isset($_SESSION['user'])) {
     header("location:user_home.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -450,7 +451,7 @@ if (isset($_SESSION['user'])) {
 
         <!-- ============================================== SCROLL TABS ============================================== -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
-          <div class="more-info-tab clearfix ">
+          <div class="more-info-tab clearfix " style="background:  -webkit-linear-gradient(left, yellow, #fa4299) !important;">
             <h3 class="new-product-title pull-left">Product Categories</h3>
             <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
               <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
@@ -469,7 +470,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                          <a href="detail.html">
+                          <a href="books1.php">
                              <img src="product_category/books.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p1_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
@@ -501,7 +502,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                          <a href="detail.html">
+                          <a href="electronics1.php.html">
                              <img src="product_category/electronic_items.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p4_hover.jpg" alt="" class="hover-image"> -->
                           </a>
@@ -534,7 +535,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
+                           <a href="essentials1.php">
                              <img src="product_category/essentials.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p3_hover.jpg" alt="" class="hover-image"> -->
                           </a>
@@ -566,7 +567,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
+                           <a href="sports and fitness1.php">
                              <img src="product_category/sports_and_fitness.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p2_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
@@ -599,7 +600,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
+                           <a href="stationery1.php">
                              <img src="product_category/stationery.png" alt=""> 
                               <!-- <img src="assets/images/products/p6_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
@@ -632,7 +633,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
+                           <a href="subscriptions1.php">
                              <img src="product_category/subscriptions.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
                           </a>
@@ -664,7 +665,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
+                           <a href="music instruments1.php">
                              <img src="product_category/music.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
                           </a>
@@ -676,7 +677,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="music1.php">Music Instruments</a></h3>
+                          <h3 class="name"><a href="music instruments1.php">Music Instruments</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           

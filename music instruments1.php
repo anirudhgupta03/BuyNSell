@@ -146,7 +146,7 @@ a.text:focus {
 					
 						?>
 							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
-								<div class="card mt-3 mb-3">
+							<div class="card mt-3 mb-3" style="border-radius:15px 15px 15px 15px;">
 									<?php  
 									$query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
 									$run_q6 = $con->query($query6);
@@ -154,14 +154,16 @@ a.text:focus {
 									$image_name = $row_q6->img_name;
 									$image_destination = "product_images/".$image_name;
 									?>
-									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
-									<div class="card-body bg-gray">
-									
-										<a class="card-title text-dark" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+									<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									<div class="card-body" style="border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));">
 										
-										<h4 class="font-weight-light">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
+										<a class="card-title " style="color:white;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+										
+										<h4 class="font-weight-light" style="color:white;">&nbsp;&#8377;<?php echo $row_q1->price; ?></h4>
 										<a href="home.php" class="btn btn-success mt-3">Buy</a>
+										
                                     </div>
+									
 								</div>
 							</div>
 						<?php

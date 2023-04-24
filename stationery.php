@@ -128,7 +128,7 @@ a.text:focus {
 					$pro_id = $row_q1->pro_id;
 						?>
 							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
-								<div class="card mt-3 mb-3">
+								<div class="card mt-3 mb-3" style="border-radius:15px 15px 15px 15px;">
 									<?php  
 									$query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
 									$run_q6 = $con->query($query6);
@@ -136,15 +136,15 @@ a.text:focus {
 									$image_name = $row_q6->img_name;
 									$image_destination = "product_images/".$image_name;
 									?>
-									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
-									<div class="card-body bg-gray">
+									<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									<div class="card-body " style="border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));">
 									<?php
 										if($row_c -> uid == $row_q1 -> uid){?>
 										<div>
 											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										</div>	
 										<div>
-											<h4 class="font-weight-light"  >&#8377;<?php echo $row_q1->price; ?></h4>	
+											<h4 class="font-weight-light" style="color:white;" >&#8377;<?php echo $row_q1->price; ?></h4>	
 										</div>
 										
 										<?php
@@ -153,17 +153,19 @@ a.text:focus {
 										<?php
 										if($row_c -> uid !== $row_q1 -> uid){?>
 											<div>
-												<a class="card-title text-dark" style="display:inline-block;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+												<a class="card-title" style="display:inline-block; color:white;" href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 												
 											</div>
 											<div >
-												<h4 class="font-weight-light" style="display:inline-block;">&#8377;<?php echo $row_q1->price; ?></h4>
+												<h4 class="font-weight-light" style="display:inline-block; color:white;">&#8377;<?php echo $row_q1->price; ?></h4>
 												<a href="view_product.php?pro_id=<?php echo $pro_id; ?>" style="float:right;" class="btn btn-success" >Buy</a>
 											</div>
 										<?php
 										}
 										?>
+										
                                     </div>
+									
 								</div>
 							</div>
 						<?php

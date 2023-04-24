@@ -37,7 +37,7 @@ if(isset($_REQUEST['pid'])) {
         $usr = json_decode( json_encode($row_c -> uid), true);
         $query39 = "delete from tbl_wishlist where pro_id = $pro_id and uid = $usr";
  	    $con->query($query39);
-         header("location:view_product.php");
+        //  header("location:view_product.php");
     }
     else {
         $pro_id = json_decode( json_encode($pro_id), true);
@@ -45,7 +45,7 @@ if(isset($_REQUEST['pid'])) {
 
         $query29 = "insert into tbl_wishlist (pro_id, uid) values ($pro_id, $usr);";
         $con->query($query29);
-        header("location:view_product.php");
+        // header("location:view_product.php");
     }
 }
 ?>
@@ -215,17 +215,33 @@ input.razorpay-payment-button {
 
 
 	
-<br>
-<br>
-
-	<div class="container">
 
 
-		
+	<div class="container" style="padding:120px;">		
 
-		<div class="card mt-5 mb-5">
+    <div style=" border-radius: 15px; border-color: blue; " class="card" >
+    		<div style=" display:inline-block; width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="display:inline-block; color:white;"><?php echo $row_q1->name; ?> </h3>
+            <?php
+                    $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
+					$run_q89 = $con->query($query89);
+                    ?>
+                    <?php
+                    if($run_q89->num_rows > 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    if($run_q89->num_rows == 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" style="background-color:pink;" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
+                    <?php
+                    }
+                    ?>
+            </div>
+    
 			<div class="card-body">
-                <div>
+                <!-- <div>
                     <h2 class="card-title" style="display:inline-block;"><?php echo $row_q1->name; ?></h2>
                     
                     <?php
@@ -245,7 +261,7 @@ input.razorpay-payment-button {
                     <?php
                     }
                     ?>
-                    </div>
+                    </div> -->
                 <p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
@@ -304,27 +320,27 @@ input.razorpay-payment-button {
 				
 				
 				<!-- <a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-secondary mt-3">Buy</a> -->
-				
+				<br>
 				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>" method="POST">
-            	<script
-                src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key="rzp_test_6ylMbjZf5RYhOG"
-                data-amount="<?= $row_q1->price * 100 ?>"
-                data-buttontext="Proceed to pay &#x20B9 <?= $row_q1->price ?>!"
-                data-name= "<?= $row_q1->name?>"
-                data-description="Entry Ticket Purchase"
-                data-image="<?= $image_for_payment ?>"
-                data-theme.color="#b21e8e"
-            	></script>
+                    <script
+                    src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="rzp_test_6ylMbjZf5RYhOG"
+                    data-amount="<?= $row_q1->price * 100 ?>"
+                    data-buttontext="Proceed to pay &#x20B9 <?= $row_q1->price ?>!"
+                    data-name= "<?= $row_q1->name?>"
+                    data-description="Entry Ticket Purchase"
+                    data-image="<?= $image_for_payment ?>"
+                    data-theme.color="#b21e8e"
+                    ></script>
 
-        </form>
+                </form>
         <br>
-        <a style = "" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a>
+        <!-- <a style = "" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a> -->
 			</div>
 			
-		</div>
+		
 
-
+                </div>
 		
 		
 		</div>
