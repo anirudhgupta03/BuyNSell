@@ -1,3 +1,4 @@
+
 <?php
 if (isset($_SESSION['user'])){
 ?>
@@ -37,12 +38,14 @@ if (isset($_SESSION['user'])){
 <?php
 if (!isset($_SESSION['user'])){
 ?>
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
 				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
 			</a>
+			
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>

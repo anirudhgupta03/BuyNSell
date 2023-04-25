@@ -99,14 +99,58 @@ a.text:hover,
 a.text:focus {
   color: #57606f !important;
 }
+/* .button {
+  display: inline-block;
+  width: 20%;
+  padding: 0px;
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
+} */
+
+
 </style>
 
 <body>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
 
-	<?php include 'nav.php'; ?>
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+			</a>
+
+            <form action = "searchresult_catgry.php?catgid=<?php echo 1; ?>" method="POST">
+				<input type="text" style="border-color: black;border-radius:13px 0px 0px 13px;" placeholder="Search here...." name="search">
+				<button style="margin:0px;border-color: black;border-radius:0px 13px 13px 0px; background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;" type="submit"><i style="color:white;"class="fa fa-search"></i></button>                
+            </form>
+
+          </div>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Signup</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>"" href="admin_login.php">Admin Login</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 
 		
-<br><br><br>
+<br><br><br><br>
 
     <?php
     $query1 = "select * from products where status = 'On Sale' and category_id = 1 ORDER BY pro_id DESC;";
