@@ -8,7 +8,9 @@ if(isset($_SESSION['user'])) {
 if(isset($_SESSION['admin_login'])) {
     $row_c = $_SESSION['admin_login'];
 }
-
+if(isset($_REQUEST['catgid'])) {
+    $catg_id = $_REQUEST['catgid'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -196,7 +198,7 @@ input.razorpay-payment-button {
         // $search_string1 = (int)$search_string;
         
         // $search_string1 = mysql_real_escape_string($search_string1);
-        $query1 = "select pro_id, category_id, name, price, description from products where (indexing LIKE '%$sound1%') AND status = 'On Sale'" ;
+        $query1 = "select pro_id, category_id, name, price, description, uid from products where (indexing LIKE '%$sound1%') AND status = 'On Sale' AND category_id = '$catg_id'" ;
         $run_q1 = $con->query($query1);
         $showing_products = 0;
         if ($run_q1 !== false && $run_q1->num_rows > 0){
@@ -206,12 +208,27 @@ input.razorpay-payment-button {
         <?php
         // echo $showing_products;
         // echo $search_string;
-		while ($row_q1 = $run_q1->fetch_object()) {
-        ?>
+		while ($row_q1 = $run_q1->fetch_object()) {?>
             <div class="container" style="padding:30px;">
             <div style="border-radius: 15px; border-color: blue; width:100%;" class="card" >
     		<div style=" display:inline-block; width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="display:inline-block; color:white;"><?php echo $row_q1->name; ?> </h3>
-            <h2 class="card-title" style="float:right;"><a href="home.php" class="btn btn-warning">Buy</a></h2>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                        if($row_c->uid == $row_q1->uid){?>
+                            <h2 class="card-title" style="float:right;"><a href="view_product1.php?pro_id=<?php echo $row_q1->pro_id; ?>" class="btn btn-warning">Buy</a></h2>
+                        <?php
+                        }
+                        else{?>
+                            <h2 class="card-title" style="float:right;"><a href="view_product.php?pro_id=<?php echo $row_q1->pro_id; ?>" class="btn btn-warning">Buy</a></h2>
+                        <?php
+                        }
+                    }
+                    if(!isset($_SESSION['user'])){?>
+                        <h2 class="card-title" style="float:right;"><a href="home.php" class="btn btn-warning">Buy</a></h2>
+                    <?php
+                    }
+                    ?>
+            <!-- <h2 class="card-title" style="float:right;"><a href="home.php" class="btn btn-warning">Buy</a></h2> -->
             </div>
     	
                     <div class="card-body">

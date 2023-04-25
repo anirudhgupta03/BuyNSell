@@ -170,7 +170,7 @@ if(isset($_REQUEST['pro_id']))
 	        	</div>
 	        	<div class="form-group text-center mt-4">
 
-	        		<button type="button" class="btn btn-success" id="save_review">Submit</button>
+	        		<a href="show_rating.php?pro_id=<?php echo $proid;?>" class="btn btn-primary" id="save_review">Submit</a>
 	        	</div>
 	      	</div>
     	</div>
