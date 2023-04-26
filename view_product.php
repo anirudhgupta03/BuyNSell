@@ -7,7 +7,7 @@ if(isset($_SESSION['user'])) {
 }
 
 if(!isset($_SESSION['user'])) {
-    header("location:index.php");
+    header("location:home.php");
 }
 
 if (!isset($_REQUEST['pro_id']) && isset($_SESSION['user'])) {
@@ -21,9 +21,33 @@ if (isset($_REQUEST['pro_id'])) {
 	$row_q1 = $run_q1->fetch_object();	
 }
 
+if($row_c -> uid == $row_q1 -> uid){
+	header("location:view_product1.php");
+}
 
+if(isset($_REQUEST['pid'])) {
+    $pro_id = $_REQUEST['pid'];
+    // $uid = $_REQUEST['usid'];
+    $cmnd = $_REQUEST['do'];
+    echo $cmnd;
 
+    $cmd = json_decode( json_encode($cmnd), true);
+    if($cmd == 'rmv') {
+        $pro_id = json_decode( json_encode($pro_id), true);
+        $usr = json_decode( json_encode($row_c -> uid), true);
+        $query39 = "delete from tbl_wishlist where pro_id = $pro_id and uid = $usr";
+ 	    $con->query($query39);
+        //  header("location:view_product.php");
+    }
+    else {
+        $pro_id = json_decode( json_encode($pro_id), true);
+        $usr = json_decode( json_encode($row_c -> uid), true);
 
+        $query29 = "insert into tbl_wishlist (pro_id, uid) values ($pro_id, $usr);";
+        $con->query($query29);
+        // header("location:view_product.php");
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -140,7 +164,7 @@ if (isset($_REQUEST['pro_id'])) {
 
 
 .bg-nav {
-    background-color: rgb(24, 44, 97) !important;
+    background:  -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
     position: fixed;
     top: 0;
     left: 0;
@@ -168,73 +192,91 @@ if (isset($_REQUEST['pro_id'])) {
 .card-hover:hover {
 	background-color: rgba(127, 140, 141, .2);
 }
+input.razorpay-payment-button {
+            display: block;
+            /* margin: 30px auto 0; */
+            padding: 10px;
+            cursor: pointer;
+            background: seagreen;
+            border-radius: 5px !important;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input.razorpay-payment-button:hover {
+            background: mediumseagreen;
+        }
 </style>
 <body>
  
 
-	<nav class="navbar navbar-expand-sm navbar-dark bg-nav">
-		<div class="container">
-			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:100px; margin-top: -1px;" src="buynsell.jpg">&nbsp;
-			</a>
-			<!-- <div align="center">
-				<a class="btn btn-warning" href="new_product.php">Add A Product For Bid</a>
-			</div> -->
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="index.php">Home</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown"><?php echo $row_c->name;?></a>
-					<div class="dropdown-menu bg-darkblue">
-						<a href="view.php" class="text-warning dropdown-item">View Profile</a>
-						<a href="bid.php" class="text-warning dropdown-item">Bids I made on Products</a>
-						<a href="product.php" class="text-warning dropdown-item">Products I put for Sale</a>
-						<a href="got.php" class="text-warning dropdown-item">Products You WON!</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link text-danger" href="logout.php">Logout</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
+<?php include 'nav.php'; ?>
 
 
 	
-<br>
-<br>
-
-	<div class="container">
 
 
-		
+	<div class="container" style="padding:120px;">		
 
-		<div class="card mt-5 mb-5">
+    <div style=" border-radius: 15px; border-color: blue; " class="card" >
+    		<div style=" display:inline-block; width:100%; border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="display:inline-block; color:white;"><?php echo $row_q1->name; ?> </h3>
+            <?php
+                    $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
+					$run_q89 = $con->query($query89);
+                    ?>
+                    <?php
+                    if($run_q89->num_rows > 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    if($run_q89->num_rows == 0) {?>
+                        <a style = "float:right;" class="btn btn-warning" style="background-color:pink;" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
+                    <?php
+                    }
+                    ?>
+            </div>
+    
 			<div class="card-body">
-				<h2 class="card-title"><?php echo $row_q1->name; ?></h2>
-				<p class="card-text"><?php echo $row_q1->description; ?></p>
+                <!-- <div>
+                    <h2 class="card-title" style="display:inline-block;"><?php echo $row_q1->name; ?></h2>
+                    
+                    <?php
+                    $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
+					$run_q89 = $con->query($query89);
+                    ?>
+                    <?php
+                    if($run_q89->num_rows > 0) {?>
+                        <a style = "float:right;" class="btn btn-info" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    
+                    <?php
+                    if($run_q89->num_rows == 0) {?>
+                        <a style = "float:right;" class="btn btn-info" style="background-color:pink;" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "raddmv"; ?>">Add to Wishlist</a>
+                    <?php
+                    }
+                    ?>
+                    </div> -->
+                <p class="card-text"><?php echo $row_q1->description; ?></p>
 				<div class="container">
 					<?php
-					// $bid_s_time = $row_q1->bidstarttime;
-        			// $bid_e_time = $row_q1->bidendtime;
-        			// $product_id = $row_q1->pro_id;
-
-        			// $nt = new DateTime($bid_s_time);
-        			// $bid_s_time = $nt->getTimestamp();
-
-
-        			// $nt = new DateTime($bid_e_time);
-        			// $bid_e_time = $nt->getTimestamp();
-
-        			// $date = time();
 
 					$query4 = "select * from product_images where pro_id = $pro_id";
 					$run_q4 = $con->query($query4);
 
+					$image_for_payment = "";
+
 					while ($row_q4 = $run_q4->fetch_object()) {
 						$image_name = $row_q4->img_name;
 						$image_destination = "product_images/".$image_name;
+						if($image_for_payment == ""){
+							$image_for_payment = $image_destination;
+						}
 						?>
 
 
@@ -274,10 +316,50 @@ if (isset($_REQUEST['pro_id'])) {
 					?>
 				</div>
 				<br>
-				<h3 class="font-weight-light">Price: ₹<?php echo $row_q1->price; ?></h3>
-			
+				<h3 class="font-weight-light">Price: <?php echo $row_q1->price; ?></h3>
+				
+				
+				<!-- <a href="buyer_bid.php?pro_id=<?php echo $row_q1->pro_id;?>" class="btn btn-secondary mt-3">Buy</a> -->
+				<br>
+				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>" method="POST">
+                    <script
+                    src="https://checkout.razorpay.com/v1/checkout.js"
+                    data-key="rzp_test_6ylMbjZf5RYhOG"
+                    data-amount="<?= $row_q1->price * 100 ?>"
+                    data-buttontext="Proceed to pay &#x20B9 <?= $row_q1->price ?>!"
+                    data-name= "<?= $row_q1->name?>"
+                    data-description="Entry Ticket Purchase"
+                    data-image="<?= $image_for_payment ?>"
+                    data-theme.color="#b21e8e"
+                    ></script>
+
+                </form>
+        <br>
+        <!-- <a style = "" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a> -->
 			</div>
+			
+		
+
+                </div>
+		
+		
 		</div>
+		
+
 	</div>
+
+
+	<!-- <script>
+	    if ( window.history.replaceState ) {
+	        window.history.replaceState( null, null, window.location.href );
+	    }
+	    window.addEventListener("beforeunload", function (e) {
+		  var confirmationMessage = "Please print this receipt before moving!!!\o/";
+		  (e || window.event).returnValue = confirmationMessage; 
+		  return confirmationMessage;                            
+		});
+	</script> -->
+	
+	
 </body>
 </html>

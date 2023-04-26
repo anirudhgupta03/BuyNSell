@@ -13,9 +13,9 @@ if (isset($_REQUEST['login'])) {
     $email = strtolower($email);
     $password = $_REQUEST['password'];
     
-    $query = "select * from user where email = '$email' and password = '$password'";  //query
-    $run_q = $con->query($query);   //will select rows according to query
-    $row_login = $run_q->fetch_object();    //will give rows sequence wise
+    $query = "select * from user where email = '$email' and password = '$password'";  // query
+    $run_q = $con->query($query);   // will select rows according to query
+    $row_login = $run_q->fetch_object();    // will give rows sequence wise
     $num_rows = $run_q->num_rows;       
     
     if ($num_rows == 1) {

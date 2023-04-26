@@ -7,9 +7,9 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
-if(!isset($_SESSION['user'])) {
-    header("location:index.php");
-}
+// if(!isset($_SESSION['user'])) {
+//     header("location:index.php");
+// }
 
 $home = true;
 $view = false;
@@ -105,7 +105,7 @@ a.text:focus {
 	<?php include 'nav.php'; ?>
 
 		
-<br><br><br>
+<br><br>
 
     <?php
     $query1 = "select * from product_category";
@@ -126,7 +126,7 @@ a.text:focus {
 				while ($row_q1 = $run_q1->fetch_object()) {
 						?>
 							<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">	
-								<div class="card mt-3 mb-3">
+								<div class="card mt-3 mb-3" style="border-radius:15px 15px 15px 15px;">
 									<?php  
 									// $query6 = "select * from tbl_img where pro_id = $pro_id LIMIT 1";
 									// $run_q6 = $con->query($query6);
@@ -135,10 +135,10 @@ a.text:focus {
 									$image_destination = "product_category/".$image_name;
 									$dest = strtolower($row_q1->name).".php";
 									?>
-									<!-- <h4 class="btn btn-sm btn-light mt-3"><?php echo "Bid ends : $row_q1->bidendtime"; ?></h4> -->
-									<img class="product_img card-img-top" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
-									<div class="card-body bg-gray">
-										<a class="card-title text-dark" href="<?php echo $dest; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+								
+									<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									<div class="card-body" style="border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));">
+										<a class="card-title text-dark" style="border-radius:15px 15px 0px 0px;" href="<?php echo $dest; ?>"><h5 style="color:white;"><?php echo $row_q1->name; ?></h5></a>
 									</div>
 								</div>
 							</div>
