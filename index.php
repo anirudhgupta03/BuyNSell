@@ -755,7 +755,7 @@ if (isset($_SESSION['user'])) {
         <li>
           <div class="feature-box">
             <div class="fa fa-envelope" style="margin: 8px;"></div>
-             <a href="mailto:teamBYS@gmail.com"><div class="content-blocks" style="color:black;"> Mail </div></a>
+             <a href="mailto:teambuynsell36@gmail.com"><div class="content-blocks" style="color:black;"> Mail </div></a>
           </div>
         </li>
         <li>
