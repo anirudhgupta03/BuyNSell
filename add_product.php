@@ -17,16 +17,26 @@ if (isset($_REQUEST['insert_product'])) {
 	$description = $_REQUEST['desc'];
 	$category = $_REQUEST['category'];
 	$price = $_REQUEST['price'];
-	// $starttime= $_REQUEST['starttime'];
-	// $endtime =$_REQUEST['endtime'];
-	// $error_date_enter = "End Time for an auction must be greater than Start Time of it";
-	
-	// if($endtime<=$starttime)
-	// {
-	// 	echo "<script type='text/javascript'>alert('$error_date_enter');</script>"; 
-	// }
-	// else{
-	$query1 = "insert into products (name, price, description, category, uid) values ('$name', '$price', '$description', '$category', '$row_c->uid')";
+
+	$sound = " ";
+    $words = explode(" ", $name);
+
+    foreach($words as $word) {
+      $sound.=metaphone($word)." ";
+    }
+
+    $words1 = explode(" ", $description);
+    
+    foreach ($words1 as $word) {
+      $sound.=metaphone($word)." ";
+    }
+
+
+	$sound.=$price." ";
+	$sound.=metaphone(strtolower($name))." ";
+	$sound.=metaphone(strtolower($description))." ";
+
+	$query1 = "insert into products (name, price, description, category_id, uid, indexing) values ('$name', '$price', '$description', '$category', '$row_c->uid', '$sound')";
 
 	$file = $_FILES['img'];
 	print_r($file);
@@ -156,7 +166,7 @@ body {
 	position: absolute;
     top: 175%;
 	padding: 25px;
-	background-color: rgb(108, 92, 231);
+	background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 	border-radius: 5px;
 	color: #fff;
 }
@@ -194,7 +204,7 @@ table {
                                 $res_c = $con->query($sel_c);
                                 while ($row_c = $res_c->fetch_object()) {
                                     ?>
-                                    <option value="<?php echo $row_c->product_id; ?>"><?php echo $row_c->name; ?></option> 
+                                    <option value="<?php echo $row_c->category_id; ?>"><?php echo $row_c->name; ?></option> 
                                     <?php                                 
                                 }
                                 ?>

@@ -6,6 +6,7 @@ include 'db.php';
 if (isset($_SESSION['user'])) {
     header("location:user_home.php");
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +21,8 @@ if (isset($_SESSION['user'])) {
 <meta name="keywords" content="MediaCenter, Template, eCommerce">
 <meta name="robots" content="all">
 <title>BuyNSell</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <link rel="icon" type="image/jpg" href="logo/auction.png">
 <!-- Bootstrap Core CSS -->
@@ -51,6 +54,62 @@ if (isset($_SESSION['user'])) {
   <div class="top-bar animate-dropdown">
     <div class="container">
       <div class="header-top-inner">
+        
+        <!-- /.cnt-account -->
+        
+        
+      <!-- /.header-top-inner --> 
+    </div>
+    <!-- /.container --> 
+  </div>
+  <!-- /.header-top --> 
+  <!-- ============================================== TOP MENU : END ============================================== -->
+  <div class="main-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-2 logo-holder"> 
+          <!-- ============================================================= LOGO ============================================================= -->
+          <div class="logo"> <a href="index.php"> <img src="logo.png" alt="logo"> </a> </div>
+          <!-- /.logo --> 
+          <!-- ============================================================= LOGO : END ============================================================= --> </div>
+        <!-- /.logo-holder -->
+        
+        <div class="col-lg-8 col-md-15 col-sm-9 col-xs-12 top-search-holder"> 
+          <!-- /.contact-row --> 
+          <!-- ============================================================= SEARCH AREA ============================================================= -->
+          <div class="search-area">
+            <form action = "searchresult.php" method="POST">
+              <div class="control-group" style="display:flex;">
+                <!-- <ul class="categories-filter animate-dropdown">
+                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu" >
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Books</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Essentials</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Sports and Fitness</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Stationery</a></li>
+                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Subscriptions</a></li>
+                    </ul>
+                  </li>
+                </ul> -->
+                <input class="search-field" name = "search" placeholder="Search here..." />
+                <button type="submit" class="search-button" > </button> 
+                <!-- <a class="search-button" href="#" ></a>  -->
+              </div>
+            </form>
+          </div>
+          <!-- /.search-area --> 
+          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
+        <!-- /.top-search-holder -->
+        
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
+          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
+          
+          
+          <!-- /.dropdown-cart --> 
+          
+          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
+        <!-- /.top-cart-row --> 
         <div class="cnt-account">
           <ul class="list-unstyled">
             <?php
@@ -68,76 +127,6 @@ if (isset($_SESSION['user'])) {
             <li class="login"><a href="admin_login.php"><span>Admin Login</span></a></li>
           </ul>
         </div>
-        <!-- /.cnt-account -->
-        
-        <div class="cnt-block">
-          <ul class="list-unstyled list-inline">
-            <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">INR </span><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">INR</a></li>
-              </ul>
-            </li>
-            <li class="dropdown dropdown-small lang"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">English </span><b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">English</a></li>
-              </ul>
-            </li>
-          </ul>
-          <!-- /.list-unstyled --> 
-        </div>
-        <!-- /.cnt-cart -->
-        <div class="clearfix"></div>
-      </div>
-      <!-- /.header-top-inner --> 
-    </div>
-    <!-- /.container --> 
-  </div>
-  <!-- /.header-top --> 
-  <!-- ============================================== TOP MENU : END ============================================== -->
-  <div class="main-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-3 logo-holder"> 
-          <!-- ============================================================= LOGO ============================================================= -->
-          <div class="logo"> <a href="home.html"> <img src="logo.png" alt="logo"> </a> </div>
-          <!-- /.logo --> 
-          <!-- ============================================================= LOGO : END ============================================================= --> </div>
-        <!-- /.logo-holder -->
-        
-        <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder"> 
-          <!-- /.contact-row --> 
-          <!-- ============================================================= SEARCH AREA ============================================================= -->
-          <div class="search-area">
-            <form>
-              <div class="control-group">
-                <ul class="categories-filter animate-dropdown">
-                  <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
-                    <ul class="dropdown-menu" role="menu" >
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Books</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Essentials</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Sports and Fitness</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Staitionery</a></li>
-                      <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Subscriptions</a></li>
-                    </ul>
-                  </li>
-                </ul>
-                <input class="search-field" placeholder="Search here..." />
-                <a class="search-button" href="#" ></a> </div>
-            </form>
-          </div>
-          <!-- /.search-area --> 
-          <!-- ============================================================= SEARCH AREA : END ============================================================= --> </div>
-        <!-- /.top-search-holder -->
-        
-        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row"> 
-          <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-          
-          
-          <!-- /.dropdown-cart --> 
-          
-          <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= --> </div>
-        <!-- /.top-cart-row --> 
       </div>
       <!-- /.row --> 
       
@@ -148,538 +137,62 @@ if (isset($_SESSION['user'])) {
   <!-- /.main-header --> 
   
   <!-- ============================================== NAVBAR ============================================== -->
-  <div class="header-nav animate-dropdown">
-    <div class="container">
-      <div class="yamm navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
-       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-        </div>
-        <div class="nav-bg-class">
-          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
-            <div class="nav-outer">
-              <ul class="nav navbar-nav">
-                <li class="active dropdown"> <a href="home.html">Home</a> </li>
-                
-                <li class="dropdown mega-menu"> 
-                <a href="category.html"  data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">Electronics </a>
-                  <ul class="dropdown-menu container">
-                    <li>
-                      <div class="yamm-content">
-                        <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Laptops</h2>
-                            <ul class="links">
-                              <li><a href="#">Gaming</a></li>
-                              <li><a href="#">Laptop Skins</a></li>
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Dell</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Microsoft</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Adapters</a></li>
-                              <li><a href="#">Batteries</a></li>
-                              <li><a href="#">Cooling Pads</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Desktops</h2>
-                            <ul class="links">
-                              <li><a href="#">Routers & Modems</a></li>
-                              <li><a href="#">CPUs, Processors</a></li>
-                              <li><a href="#">PC Gaming Store</a></li>
-                              <li><a href="#">Graphics Cards</a></li>
-                              <li><a href="#">Components</a></li>
-                              <li><a href="#">Webcam</a></li>
-                              <li><a href="#">Memory (RAM)</a></li>
-                              <li><a href="#">Motherboards</a></li>
-                              <li><a href="#">Keyboards</a></li>
-                              <li><a href="#">Headphones</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          
-                          <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Cameras</h2>
-                            <ul class="links">
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Binoculars</a></li>
-                              <li><a href="#">Telescopes</a></li>
-                              <li><a href="#">Camcorders</a></li>
-                              <li><a href="#">Digital</a></li>
-                              <li><a href="#">Film Cameras</a></li>
-                              <li><a href="#">Flashes</a></li>
-                              <li><a href="#">Lenses</a></li>
-                              <li><a href="#">Surveillance</a></li>
-                              <li><a href="#">Tripods</a></li>
-                            </ul>
-                          </div>
-                          <!-- /.col -->
-                          <!-- <div class="col-xs-12 col-sm-12 col-md-2 col-menu">
-                            <h2 class="title">Mobile Phones</h2>
-                            <ul class="links">
-                              <li><a href="#">Apple</a></li>
-                              <li><a href="#">Samsung</a></li>
-                              <li><a href="#">Lenovo</a></li>
-                              <li><a href="#">Motorola</a></li>
-                              <li><a href="#">LeEco</a></li>
-                              <li><a href="#">Asus</a></li>
-                              <li><a href="#">Acer</a></li>
-                              <li><a href="#">Accessories</a></li>
-                              <li><a href="#">Headphones</a></li>
-                              <li><a href="#">Memory Cards</a></li>
-                            </ul>
-                          </div> -->
-                          <div class="col-xs-12 col-sm-12 col-md-4 col-menu custom-banner"> <a href="#"><img alt="" src="assets/images/banners/top-menu-banner1.jpg"></a> </div>
-                        </div>
-                        <!-- /.row --> 
-                      </div>
-                      <!-- /.yamm-content --> </li>
-                  </ul>
-                </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Books  </a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Essentials</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Sports and Fitness</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Stationery</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Subscriptions</a> </li>
-                <li class="dropdown hidden-sm"> <a href="category.html">Music</a> </li>
-              </ul>
-              <!-- /.navbar-nav -->
-              <div class="clearfix"></div>
-            </div>
-            <!-- /.nav-outer --> 
-          </div>
-          <!-- /.navbar-collapse --> 
-          
-        </div>
-        <!-- /.nav-bg-class --> 
-      </div>
-      <!-- /.navbar-default --> 
-    </div>
-    <!-- /.container-class --> 
-    
-  </div>
   <!-- /.header-nav --> 
   <!-- ============================================== NAVBAR : END ============================================== --> 
   
 </header>
-
+<style>
+  .center {
+  margin: auto;
+  width: 80%;
+  justify-content: center;
+  /* display:flex; */
+  /* border: 3px solid green; */
+  /* padding: 10px; */
+}
+  </style>
+<br><br>
 <!-- ============================================== HEADER : END ============================================== -->
 <div class="body-content outer-top-vs" id="top-banner-and-menu">
   <div class="container">
     <div class="row"> 
       <!-- ============================================== SIDEBAR ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-3 sidebar"> 
+      <!-- <div class="col-xs-12 col-sm-12 col-md-3 sidebar">  -->
         
         <!-- ================================== TOP NAVIGATION ================================== -->
-        <div class="side-menu animate-dropdown outer-bottom-xs">
-          <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
-          <nav class="yamm megamenu-horizontal">
-            <ul class="nav">
-             
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a> 
-                <!-- ================================== MEGAMENU VERTICAL ================================== -->
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-6">
-                        <ul>
-                          <li><a href="#">Gaming</a></li>
-                          <li><a href="#">Laptop Skins</a></li>
-                          <li><a href="#">Apple</a></li>
-                          <li><a href="#">Dell</a></li>
-                          <li><a href="#">Lenovo</a></li>
-                          <li><a href="#">Microsoft</a></li>
-                          <li><a href="#">Asus</a></li>
-                          <li><a href="#">Adapters</a></li>
-                          <li><a href="#">Batteries</a></li>
-                          <li><a href="#">Cooling Pads</a></li>
-                        </ul>
-                      </div>
-                      <div class="col-xs-12 col-sm-12 col-md-6">
-                        <ul>
-                          <li><a href="#">Routers &amp; Modems</a></li>
-                          <li><a href="#">CPUs, Processors</a></li>
-                          <li><a href="#">PC Gaming Store</a></li>
-                          <li><a href="#">Graphics Cards</a></li>
-                          <li><a href="#">Components</a></li>
-                          <li><a href="#">Webcam</a></li>
-                          <li><a href="#">Memory (RAM)</a></li>
-                          <li><a href="#">Motherboards</a></li>
-                          <li><a href="#">Keyboards</a></li>
-                          <li><a href="#">Headphones</a></li>
-                        </ul>
-                      </div>
-                      <!-- <div class="dropdown-banner-holder"> <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a> </div> -->
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>
-                <!-- /.dropdown-menu --> 
-                <!-- ================================== MEGAMENU VERTICAL ================================== --> </li>
-              <!-- /.menu-item -->
-              
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Let Us C</a></li>
-                          <li><a href="#"> JavaScript: The Good Parts </a></li>
-                          <li><a href="#">The Pragmatic Programmer</a></li>
-                          <li><a href="#">Modern Operating Systems</a></li>
-                          <li><a href="#">Introduction to Algorithms</a></li>
-                          <li><a href="#">C Programming Language</a></li>
-                          <li><a href="#">The Little Schemer</a></li>
-                          <li><a href="#">Computer Organization and Designs</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Programming Pearls</a></li>
-                          <li><a href="#">Design Patterns</a></li>
-                          <li><a href="#">Effective Java </a></li>
-                          <li><a href="#">Data Structures and Algorithms</a></li>
-                          <li><a href="#"> Introduction to the TOC</a></li>
-                          <li><a href="#">Coders at Work</a></li>
-                          <li><a href="#">Database System Concepts</a></li>
-                          <li><a href="#">Advanced Data Structures</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Gulliver Travels</a></li>
-                          <li><a href="#">The Pilgrim Progress</a></li>
-                          <li><a href="#">The Moonstone </a></li>
-                          <li><a href="#">Three Men in a Boat </a></li>
-                          <li><a href="#">The Sun Also Rises</a></li>
-                          <li><a href="#">Scoop </a></li>
-                          <li><a href="#">The Grapes of Wrath</a></li>
-                          <li><a href="#">The Adventures of Augie March </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Sandals </a></li>
-                          <li><a href="#">Shorts</a></li>
-                          <li><a href="#">Dresses</a></li>
-                          <li><a href="#">Jwellery</a></li>
-                          <li><a href="#">Bags</a></li>
-                          <li><a href="#">Night Dress</a></li>
-                          <li><a href="#">Swim Wear</a></li>
-                          <li><a href="#">Toys</a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col --> 
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>
-                <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
-              
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-clock-o"></i>Essentials</a>
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                  <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Cooler </a></li>
-                          <li><a href="#"> Fan </a></li>
-                          <li><a href="#">Room Heater</a></li>
-                          <li><a href="#">Water Container</a></li>
-                          <li><a href="#">Desk lamp </a></li>
-                          <li><a href="#">Purifier </a></li>
-                          <li><a href="#">Mattress</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Laundary basket</a></li>
-                          <li><a href="#">Curtain </a></li>
-                          <li><a href="#">Bowls </a></li>
-                          <li><a href="#">Chair</a></li>
-                          <li><a href="#"> Lap Desk </a></li>
-                          <li><a href="#">Flashlight </a></li>
-                          <li><a href="#">Ethernet Cable </a></li>
-                        </ul>
-                      </div>
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>
-                <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
-              
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a> 
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Volleyball </a></li>
-                          <li><a href="#"> Exercise Mats </a></li>
-                          <li><a href="#">Skipping ropes</a></li>
-                          <li><a href="#">Weighted vest</a></li>
-                          <li><a href="#">Medicine Balls </a></li>
-                          <li><a href="#">Squat stand </a></li>
-                          <li><a href="#">Hammer Gloves</a></li>
-                          <li><a href="#">Helmet</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Rubber Dumbbells</a></li>
-                          <li><a href="#">Badminton racquet </a></li>
-                          <li><a href="#">Basketball </a></li>
-                          <li><a href="#">Football</a></li>
-                          <li><a href="#"> Bicycle </a></li>
-                          <li><a href="#">Bat </a></li>
-                          <li><a href="#">Batting Gloves</a></li>
-                          <li><a href="#">Keeping Gloves </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Gulliver Travels</a></li>
-                          <li><a href="#">The Pilgrim Progress</a></li>
-                          <li><a href="#">The Moonstone </a></li>
-                          <li><a href="#">Three Men in a Boat </a></li>
-                          <li><a href="#">The Sun Also Rises</a></li>
-                          <li><a href="#">Scoop </a></li>
-                          <li><a href="#">The Grapes of Wrath</a></li>
-                          <li><a href="#">The Adventures of Augie March </a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Sandals </a></li>
-                          <li><a href="#">Shorts</a></li>
-                          <li><a href="#">Dresses</a></li>
-                          <li><a href="#">Jwellery</a></li>
-                          <li><a href="#">Bags</a></li>
-                          <li><a href="#">Night Dress</a></li>
-                          <li><a href="#">Swim Wear</a></li>
-                          <li><a href="#">Toys</a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col --> 
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>
-                <!-- ================================== MEGAMENU VERTICAL ================================== --> 
-                <!-- /.dropdown-menu --> 
-                <!-- ================================== MEGAMENU VERTICAL ================================== --> </li>
-              <!-- /.menu-item -->
-              
-              
-              
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-pencil"></i>Stationery</a> 
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Staplers </a></li>
-                          <li><a href="#"> Punching Machine </a></li>
-                          <li><a href="#">Sticky Tapes</a></li>
-                          <li><a href="#">Scissors</a></li>
-                          <li><a href="#">Glue </a></li>
-                          <li><a href="#">Calculator </a></li>
-                          <li><a href="#">Tape Dispenser</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Pen Cups</a></li>
-                          <li><a href="#">Note Holders </a></li>
-                          <li><a href="#">Paper Clip </a></li>
-                          <li><a href="#">Waste buckets</a></li>
-                          <li><a href="#"> Ink Cartridges </a></li>
-                          <li><a href="#">Printing Papers </a></li>
-                          <li><a href="#">Highlighter Pen </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Gulliver Travels</a></li>
-                          <li><a href="#">The Pilgrim Progress</a></li>
-                          <li><a href="#">The Moonstone </a></li>
-                          <li><a href="#">Three Men in a Boat </a></li>
-                          <li><a href="#">The Sun Also Rises</a></li>
-                          <li><a href="#">Scoop </a></li>
-                          <li><a href="#">The Grapes of Wrath</a></li>
-                          <li><a href="#">The Adventures of Augie March </a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Sandals </a></li>
-                          <li><a href="#">Shorts</a></li>
-                          <li><a href="#">Dresses</a></li>
-                          <li><a href="#">Jwellery</a></li>
-                          <li><a href="#">Bags</a></li>
-                          <li><a href="#">Night Dress</a></li>
-                          <li><a href="#">Swim Wear</a></li>
-                          <li><a href="#">Toys</a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col --> 
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>  
-              <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
-              
-             
-              
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-star"></i>Subscriptions</a> 
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Spotify </a></li>
-                          <li><a href="#"> Gaana.com </a></li>
-                          <li><a href="#">Wynk music</a></li>
-                          <li><a href="#">Youtube Premium</a></li>
-                          <li><a href="#">Disney hotstar</a></li>
-                          <li><a href="#">Netflix </a></li>
-                          <li><a href="#">Prime Video</a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">GFG Premium</a></li>
-                          <li><a href="#">Scaler </a></li>
-                          <li><a href="#">Coding Ninjas </a></li>
-                          <li><a href="#">Leetcode Premium</a></li>
-                          <li><a href="#"> Code Blocks </a></li>
-                          <li><a href="#">Zomato </a></li>
-                          <li><a href="#">Lenskart </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Gulliver Travels</a></li>
-                          <li><a href="#">The Pilgrim Progress</a></li>
-                          <li><a href="#">The Moonstone </a></li>
-                          <li><a href="#">Three Men in a Boat </a></li>
-                          <li><a href="#">The Sun Also Rises</a></li>
-                          <li><a href="#">Scoop </a></li>
-                          <li><a href="#">The Grapes of Wrath</a></li>
-                          <li><a href="#">The Adventures of Augie March </a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Sandals </a></li>
-                          <li><a href="#">Shorts</a></li>
-                          <li><a href="#">Dresses</a></li>
-                          <li><a href="#">Jwellery</a></li>
-                          <li><a href="#">Bags</a></li>
-                          <li><a href="#">Night Dress</a></li>
-                          <li><a href="#">Swim Wear</a></li>
-                          <li><a href="#">Toys</a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col --> 
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>    
-              <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
+        <!-- <div class="side-menu animate-dropdown outer-bottom-xs"> -->
+          <!-- <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
+          <nav class="yamm megamenu-horizontal"> -->
+            <!-- <ul class="nav">
 
-              <li class="dropdown menu-item"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon fa fa-music"></i>Music</a> 
-                <ul class="dropdown-menu mega-menu">
-                  <li class="yamm-content">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Guitar </a></li>
-                          <li><a href="#"> Flute </a></li>
-                          <li><a href="#">Violin</a></li>
-                          <li><a href="#">Mandolin</a></li>
-                          <li><a href="#">Drum Set</a></li>
-                          <li><a href="#">Saxophone </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <div class="col-sm-12 col-md-6">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Harmonium</a></li>
-                          <li><a href="#">Mouth Organ </a></li>
-                          <li><a href="#">Lute </a></li>
-                          <li><a href="#">Harmonica</a></li>
-                          <li><a href="#"> Tabla </a></li>
-                          <li><a href="#">Banjo </a></li>
-                        </ul>
-                      </div>
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-4">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Gulliver Travels</a></li>
-                          <li><a href="#">The Pilgrim Progress</a></li>
-                          <li><a href="#">The Moonstone </a></li>
-                          <li><a href="#">Three Men in a Boat </a></li>
-                          <li><a href="#">The Sun Also Rises</a></li>
-                          <li><a href="#">Scoop </a></li>
-                          <li><a href="#">The Grapes of Wrath</a></li>
-                          <li><a href="#">The Adventures of Augie March </a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col -->
-                      <!-- <div class="col-sm-12 col-md-3">
-                        <ul class="links list-unstyled">
-                          <li><a href="#">Sandals </a></li>
-                          <li><a href="#">Shorts</a></li>
-                          <li><a href="#">Dresses</a></li>
-                          <li><a href="#">Jwellery</a></li>
-                          <li><a href="#">Bags</a></li>
-                          <li><a href="#">Night Dress</a></li>
-                          <li><a href="#">Swim Wear</a></li>
-                          <li><a href="#">Toys</a></li>
-                        </ul>
-                      </div> -->
-                      <!-- /.col --> 
-                    </div>
-                    <!-- /.row --> 
-                  </li>
-                  <!-- /.yamm-content -->
-                </ul>    
-                <!-- /.dropdown-menu --> </li>
-              <!-- /.menu-item -->
+            <li class="dropdown menu-item"> <a href="books1.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a>
+             
+              <li class="dropdown menu-item"> <a href="electronics1.php" ><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a> 
               
-            </ul>
+              
+                
+              
+              <li class="dropdown menu-item"> <a href="essentials1.php"><i class="icon fa fa-clock-o"></i>Essentials</a>
+              
+              <li class="dropdown menu-item"> <a href="sports and fitness1.php"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a></li>
+               /.menu-item -->
+              
+              
+              
+              <!-- <li class="dropdown menu-item"> <a href="stationery1.php"><i class="icon fa fa-pencil"></i>Stationery</a> 
+                
+              
+             
+              
+              <li class="dropdown menu-item"> <a href="subscriptions1.php"><i class="icon fa fa-star"></i>Subscriptions</a> 
+
+              <li class="dropdown menu-item"> <a href="music instruments1.php"><i class="icon fa fa-music"></i>Music Instruments</a>  -->
+              
+            <!-- </ul>  -->
             <!-- /.nav --> 
-          </nav>
+          <!-- </nav> -->
           <!-- /.megamenu-horizontal --> 
-        </div>
+        <!-- W</div> -->
         <!-- /.side-menu --> 
         <!-- ================================== TOP NAVIGATION : END ================================== --> 
         
@@ -828,14 +341,14 @@ if (isset($_SESSION['user'])) {
        
         <!-- ============================================== SPECIAL OFFER : END ============================================== --> 
         <!-- ============================================== PRODUCT TAGS ============================================== -->
-        <div class="sidebar-widget product-tag">
+        <!-- <div class="sidebar-widget product-tag">
           <h3 class="section-title">Product tags</h3>
           <div class="sidebar-widget-body outer-top-xs">
-            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Laptop</a> <a class="item active" title="Vest" href="category.html">Kettle</a> <a class="item" title="Smartphone" href="category.html">Guitar</a> <a class="item" title="Furniture" href="category.html">Lamps</a> <a class="item" title="T-shirt" href="category.html">Cooler</a> <a class="item" title="Sweatpants" href="category.html">Room heaters</a> <a class="item" title="Sneaker" href="category.html">Lan Cable</a> <a class="item" title="Toys" href="category.html">Subscriptions</a> <a class="item" title="Rose" href="category.html">Cycle</a> <a class="item" title="Rose" href="category.html">Books</a> <a class="item" title="Rose" href="category.html">Dumbell</a> </div>
+            <div class="tag-list"> <a class="item" title="Phone" href="category.html">Laptop</a> <a class="item active" title="Vest" href="category.html">Kettle</a> <a class="item" title="Smartphone" href="category.html">Guitar</a> <a class="item" title="Furniture" href="category.html">Lamps</a> <a class="item" title="T-shirt" href="category.html">Cooler</a> <a class="item" title="Sweatpants" href="category.html">Room heaters</a> <a class="item" title="Sneaker" href="category.html">Lan Cable</a> <a class="item" title="Toys" href="category.html">Subscriptions</a> <a class="item" title="Rose" href="category.html">Cycle</a> <a class="item" title="Rose" href="category.html">Books</a> <a class="item" title="Rose" href="category.html">Dumbell</a> </div> -->
             <!-- /.tag-list --> 
-          </div>
+          <!-- </div> -->
           <!-- /.sidebar-widget-body --> 
-        </div>
+        <!-- </div> -->
 
       
         <!-- /.sidebar-widget --> 
@@ -890,16 +403,16 @@ if (isset($_SESSION['user'])) {
         
         
       </div>
-
+      
 
       <!-- /.sidemenu-holder --> 
       <!-- ============================================== SIDEBAR : END ============================================== --> 
       
       <!-- ============================================== CONTENT ============================================== -->
-      <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder"> 
+      <div class="center"> 
         <!-- ========================================== SECTION – HERO ========================================= -->
         
-        <div id="hero">
+        <!-- <div id="hero">
           <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
             <div class="item" style="background-image: url(assets/images/sliders/011.jpg);">
               <div class="container-fluid">
@@ -908,44 +421,44 @@ if (isset($_SESSION['user'])) {
                   <div class="big-text fadeInDown-1"> New Collections </div>
                   <div class="excerpt fadeInDown-2 hidden-xs " style = "color:yellow; "> <span>Get functional laptops at discounts.</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
-                </div>
+                </div> -->
                 <!-- /.caption --> 
-              </div>
+              <!-- </div> -->
               <!-- /.container-fluid --> 
-            </div>
+            <!-- </div> -->
             <!-- /.item -->
             
-            <div class="item" style="background-image: url(assets/images/sliders/021.jpg);">
+            <!-- <div class="item" style="background-image: url(assets/images/sliders/021.jpg);">
               <div class="container-fluid">
                 <div class="caption bg-color vertical-center text-left">
                   <div class="slider-header fadeInDown-1" style = "color:red; "><strong>Ride</strong></div>
                   <div class="big-text fadeInDown-1"> Bicycle </div>
                   <div class="excerpt fadeInDown-2 hidden-xs" style = "color:yellow; "> <span>Grab your fitness and travel buddy.</span> </div>
                   <div class="button-holder fadeInDown-3"> <a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a> </div>
-                </div>
+                </div> -->
                 <!-- /.caption --> 
-              </div>
+              <!-- </div> -->
               <!-- /.container-fluid --> 
-            </div>
+            <!-- </div> -->
             <!-- /.item --> 
             
-          </div>
+          <!-- </div> -->
           <!-- /.owl-carousel --> 
-        </div>
+        <!-- </div> -->
         
         <!-- ========================================= SECTION – HERO : END ========================================= --> 
         
 
         <!-- ============================================== SCROLL TABS ============================================== -->
         <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
-          <div class="more-info-tab clearfix ">
-            <h3 class="new-product-title pull-left">Products</h3>
-            <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
+          <div class="more-info-tab clearfix " style="background:  -webkit-linear-gradient(left, yellow, #fa4299) !important;">
+            <h3 class="new-product-title pull-left">Product Categories</h3>
+            <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
               <li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li>
               <li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Books</a></li>
               <li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a></li>
               <li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Music</a></li>
-            </ul>
+            </ul> -->
             <!-- /.nav-tabs --> 
           </div>
           <div class="tab-content outer-top-xs">
@@ -957,39 +470,24 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                          <a href="detail.html">
-                             <img src="assets/images/products/a1.jpg" alt=""> 
+                          <a href="books1.php">
+                             <img src="product_category/books.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p1_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                        </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Books</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="books1.php">Books</a></h3>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button data-toggle="tooltip" class="btn btn-primary icon" type="button" title="Add Cart"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                     
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1004,8 +502,8 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                          <a href="detail.html">
-                             <img src="assets/images/products/a2.jpg" alt=""> 
+                          <a href="electronics1.php">
+                             <img src="product_category/electronic_items.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p4_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                            </div>
@@ -1016,27 +514,13 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Bicycle</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="electronics1.php">Electronic Items</a></h3>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1051,39 +535,24 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
-                             <img src="assets/images/products/a3.jpg" alt=""> 
+                           <a href="essentials1.php">
+                             <img src="product_category/essentials.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p3_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                            </div>
                           <!-- /.image -->
                           
-                          <div class="tag sale"><span>sale</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Guitar</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="essentials1.php">Essentials</a></h3>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1098,8 +567,8 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
-                             <img src="assets/images/products/a4.jpg" alt=""> 
+                           <a href="sports and fitness1.php">
+                             <img src="product_category/sports_and_fitness.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p2_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                           </div>
@@ -1110,27 +579,13 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Kettle</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="sports and fitness1.php">Sports and Fitness</a></h3>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1145,39 +600,25 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
-                             <img src="assets/images/products/a5.jpg" alt=""> 
+                           <a href="stationery1.php">
+                             <img src="product_category/stationery.png" alt=""> 
                               <!-- <img src="assets/images/products/p6_hover.jpg" alt="" class="hover-image"> -->
                           </a> 
                           </div>
                           <!-- /.image -->
                           
-                          <div class="tag hot"><span>hot</span></div>
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Laptop</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="stationery1.php">Stationery</a></h3>
+                          
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
-                          </div>
-                          <!-- /.action --> 
-                        </div>
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1192,39 +633,57 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                           <a href="detail.html">
-                             <img src="assets/images/products/a6.jpg" alt=""> 
+                           <a href="subscriptions1.php">
+                             <img src="product_category/subscriptions.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
                           </a>
                           </div>
                           <!-- /.image -->
                           
-                          <div class="tag new"><span>new</span></div>
+                          
                         </div>
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="detail.html">Cooler</a></h3>
-                          <div class="rating rateit-small"></div>
+                          <h3 class="name"><a href="subscriptions1.php">Subscriptions</a></h3>
                           <div class="description"></div>
-                          <div class="product-price"> <span class="price"> $450.99 </span> <span class="price-before-discount">$ 800</span> </div>
                           <!-- /.product-price --> 
                           
                         </div>
                         <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                          <div class="action">
-                            <ul class="list-unstyled">
-                              <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                              </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
-                            </ul>
+                        
+                        <!-- /.cart --> 
+                      </div>
+                      <!-- /.product --> 
+                      
+                    </div>
+                    <!-- /.products --> 
+                  </div>
+
+                  <div class="item item-carousel">
+                    <div class="products">
+                      <div class="product">
+                        <div class="product-image">
+                          <div class="image"> 
+                           <a href="music instruments1.php">
+                             <img src="product_category/music.jpg" alt=""> 
+                              <!-- <img src="assets/images/products/p5_hover.jpg" alt="" class="hover-image"> -->
+                          </a>
                           </div>
-                          <!-- /.action --> 
+                          <!-- /.image -->
+                          
+                          
                         </div>
+                        <!-- /.product-image -->
+                        
+                        <div class="product-info text-left">
+                          <h3 class="name"><a href="music instruments1.php">Music Instruments</a></h3>
+                          <div class="description"></div>
+                          <!-- /.product-price --> 
+                          
+                        </div>
+                        <!-- /.product-info -->
+                        
                         <!-- /.cart --> 
                       </div>
                       <!-- /.product --> 
@@ -1296,13 +755,15 @@ if (isset($_SESSION['user'])) {
         <li>
           <div class="feature-box">
             <div class="fa fa-envelope" style="margin: 8px;"></div>
-            <div class="content-blocks"> <a href="#"> Mail </a></div>
+             <a href="mailto:teambuynsell36@gmail.com"><div class="content-blocks" style="color:black;"> Mail </div></a>
           </div>
         </li>
         <li>
           <div class="feature-box">
-            <div class="icon-return"></div>
-            <div class="content">30 days return</div>
+          <i class="material-icons">feedback</i>
+            <a href="https://forms.gle/ZjbcvAZEgJu291t97"><div class="content-blocks" style="color:black;">Give Feedback</div></a>
+
+            <!-- <div class="content">Buy and Sell</div> -->
           </div>
         </li>
         
