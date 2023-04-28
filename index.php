@@ -502,7 +502,7 @@ if (isset($_SESSION['user'])) {
                       <div class="product">
                         <div class="product-image">
                           <div class="image"> 
-                          <a href="electronics1.php.html">
+                          <a href="electronics1.php">
                              <img src="product_category/electronic_items.jpg" alt=""> 
                               <!-- <img src="assets/images/products/p4_hover.jpg" alt="" class="hover-image"> -->
                           </a>

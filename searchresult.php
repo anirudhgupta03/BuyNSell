@@ -5,6 +5,9 @@ include('db.php');
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
+if(isset($_SESSION['admin_login'])) {
+    $row_c = $_SESSION['admin_login'];
+}
 
 
 ?>
@@ -267,6 +270,7 @@ if (!isset($_SESSION['user'])){
 <br>
 <br>
 <br>
+
     <?php
         $search_string = strtolower($_POST['search']);
 

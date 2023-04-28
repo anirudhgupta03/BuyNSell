@@ -35,7 +35,7 @@ if(isset($_POST["rating_data"]))
 		$statement->execute($data);
 	
 		echo "Your Review & Rating Successfully Submitted";
-
+		
 }
 
 if(isset($_POST["action"]))
@@ -114,5 +114,5 @@ if(isset($_POST["action"]))
 	echo json_encode($output);
 
 }
-
+// header("location:user_home.php");
 ?>

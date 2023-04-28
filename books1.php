@@ -152,7 +152,7 @@ if (!isset($_SESSION['user'])){
 ?>
 
 		
-<br><br><br>
+<br><br><br><br>
 
     <?php
     $query1 = "select * from products where status = 'On Sale' and category_id = 1 ORDER BY pro_id DESC;";
