@@ -78,6 +78,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 20px;
 }
 
+
 .m-t-25 {
   margin-top: 25px;
 }
@@ -1096,12 +1097,12 @@ a {
 
 .top-bar {
   padding:0px;
-  font-size: 14px;
+  font-size: 17px;
   background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 }
 .top-bar .cnt-account {
   float: right;
-  padding: 6px 0px;
+  padding: 16px 54px;
 }
 .top-bar .cnt-account ul {
   margin: 0px;

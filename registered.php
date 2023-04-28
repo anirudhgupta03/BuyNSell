@@ -48,7 +48,7 @@ body {
 }
 
 .item-1 {
-    background-color: lightgreen;/*rgb(179, 55, 113);rgb(231, 76, 60);/*/
+    background-color: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
 }
 
 .item-2 {

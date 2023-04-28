@@ -33,6 +33,12 @@ if (isset($_REQUEST['pro_id'])) {
 
 <!DOCTYPE html>
 <html>
+
+<head>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 
 <style>
@@ -160,15 +166,55 @@ body {/*
 </style>
 
 <body>
+<?php
+if (isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
 
-    <?php include 'nav.php'; ?>
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<!-- <a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a> -->
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
     <br><br><br>
     <?php
         $query1111 = "select * from products where uid = $row_c->uid ORDER BY pro_id DESC";
         $run_q1111 = $con->query($query1111);
         $showing_products = $run_q1111->num_rows;
     ?>
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+    <!-- <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4> -->
     <div class="container mt-5 mb-5">
         <div class="card-deck mt-5">
             <?php

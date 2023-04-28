@@ -22,19 +22,41 @@ if (isset($_REQUEST['insert_product'])) {
     $words = explode(" ", $name);
 
     foreach($words as $word) {
-      $sound.=metaphone($word)." ";
+      $sound.=strtolower(metaphone($word));
     }
 
     $words1 = explode(" ", $description);
     
     foreach ($words1 as $word) {
-      $sound.=metaphone($word)." ";
+      $sound.=strtolower(metaphone($word));
     }
 
+	if($category == 1){
+		$categoryname = "books";
+	}
+	else if($category == 2){
+		$categoryname = "electronics";
+	}
+	else if($category == 3){
+		$categoryname = "essentials";
+	}
+	else if($category == 4){
+		$categoryname = "sports and fitness";
+	}
+	else if($category == 5){
+		$categoryname = "stationery";
+	}
+	else if($category == 6){
+		$categoryname = "subscriptions";
+	}
+	else if($category == 7){
+		$categoryname = "music";
+	}
 
-	$sound.=$price." ";
-	$sound.=metaphone(strtolower($name))." ";
-	$sound.=metaphone(strtolower($description))." ";
+	$sound.=$price;
+	$sound.=strtolower($name);
+	$sound.=strtolower($description);
+	$sound.=strtolower($categoryname);
 
 	$query1 = "insert into products (name, price, description, category_id, uid, indexing) values ('$name', '$price', '$description', '$category', '$row_c->uid', '$sound')";
 
@@ -122,6 +144,10 @@ if (isset($_REQUEST['insert_product'])) {
 
 
 <!DOCTYPE html>
+
+<head>
+<link rel = "stylesheet" href = "style.css">
+</head>
 <html>
 <?php include 'head.php'; ?>
 <style>
@@ -176,9 +202,72 @@ table {
 }
 </style>
 <body>
- 
-	<?php include 'nav.php'; ?>
+	<?php
+if (isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
 
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">&nbsp;
+			</a>
+
+			
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
+				</li>&nbsp;&nbsp;&nbsp;&nbsp;
+				<li class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</li>&nbsp;&nbsp;&nbsp;	
+				<!-- <li class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</li>&nbsp;&nbsp;&nbsp;	 -->
+				<li class="nav-item">
+					<a class="btn btn-danger " href="logout.php">Logout</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<?php
+}
+?>
+
+<?php
+if (!isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+			</a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Signup</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>"" href="admin_login.php">Admin Login</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<?php
+}
+?>
 <br>
 <br>
 	<form method="post" enctype="multipart/form-data">

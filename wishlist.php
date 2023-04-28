@@ -3,6 +3,10 @@ session_start();
 include('db.php');
 // include('pro_table_check.php');
 
+if(!isset($_SESSION['user'])) {
+    header("location:index.php");
+}
+
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
@@ -40,10 +44,24 @@ if(isset($_REQUEST['pid'])) {
 ?>
 
 <!doctype html>
+
 <html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Wishlist</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 <style>
 /* Cart or Wishlist */
+.pt-md-5, .py-md-5 {
+    padding-top: 7rem!important;
+}
 .shopping-cart .cart-header{
     padding: 10px;
 }
@@ -151,17 +169,79 @@ tr:nth-child(1) {
     color: white;
 }
 </style>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Wishlist</title>
 
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-</head>
 <body>
-    <?php include('nav.php') ?>
+<?php
+if (isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." />
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
+
+<?php
+if (!isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+			</a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Signup</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>"" href="admin_login.php">Admin Login</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<?php
+}
+?>
     <div class="py-3 py-md-5 bg-light">
         <div class="container">
     

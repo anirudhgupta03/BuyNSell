@@ -92,7 +92,7 @@ if (isset($_SESSION['user'])) {
                     </ul>
                   </li>
                 </ul> -->
-                <input class="search-field" name = "search" placeholder="Search here..." />
+                <input class="search-field" name = "search" placeholder="Search here..." autocomplete = "off" required/>
                 <button type="submit" class="search-button" > </button> 
                 <!-- <a class="search-button" href="#" ></a>  -->
               </div>
@@ -677,7 +677,7 @@ if (isset($_SESSION['user'])) {
                         <!-- /.product-image -->
                         
                         <div class="product-info text-left">
-                          <h3 class="name"><a href="music instruments1.php">Music Instruments</a></h3>
+                          <h3 class="name"><a href="music1.php">Music Instruments</a></h3>
                           <div class="description"></div>
                           <!-- /.product-price --> 
                           

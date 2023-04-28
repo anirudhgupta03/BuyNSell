@@ -1,15 +1,10 @@
 <?php 
 session_start();
 include('db.php');
-// include('pro_table_check.php');
 
 if(isset($_SESSION['user'])) {
-    $row_c = $_SESSION['user'];
+    header("location:user_home.php");
 }
-
-// if(!isset($_SESSION['user'])) {
-//     header("location:index.php");
-// }
 
 $home = true;
 $view = false;
@@ -24,6 +19,11 @@ $products = false;
 
 <!DOCTYPE html>
 <html>
+<head>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 
 <style>
@@ -99,11 +99,52 @@ a.text:hover,
 a.text:focus {
   color: #57606f !important;
 }
+.m-3 {
+    /* margin: 1rem!important; */
+    margin-top: 3rem !important;
+    margin-right: 1rem !important;
+    margin-bottom: -2rem !important;
+    margin-left: 39rem !important;
+}
 </style>
 
 <body>
+<?php
+if (!isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
 
-	<?php include 'nav.php'; ?>
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchelectronicsresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="nav-item">
+					<a class="nav-link text-white <?php { echo 'active'; }?>" href="index.php">Home</a>
+</div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php  { echo 'active'; }?>" href="home.php">Signup</a>
+</div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php { echo 'active'; }?>" href="home.php">Login</a>
+</div>
+				<!-- <li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="admin_login.php">Admin Login</a>
+				</li> -->
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
 
 		
 <br><br><br>

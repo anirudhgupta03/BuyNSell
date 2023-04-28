@@ -2,6 +2,9 @@
 include('db.php');
 // include('pro_table_check.php');
 
+if (!isset($_REQUEST['eid'])) {
+	header("location:index.php");
+}
 if (isset($_REQUEST['eid'])) {
 	$eid = $_REQUEST['eid'];
  	$edit = "select * from user where uid = '$eid' ";
@@ -24,7 +27,11 @@ if (isset($_REQUEST['update'])) {
 
 <!DOCTYPE html>
 <html>
-	
+<head>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 <style>
 body {
@@ -53,6 +60,10 @@ body {
     z-index: 5;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 60px;
+    margin-bottom: 0.5rem;
+}
 .bg-darkblue {
     background-color: rgb(24, 44, 97) !important;
 }
@@ -66,7 +77,7 @@ body {
 
 .item {
 	position: absolute;
-    top: 175%;
+    top: 100%;
 	padding: 25px;
 	background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 	border-radius: 5px;
@@ -79,7 +90,78 @@ table {
 
 </style>
 <body>
+<?php
+if (isset($_REQUEST['eid'])){
+?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_e->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
+
+<?php
+if (!isset($_REQUEST['eid'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+			</a>
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Signup</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>"" href="admin_login.php">Admin Login</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<?php
+}
+?>
+<!-- <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
@@ -99,7 +181,7 @@ table {
 				</li>
 			</ul>
 		</div>
-	</nav>
+	</nav> -->
 	<br><br><br>
 	<h1  align="center" class="text-primary">Edit Profile</h1>
  	<form method="post" >
