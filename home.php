@@ -12,13 +12,25 @@ if (isset($_REQUEST['login'])) {
     $email = $_REQUEST['email'];
     $email = strtolower($email);
     $password = $_REQUEST['password'];
-    
-    $query = "select * from user where email = '$email' and password = '$password'";  // query
+
+    // to prevent sql injection
+    $email = stripcslashes($email);
+    $password = stripcslashes($password);
+
+    $email = mysqli_real_escape_string($con, $email);
+    $password = mysqli_real_escape_string($con, $password);
+    echo $password;
+    $query = "select * from user where email = '$email'";  // query
     $run_q = $con->query($query);   // will select rows according to query
     $row_login = $run_q->fetch_object();    // will give rows sequence wise
-    $num_rows = $run_q->num_rows;       
+    $num_rows = 0;       
     
-    if ($num_rows == 1) {
+    if($run_q !== false){
+      $num_rows = $run_q->num_rows;
+    }
+
+    if ($num_rows > 0 && password_verify($password, $row_login->password)) {
+        $num_rows = 1;
         if ($row_login->status == "Disable") {
             $b = 1;
         }
@@ -31,6 +43,9 @@ if (isset($_REQUEST['login'])) {
             header("location:user_home.php");
         }
     }
+    else{
+      $num_rows = 0;
+    }
 }
 
     
@@ -42,6 +57,7 @@ if (isset($_REQUEST['submit'])) {
     $date = date('Y-m-d h:i:s');
     
     $email = strtolower($email);
+    
     $errormsg = "Already existing email, try another!";
     $query5 = "select * from user where email = BINARY '$email'";
     $run_q5 = $con->query($query5);
@@ -49,13 +65,14 @@ if (isset($_REQUEST['submit'])) {
     $num_rows = $run_q5->num_rows;	
 	
     if($num_rows > 0)
-	echo "<script type='text/javascript'>alert('$errormsg');</script>";
-	else
-    {
-		$ins = "insert into user (name, email, password, dor) values ('$name', '$email', '$password', '$date');";
-		$con->query($ins);                  
-		header("location:registered.php");
-	}
+    echo "<script type='text/javascript'>alert('$errormsg');</script>";
+    else
+      {
+        $password = password_hash($password, PASSWORD_DEFAULT);
+        $ins = "insert into user (name, email, password, dor) values ('$name', '$email', '$password', '$date');";
+        $con->query($ins);                  
+        header("location:registered.php");
+    }
 }
 
 if (isset($_REQUEST['admin_login'])) {
@@ -287,7 +304,7 @@ form .btn input[type="submit"]{
                <form method="post" class="login">
                <?php
                     if (isset($_REQUEST['login'])) {
-                        if($num_rows != 1) {
+                        if($num_rows > 1 || $num_rows === 0) {
                             ?>
                             <tr class="bg_danger text-danger" align="center">
                                 <td colspan="2" ><?php echo "Entered wrong User Name or Password!";?></td>

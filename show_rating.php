@@ -7,6 +7,15 @@ include('db.php');
 
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
+
+    $query111 = "select name from user where uid = $row_c->uid;";
+	$run_q111 = $con->query($query111);
+    $row_q111 = $run_q111->fetch_object();
+    $uname = $row_q111->name;
+}
+
+if(!isset($_SESSION['user'])) {
+    header("location: index.php");
 }
 
 if(!isset($_SESSION['user'])) {
@@ -213,7 +222,7 @@ if (isset($_SESSION['user'])){
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
 	        	<div class="form-group">
-	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="<?php echo $uname;?>" value="<?php echo $uname;?>" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>

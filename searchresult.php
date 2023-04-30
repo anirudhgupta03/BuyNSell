@@ -18,12 +18,10 @@ if(isset($_SESSION['admin_login'])) {
 	<title> Search Results</title>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel = "stylesheet" href = "style.css">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    
 </head>
 
 <style>
@@ -248,6 +246,15 @@ if (!isset($_SESSION['user'])){
             	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<div class="nav-item">
 					<a class="nav-link text-white <?php { echo 'active'; }?>" href="index.php">Home</a>
+
+                </div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php  { echo 'active'; }?>" href="home.php">Signup</a>
+                </div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php { echo 'active'; }?>" href="home.php">Login</a>
+                </div>
+
 </div>
 				<div class="nav-item">
 					<a class="nav-link text-white <?php  { echo 'active'; }?>" href="home.php">Signup</a>
@@ -255,6 +262,7 @@ if (!isset($_SESSION['user'])){
 				<div class="nav-item">
 					<a class="nav-link text-white <?php { echo 'active'; }?>" href="home.php">Login</a>
 </div>
+
 				<!-- <li class="nav-item">
 					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="admin_login.php">Admin Login</a>
 				</li> -->

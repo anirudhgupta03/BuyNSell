@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `user` (
   `uid` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `name` varchar(50) NOT NULL,
   -- `surname` varchar(50) NOT NULL,
   -- `gender` varchar(50) NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `user` (
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `mobile number` bigint(11) NOT NULL,
   `name` varchar(50) NOT NULL
   -- `surname` varchar(50) NOT NULL
@@ -146,6 +146,12 @@ CREATE TABLE `review_table` (
   `datetime` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+--
+-- Table structure for table `product_search`
+--
+
+
 CREATE TABLE `product_search` (
   `search_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL,
@@ -220,6 +226,10 @@ ALTER TABLE `tbl_purchase`
   ADD KEY `pro_id` (`pro_id`),
   ADD KEY `buyer_id` (`buyer_id`);
 
+--
+-- Indexes for table `product_search`
+--
+
 ALTER TABLE `product_search`
   ADD PRIMARY KEY (`search_id`),
   ADD KEY `pro_id` (`pro_id`),
@@ -273,8 +283,19 @@ ALTER TABLE `tbl_purchase`
 ALTER TABLE `tbl_wishlist`
   MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
+
+
+--
+-- AUTO_INCREMENT for table `product_search`
+--
 ALTER TABLE `product_search`
   MODIFY `search_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+
+ALTER TABLE `product_search`
+  MODIFY `search_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 --
 -- Constraints for table `products`
 --
@@ -311,6 +332,11 @@ ALTER TABLE `tbl_purchase`
 ALTER TABLE `tbl_wishlist`
   ADD CONSTRAINT `tbl_wishlist_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_wishlist_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
+
+
+--
+-- Constraints for table `product_search`
+--
 
 ALTER TABLE `product_search`
   ADD CONSTRAINT `product_search_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,

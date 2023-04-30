@@ -197,7 +197,7 @@ if (!isset($_SESSION['user'])){
 	$showing_products = $run_q1->num_rows;
     ?>
 
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+    <h4 style="padding:35px 0px 0px 20px;" class="text-info" text-align = "left">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
 
     <form>
 		    <div class="container mt-5 mb-5">
@@ -242,7 +242,7 @@ if (!isset($_SESSION['user'])){
 									<?php
 										if($row_c -> uid == $row_q1 -> uid){?>
 										<div>
-											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+											<a class="card-title " style="color:white;" href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										</div>	
 										<div>
 											<h4 class="font-weight-light" style="color:white;" >&#8377;<?php echo $row_q1->price; ?></h4>	

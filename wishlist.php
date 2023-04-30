@@ -9,6 +9,25 @@ if(!isset($_SESSION['user'])) {
 
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
+
+    $query22 = "select pro_id from tbl_wishlist where uid = $row_c->uid";
+    $runq22 = $con->query($query22);
+    $amount = 0;    
+    $num1 = $runq22->num_rows;
+    $prodcts = array();
+
+    while( $rowq22 = $runq22->fetch_object() ){
+        array_push($prodcts, $rowq22->pro_id);
+
+        $query23 = "select price from products where pro_id = $rowq22->pro_id";
+        $runq23 = $con->query($query23);
+        $rowq23 = $runq23->fetch_object();
+        $amount = $amount + $rowq23->price;
+    }
+
+    $Text = json_encode($prodcts);
+    $RequestText = urlencode($Text);
+    // print_r( $prodcts);
 }
 
 if (isset($_REQUEST['did'])) {
@@ -38,8 +57,16 @@ if(isset($_REQUEST['pid'])) {
         $usr = json_decode( json_encode($row_c -> uid), true);
         $query39 = "delete from tbl_wishlist where pro_id = $pro_id and uid = $usr";
  	    $con->query($query39);
-         header("location:view_product.php");
+        header("location:view_product.php");
     }
+}
+
+$errormessage1 = "Seller can not buy his own product";
+$errormessage2 = "Your bid is already at the top";
+
+if (isset($_REQUEST['buy'])) {
+	// $bid_amount = $_REQUEST['bid_amount'];
+    header("location:make_payment.php");
 }
 ?>
 
@@ -168,6 +195,21 @@ tr:nth-child(1) {
     background-color: #007bff;
     color: white;
 }
+input.razorpay-payment-button {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px;
+            cursor: pointer;
+            background: seagreen;
+            border-radius: 5px !important;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        input.razorpay-payment-button:hover {
+            background: mediumseagreen;
+        }
 </style>
 
 <body>
@@ -244,9 +286,9 @@ if (!isset($_SESSION['user'])){
 ?>
     <div class="py-3 py-md-5 bg-light">
         <div class="container">
-    
+        
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-7">
                     <div class="shopping-cart">
 
                         <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
@@ -320,6 +362,76 @@ if (!isset($_SESSION['user'])){
                     <?php
                     }
                     ?>       
+                    </div>
+                </div>
+                <div class="col-1">
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <br>
+                    </div>
+                    <div class="row">
+                        <br>
+                    </div>
+                    <div class="row">
+                        <br>
+                    </div>
+                    <div class="row">
+                        <br>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="card" style = "border-color: rgb(242, 112, 156); border-radius:15px;">
+                            
+                            <div class="container">
+                                <h4 class = "card-header" align = "center" style="width:100%;border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));"><b style="color:white;">Price Details</b></h4>
+                                <!-- <div style="  height: 1px; border: 0; background: black;">
+                                    <hr>
+                                </div> -->
+                                <br>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p> Price( <?php echo $num1;?> items ) </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p> <?php echo $amount; ?> </p>
+                                    </div>                                
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-6">
+                                        <p> Delivery Charges </p>
+                                    </div>
+                                    <div class="col-6">
+                                        <p style="color:green;"> FREE </p>
+                                    </div>                                
+                                </div>
+                                
+                                <div style="  height: 1px; border: 0; background: black;">
+                                    <hr>
+                                </div>
+                                <?php 
+                                    $image_for_payment = "product_images/"."Iconpay.jpeg";
+                                ?>
+                               
+                                <div class="row">
+                                    <form action="confirmation1.php?cluster=<?php echo $RequestText; ?>" method="POST">
+                                        <script
+                                        src="https://checkout.razorpay.com/v1/checkout.js"
+                                        data-key="rzp_test_6ylMbjZf5RYhOG"
+                                        data-amount="<?= $amount * 100 ?>"
+                                        data-buttontext="Proceed to pay &#x20B9 <?= $amount ?>!"
+                                        data-name= "<?= "dffff"?>"
+                                        data-description="Entry Ticket Purchase"
+                                        data-image="<?= $image_for_payment ?>"
+                                        data-theme.color="#b21e8e"
+                                        ></script>
+
+                                    </form>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

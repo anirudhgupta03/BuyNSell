@@ -160,7 +160,7 @@ if (!isset($_SESSION['user'])){
 	$showing_products = $run_q1->num_rows;
     ?>
 
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+    <h4 style="padding:35px 0px 0px 20px;" class="text-info" text-align = "left">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
 
     <form>
 		    <div class="container mt-5 mb-5">

@@ -7,6 +7,15 @@ if (isset($_SESSION['user'])) {
     header("location:user_home.php");
 }
 
+// $queryy = "Select * FROM user" ;
+// $run_queryy = $con->query($queryy);
+// while($rwoy = $run_queryy->fetch_object()){
+//   $password = password_hash($rwoy->password, PASSWORD_DEFAULT);
+//   $q = "update user set password = '$password' where uid = '$rwoy->uid'";
+//   $con->query($q);
+// }
+
+
 ?>
 
 <!DOCTYPE html>

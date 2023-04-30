@@ -114,6 +114,7 @@ body {
 <?php
 if (isset($_SESSION['user'])){
 ?>
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
@@ -130,20 +131,29 @@ if (isset($_SESSION['user'])){
               		<!-- </div> -->
             	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-<<<<<<< HEAD
 
 				<div class="nav-item dropdown">
-=======
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
 			</a>
-			<div align="center">
-				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
-			</div>
+
 			
+
+			<div class="search-box">
+            	<form action = "searchelectronicsresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+
 			<ul class="navbar-nav">
 				<li class="nav-item">
 					<form action = "searchresult_catgry.php?catgid=<?php echo 2; ?>" method="POST">
@@ -155,7 +165,7 @@ if (isset($_SESSION['user'])){
 					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
 				</li>&nbsp;&nbsp;&nbsp;&nbsp;
 				<li class="nav-item dropdown">
->>>>>>> ed630d02e3d04aa218ee858111d42fe6d1ae0099
+
 					
 					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
@@ -164,7 +174,7 @@ if (isset($_SESSION['user'])){
 						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
 						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
 					</div>
-<<<<<<< HEAD
+
 				</div>&nbsp;&nbsp;&nbsp;	
 				<div class = "nav-item">
 				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
@@ -173,12 +183,19 @@ if (isset($_SESSION['user'])){
 					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
 				</div>
           	</div>
+
 		</div>
 	</nav>
 	<?php
 }
 ?>
-=======
+
+		</div>
+	</nav>
+	<?php
+}
+?>
+
 				</li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	
 				<li class="nav-item">
 					<a class="btn btn-danger " href="logout.php">Logout</a>
@@ -186,7 +203,7 @@ if (isset($_SESSION['user'])){
 			</ul>
 		</div>
 	</nav>
->>>>>>> ed630d02e3d04aa218ee858111d42fe6d1ae0099
+
 
 		
 <br><br><br>
@@ -197,7 +214,7 @@ if (isset($_SESSION['user'])){
 	$showing_products = $run_q1->num_rows;
     ?>
 
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+    <h4 style="padding:35px 0px 0px 20px;" class="text-info" text-align = "left">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
 
     <form>
 		    <div class="container mt-5 mb-5">
@@ -242,7 +259,7 @@ if (isset($_SESSION['user'])){
 									<?php
 										if($row_c -> uid == $row_q1 -> uid){?>
 										<div>
-											<a class="card-title text-dark"   href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
+											<a class="card-title " style="color:white;" href="view_product1.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $row_q1->name; ?></h5></a>
 										</div>	
 										<div>
 											<h4 class="font-weight-light" style="color:white;" >&#8377;<?php echo $row_q1->price; ?></h4>	

@@ -26,9 +26,15 @@ $products = false;
 <html>
 
 <head>
+
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel = "stylesheet" href = "style.css">
+
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel = "stylesheet" href = "style.css">
+
 </head>
 <?php include 'head.php'; ?>
 
@@ -109,7 +115,11 @@ a.text:focus {
 }
 </style>
 
+
+<body style="background:#fcfbf7;">
+
 <body>
+
 	<?php
 if (isset($_SESSION['user'])){
 ?>
@@ -183,8 +193,9 @@ if (isset($_SESSION['user'])){
 									$image_destination = "product_category/".$image_name;
 									$dest = strtolower($row_q1->name).".php";
 									?>
-								
-									<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									<a href="<?php echo $dest; ?>">
+										<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									</a>
 									<div class="card-body" style="border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));">
 										<a class="card-title text-dark" style="border-radius:15px 15px 0px 0px;" href="<?php echo $dest; ?>"><h5 style="color:white;"><?php echo $row_q1->name; ?></h5></a>
 									</div>

@@ -212,6 +212,21 @@ element.style {
 .card-hover:hover {
 	background-color: rgba(127, 140, 141, .2);
 }
+
+
+a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration:none;
+    font-size: 14px;
+    color: black;
+}
+
+a:hover, a.active   
+{
+    /* text-decoration: none; */
+    color:blue;
+}
+
 input.razorpay-payment-button {
             display: block;
             /* margin: 30px auto 0; */
@@ -419,18 +434,304 @@ if (isset($_SESSION['user'])){
 		  (e || window.event).returnValue = confirmationMessage; 
 		  return confirmationMessage;                            
 		});
+
+	</script> -->   
+   <?php
+    if(isset($_REQUEST['show'])){
+        $mess = $_REQUEST['show'];
+        $mess = json_decode( json_encode($mess), true);
+        // echo "lelo";
+        if($mess === 'his'){?>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="padding: 50px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "his"; ?>" onclick="clickSingleA(this)" class="single active"><h5>Inspired by your browsing history</h5></a></div>
+            
+            <div style="padding: 30px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "sim";?>" onclick="clickSingleA(this)" class="single"><h5>Similar Products</h5></a></div>
+            <div style="padding: 30px 5px 10px 100px; display: inline-block; margin-bottom: 2em;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "samusr"; ?>" onclick="clickSingleA(this)" class="single"><h5>Other Products by the Seller</h5></a></div>
+        <?php
+        }
+        else if($mess === 'sim'){?>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="padding: 50px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "his"; ?>" onclick="clickSingleA(this)" class="single"><h5>Inspired by your browsing history</h5></a></div>
+            
+            <div style="padding: 30px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "sim";?>" onclick="clickSingleA(this)" class="single active"><h5>Similar Products</h5></a></div>
+            <div style="padding: 30px 5px 10px 100px; display: inline-block; margin-bottom: 2em;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "samusr"; ?>" onclick="clickSingleA(this)" class="single"><h5>Other Products by the Seller</h5></a></div>
+        <?php
+        }
+        else if($mess === 'samusr'){?>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="padding: 50px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "his"; ?>" onclick="clickSingleA(this)" class="single"><h5>Inspired by your browsing history</h5></a></div>
+            
+            <div style="padding: 30px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "sim";?>" onclick="clickSingleA(this)" class="single"><h5>Similar Products</h5></a></div>
+            <div style="padding: 30px 5px 10px 100px; display: inline-block; margin-bottom: 2em;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "samusr"; ?>" onclick="clickSingleA(this)" class="single active"><h5>Other Products by the Seller</h5></a></div>
+        <?php
+        }
+    }
+    else{?>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="padding: 50px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "his"; ?>" onclick="clickSingleA(this)" class="single active"><h5>Inspired by your browsing history</h5></a></div>
+    
+        <div style="padding: 30px 5px 10px 100px; display: inline-block;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "sim";?>" onclick="clickSingleA(this)" class="single"><h5>Similar Products</h5></a></div>
+        <div style="padding: 30px 5px 10px 100px; display: inline-block; margin-bottom: 2em;"><a href="view_product.php?pro_id=<?php echo $pro_id; ?>&show=<?php echo "samusr"; ?>" onclick="clickSingleA(this)" class="single"><h5>Other Products by the Seller</h5></a></div>
+    <?php
+    }
+    ?>
+   <script>
+        function clickSingleA(a)
+        {
+            items = document.querySelectorAll('.single.active');
+
+            if(items.length) 
+            {
+                items[0].className = 'single';
+            }
+
+            a.className = 'single active';
+        }
+    </script>
+    <!-- <div class="row" style="padding:30px 5px 10px 100px;">
+            
+            <p style="display: inline-block;">Search History</p>
+            
+            
+            <p style="display: flex;">Compare Products</p>
+            
+            <p style="display: inline-block;">By same User</p>
+           
+    </div> -->
+ 
+	<section class="product" style="border-color:red;"> 
+
+
 	</script> -->
 
     
 	
 	<section class="product"> 
         <h2 class="product-category">Inspired by your browsing history</h2>
+
         <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
         <div class="product-container">
 
             <?php
                 $usr = json_decode( json_encode($row_c -> uid), true);
+
+                
+                if(isset($_REQUEST['show'])){
+                    $mess = $_REQUEST['show'];
+                    $mess = json_decode( json_encode($mess), true);
+                    // echo "lelo";
+                    if($mess === 'his'){
+                        $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC LIMIT 20";
+                        $runqueryrecommendation = $con->query($queryrecommendation);
+                        if($runqueryrecommendation->num_rows == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
+                        }
+                        while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
+                            $pro_id = $rowqueryrecommendation -> pro_id;
+                            // echo $pro_id;
+                            $queryproductdetails = "SELECT * FROM products WHERE pro_id = $pro_id AND status = 'On Sale' AND uid <> $usr ";
+                            $runqueryproductdetails = $con->query($queryproductdetails);
+                            $rowqueryproductdetails =  $runqueryproductdetails -> fetch_object();
+
+                            if($runqueryproductdetails -> num_rows !== 0)
+                            {
+                                // echo $rowqueryproductdetails->price;
+                                $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
+                                            $run_q6 = $con->query($query6);
+                                            $row_q6 = $run_q6->fetch_object();
+                                            $image_name = $row_q6->img_name;
+                                            $image_destination = "product_images/".$image_name;
+                                // $image_name = $rowqueryproductdetails->img_name;
+                                // $image_destination = "product_images/".$image_name;
+                                ?>
+                                <div class="product-card">
+                                <div class="product-image">
+                                    <!-- <span class="discount-tag">50% off</span> -->
+                                    <img src="<?php echo $image_destination; ?>" class="product-thumb" alt="">
+                                    <!-- <button class="card-btn">add to wishlist</button> -->
+                                </div>
+                                <div class="product-info">
+                                <div>
+                                    <br>
+                                                    <a class="card-title text-dark"   href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $rowqueryproductdetails->name; ?></h5></a>
+                                                    <h4 class="font-weight-light" style="color:black;" >&#8377;<?php echo $rowqueryproductdetails->price; ?></h4>
+                                                </div>	
+                                                <!-- <div>
+                                                        
+                                                </div> -->
+                                    <!-- <h2 class="product-brand">brand</h2> -->
+                                    <!-- <p class="product-short-description">a short line about the cloth..</p> -->
+                                    <!-- <span class="price">$20</span><span class="actual-price">$40</span> -->
+                                </div>
+                            </div>
+                            <?php
+                            }?>
+                            <!-- echo $pro_id; -->
+                        <?php
+                        }
+                    }
+                    else if($mess === 'sim'){
+                        $queryrecommendation = "SELECT DISTINCT pro_id FROM products WHERE (name LIKE '%$row_q1->name%') and pro_id != '$pro_id' and status = 'On Sale' AND uid <> $usr ORDER BY pro_id DESC";
+                        $runqueryrecommendation = $con->query($queryrecommendation);
+                        if($runqueryrecommendation->num_rows == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
+                        }
+                        while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
+                            $pro_id = $rowqueryrecommendation -> pro_id;
+                            // echo $pro_id;
+                            $queryproductdetails = "SELECT * FROM products WHERE pro_id = $pro_id AND status = 'On Sale' AND uid <> $usr ";
+                            $runqueryproductdetails = $con->query($queryproductdetails);
+                            $rowqueryproductdetails =  $runqueryproductdetails -> fetch_object();
+
+                            if($runqueryproductdetails -> num_rows !== 0)
+                            {
+                                // echo $rowqueryproductdetails->price;
+                                $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
+                                            $run_q6 = $con->query($query6);
+                                            $row_q6 = $run_q6->fetch_object();
+                                            $image_name = $row_q6->img_name;
+                                            $image_destination = "product_images/".$image_name;
+                                // $image_name = $rowqueryproductdetails->img_name;
+                                // $image_destination = "product_images/".$image_name;
+                                ?>
+                                <div class="product-card">
+                                <div class="product-image">
+                                    <!-- <span class="discount-tag">50% off</span> -->
+                                    <img src="<?php echo $image_destination; ?>" class="product-thumb" alt="">
+                                    <!-- <button class="card-btn">add to wishlist</button> -->
+                                </div>
+                                <div class="product-info">
+                                <div>
+                                    <br>
+                                                    <a class="card-title text-dark"   href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $rowqueryproductdetails->name; ?></h5></a>
+                                                    <h4 class="font-weight-light" style="color:black;" >&#8377;<?php echo $rowqueryproductdetails->price; ?></h4>
+                                                </div>	
+                                                <!-- <div>
+                                                        
+                                                </div> -->
+                                    <!-- <h2 class="product-brand">brand</h2> -->
+                                    <!-- <p class="product-short-description">a short line about the cloth..</p> -->
+                                    <!-- <span class="price">$20</span><span class="actual-price">$40</span> -->
+                                </div>
+                            </div>
+                            <?php
+                            }?>
+                            <!-- echo $pro_id; -->
+                        <?php
+                        }
+                    }   
+                    else if($mess === 'samusr'){
+                        $queryrecommendation = "SELECT DISTINCT pro_id FROM products WHERE uid = '$row_q1->uid' and pro_id != '$pro_id' and status = 'On Sale' AND uid <> $usr ORDER BY pro_id DESC";
+                        $runqueryrecommendation = $con->query($queryrecommendation);
+                        if($runqueryrecommendation->num_rows == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
+                        }
+                        while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
+                            $pro_id = $rowqueryrecommendation -> pro_id;
+                            // echo $pro_id;
+                            $queryproductdetails = "SELECT * FROM products WHERE pro_id = $pro_id AND status = 'On Sale' AND uid <> $usr ";
+                            $runqueryproductdetails = $con->query($queryproductdetails);                    
+                            $rowqueryproductdetails =  $runqueryproductdetails -> fetch_object();
+
+                            if($runqueryproductdetails -> num_rows !== 0)
+                            {
+                                // echo $rowqueryproductdetails->price;
+                                $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
+                                            $run_q6 = $con->query($query6);
+                                            $row_q6 = $run_q6->fetch_object();
+                                            $image_name = $row_q6->img_name;
+                                            $image_destination = "product_images/".$image_name;
+                                // $image_name = $rowqueryproductdetails->img_name;
+                                // $image_destination = "product_images/".$image_name;
+                                ?>
+                                <div class="product-card">
+                                <div class="product-image">
+                                    <!-- <span class="discount-tag">50% off</span> -->
+                                    <img src="<?php echo $image_destination; ?>" class="product-thumb" alt="">
+                                    <!-- <button class="card-btn">add to wishlist</button> -->
+                                </div>
+                                <div class="product-info">
+                                <div >
+                                    <br>
+                                                    <a class="card-title text-dark"   href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $rowqueryproductdetails->name; ?></h5></a>
+                                                    <h4 class="font-weight-light" style="color:black;" >&#8377;<?php echo $rowqueryproductdetails->price; ?></h4>
+                                                </div>	
+                                                <!-- <div>
+                                                        
+                                                </div> -->
+                                    <!-- <h2 class="product-brand">brand</h2> -->
+                                    <!-- <p class="product-short-description">a short line about the cloth..</p> -->
+                                    <!-- <span class="price">$20</span><span class="actual-price">$40</span> -->
+                                </div>
+                            </div>
+                            <?php
+                            }?>
+                            <!-- echo $pro_id; -->
+                        <?php
+                        }
+                    }                   
+                }
+                else{
+                    $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC LIMIT 20";
+                    $runqueryrecommendation = $con->query($queryrecommendation);
+                    if($runqueryrecommendation->num_rows == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
+                        }
+                    while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
+                        $pro_id = $rowqueryrecommendation -> pro_id;
+                        // echo $pro_id;
+                        $queryproductdetails = "SELECT * FROM products WHERE pro_id = $pro_id AND status = 'On Sale' AND uid <> $usr ";
+                        $runqueryproductdetails = $con->query($queryproductdetails);
+                        $rowqueryproductdetails =  $runqueryproductdetails -> fetch_object();
+
+                        if($runqueryproductdetails -> num_rows !== 0)
+                        {
+                            // echo $rowqueryproductdetails->price;
+                            $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
+                                        $run_q6 = $con->query($query6);
+                                        $row_q6 = $run_q6->fetch_object();
+                                        $image_name = $row_q6->img_name;
+                                        $image_destination = "product_images/".$image_name;
+                            // $image_name = $rowqueryproductdetails->img_name;
+                            // $image_destination = "product_images/".$image_name;
+                            ?>
+                            <div class="product-card">
+                            <div class="product-image">
+                                <!-- <span class="discount-tag">50% off</span> -->
+                                <img src="<?php echo $image_destination; ?>" class="product-thumb" alt="">
+                                <!-- <button class="card-btn">add to wishlist</button> -->
+                            </div>
+                            <div class="product-info">
+                            <div>
+                                <br>
+                                                <a class="card-title text-dark"   href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $rowqueryproductdetails->name; ?></h5></a>
+                                                <h4 class="font-weight-light" style="color:black;" >&#8377;<?php echo $rowqueryproductdetails->price; ?></h4>
+                                            </div>	
+                                            <!-- <div>
+                                                    
+                                            </div> -->
+                                <!-- <h2 class="product-brand">brand</h2> -->
+                                <!-- <p class="product-short-description">a short line about the cloth..</p> -->
+                                <!-- <span class="price">$20</span><span class="actual-price">$40</span> -->
+                            </div>
+                        </div>
+                        <?php
+                        }?>
+                        <!-- echo $pro_id; -->
+                    <?php
+                    }
+                }
+                ?>
+
                 $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC";
                 $runqueryrecommendation = $con->query($queryrecommendation);
                 
@@ -475,6 +776,7 @@ if (isset($_SESSION['user'])){
                     <!-- echo $pro_id; -->
                 <?php
                 }?>
+
             <!-- <div class="product-card">
                 <div class="product-image">
                     <span class="discount-tag">50% off</span>
