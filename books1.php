@@ -24,6 +24,11 @@ $products = false;
 
 <!DOCTYPE html>
 <html>
+<head>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 
 <style>
@@ -99,58 +104,55 @@ a.text:hover,
 a.text:focus {
   color: #57606f !important;
 }
-/* .button {
-  display: inline-block;
-  width: 20%;
-  padding: 0px;
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
+.m-3 {
+    /* margin: 1rem!important; */
+    margin-top: 3rem !important;
+    margin-right: 1rem !important;
+    margin-bottom: -2rem !important;
+    margin-left: 39rem !important;
 }
-
-.button:hover {
-  background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
-} */
-
-
 </style>
 
 <body>
+<?php
+if (!isset($_SESSION['user'])){
+?>
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
 		<div class="container">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
-				<img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
 			</a>
 
-            <form action = "searchresult_catgry.php?catgid=<?php echo 1; ?>" method="POST">
-				<input type="text" style="border-color: black;border-radius:13px 0px 0px 13px;" placeholder="Search here...." name="search">
-				<button style="margin:0px;border-color: black;border-radius:0px 13px 13px 0px; background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;" type="submit"><i style="color:white;"class="fa fa-search"></i></button>                
-            </form>
-
-          </div>
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="index.php">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Signup</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="home.php">Login</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>"" href="admin_login.php">Admin Login</a>
-				</li>
-			</ul>
+			
+			<div class="search-box">
+            	<form action = "searchbooksresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="nav-item">
+					<a class="nav-link text-white <?php { echo 'active'; }?>" href="index.php">Home</a>
+</div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php  { echo 'active'; }?>" href="home.php">Signup</a>
+</div>
+				<div class="nav-item">
+					<a class="nav-link text-white <?php { echo 'active'; }?>" href="home.php">Login</a>
+</div>
+				<!-- <li class="nav-item">
+					<a class="nav-link <?php if ($home == true) { echo 'active'; }?>" href="admin_login.php">Admin Login</a>
+				</li> -->
+          	</div>
 		</div>
 	</nav>
+	<?php
+}
+?>
 
 		
-<br><br><br><br>
+<br><br><br>
 
     <?php
     $query1 = "select * from products where status = 'On Sale' and category_id = 1 ORDER BY pro_id DESC;";
@@ -158,7 +160,7 @@ a.text:focus {
 	$showing_products = $run_q1->num_rows;
     ?>
 
-    <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
+    <h4 style="padding:35px 0px 0px 20px;" class="text-info" text-align = "left">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4>
 
     <form>
 		    <div class="container mt-5 mb-5">

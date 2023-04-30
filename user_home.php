@@ -7,9 +7,9 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
-// if(!isset($_SESSION['user'])) {
-//     header("location:index.php");
-// }
+if(!isset($_SESSION['user'])) {
+    header("location:index.php");
+}
 
 $home = true;
 $view = false;
@@ -24,6 +24,12 @@ $products = false;
 
 <!DOCTYPE html>
 <html>
+
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel = "stylesheet" href = "style.css">
+</head>
 <?php include 'head.php'; ?>
 
 <style>
@@ -90,6 +96,9 @@ body {
 	background-color: rgba(39, 60, 117, .7);*/
 }
 
+.mt-5, .my-5 {
+    margin-top: 4rem!important;
+}
 .text {
   color: #6c757d !important;
 }
@@ -100,10 +109,49 @@ a.text:focus {
 }
 </style>
 
-<body>
+<body style="background:#fcfbf7;">
+	<?php
+if (isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
 
-	<?php include 'nav.php'; ?>
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
 
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required />
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
 		
 <br><br>
 
@@ -135,8 +183,9 @@ a.text:focus {
 									$image_destination = "product_category/".$image_name;
 									$dest = strtolower($row_q1->name).".php";
 									?>
-								
-									<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									<a href="<?php echo $dest; ?>">
+										<img class="product_img card-img-top" style="border-radius:15px 15px 0px 0px;" src="<?php echo $image_destination; ?>"  height="200vh" width="100%" alt="Product Image">
+									</a>
 									<div class="card-body" style="border-radius:0px 0px 15px 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));">
 										<a class="card-title text-dark" style="border-radius:15px 15px 0px 0px;" href="<?php echo $dest; ?>"><h5 style="color:white;"><?php echo $row_q1->name; ?></h5></a>
 									</div>

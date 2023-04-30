@@ -7,6 +7,15 @@ include('db.php');
 
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
+
+    $query111 = "select name from user where uid = $row_c->uid;";
+	$run_q111 = $con->query($query111);
+    $row_q111 = $run_q111->fetch_object();
+    $uname = $row_q111->name;
+}
+
+if(!isset($_SESSION['user'])) {
+    header("location: index.php");
 }
 
 if(isset($_REQUEST['pro_id']))
@@ -22,6 +31,9 @@ if(isset($_REQUEST['pro_id']))
 <html>
 <head>
     <meta charset="utf-8" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "style.css">
     <title><?php echo $row_q131->name;?>: Review & Rating</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -48,11 +60,54 @@ if(isset($_REQUEST['pro_id']))
 	display: flex;
 	flex-direction: column;
 }
-
+.mt-5, .my-5 {
+    margin-top: 5rem!important;
+}
 
 </style>
 <body>
-<?php include 'nav.php'; ?>
+<?php
+if (isset($_SESSION['user'])){
+?>
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+		<div class="container">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+              		<!-- <div class="control-group" style="display:flex;"> -->
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+              		<!-- </div> -->
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
+	<?php
+}
+?>
 <br>
 <br>
     <div class="container">
@@ -163,7 +218,7 @@ if(isset($_REQUEST['pro_id']))
                     <i class="fas fa-star star-light submit_star mr-1" id="submit_star_5" data-rating="5"></i>
 	        	</h4>
 	        	<div class="form-group">
-	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="<?php echo $uname;?>" value="<?php echo $uname;?>" />
 	        	</div>
 	        	<div class="form-group">
 	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>

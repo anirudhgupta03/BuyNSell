@@ -10,19 +10,35 @@ if (isset($_SESSION['admin_login'])) {
 if (isset($_REQUEST['login'])) {
 	$uname = $_REQUEST['uname'];
 	$password = $_REQUEST['password'];
-	$query1 = "select * from admin where username = BINARY '$uname' and password = BINARY '$password'";
+
+  // $password = password_hash($password, PASSWORD_DEFAULT);
+  // to prevent sql injection
+  $uname = stripcslashes($uname);
+  $password = stripcslashes($password);
+  
+  $uname = mysqli_real_escape_string($con, $uname);
+  $password = mysqli_real_escape_string($con, $password);
+
+	$query1 = "select * from admin where username = BINARY '$uname'";
 	$run_q1 = $con->query($query1);
 	$row_login = $run_q1->fetch_object();
-	$num_rows = $run_q1->num_rows;
-	if ($num_rows == 1) {
+  $num_rows = 0;
+  if($run_q1 !== false){
+	  $num_rows = $run_q1->num_rows;
+  }
+
+	if ($num_rows > 0 && password_verify($password, $row_login->password)) {
 		// if (isset($_REQUEST['rem'])) {
 		// 	setcookie('username', $row_login->uname, time()+60);
 		// 	setcookie('password', $row_login->password, time()+60);
 		// }
-
+    $num_rows = 1;
 		$_SESSION['admin_login']=$row_login;
 		header("location:admin_home.php");  
 	}
+  else{
+    $num_rows = 0;
+  }
 }
 
 if (isset($_REQUEST['user_login'])) {
@@ -222,10 +238,10 @@ label input[type="checkbox"] {
     <!-- <link rel="stylesheet" href="css/style.css"> -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./style.css">
 
+
 </head>
 
 <body>
-
 <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
         <div class="container">
           <a style="color: #ffc107;" class="navbar-brand" href="index.php">
@@ -249,6 +265,18 @@ label input[type="checkbox"] {
             <h5>Login</h5>
             <p>Not an admin? <a href="home.php"> Go to User Signup/Login page</a> it takes less than a minute</p>
             <form method="post">
+                <?php
+                    if (isset($_REQUEST['login'])) {
+                        if($num_rows > 1 || $num_rows === 0 ) {
+                        ?>
+                          <tr style="background-color:#FF0000;" align="center">
+                            <td colspan="2" style="background-color:#FF0000;"><?php echo "Entered wrong Admin Name or Password!";?></td>
+                          </tr>
+                          <?php
+                        }
+                    }
+                ?>
+
                 <table border="0" align="left" cellpadding="11" cellspacing="0" width="300">
                     <tr>
                         <td><input class="form-control" type="text" name="uname" required="required" placeholder="username"></td>
