@@ -18,6 +18,10 @@ if(!isset($_SESSION['user'])) {
     header("location: index.php");
 }
 
+if(!isset($_SESSION['user'])) {
+    header("location: index.php");
+}
+
 if(isset($_REQUEST['pro_id']))
 {
 	echo $proid = $_REQUEST['pro_id'];

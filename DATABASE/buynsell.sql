@@ -146,6 +146,7 @@ CREATE TABLE `review_table` (
   `datetime` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 --
 -- Table structure for table `product_search`
 --
@@ -228,6 +229,7 @@ ALTER TABLE `tbl_purchase`
 --
 -- Indexes for table `product_search`
 --
+
 ALTER TABLE `product_search`
   ADD PRIMARY KEY (`search_id`),
   ADD KEY `pro_id` (`pro_id`),
@@ -282,12 +284,17 @@ ALTER TABLE `tbl_wishlist`
   MODIFY `wishlist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 
+
 --
 -- AUTO_INCREMENT for table `product_search`
 --
 ALTER TABLE `product_search`
   MODIFY `search_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
+
+
+ALTER TABLE `product_search`
+  MODIFY `search_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- Constraints for table `products`
@@ -326,9 +333,11 @@ ALTER TABLE `tbl_wishlist`
   ADD CONSTRAINT `tbl_wishlist_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `tbl_wishlist_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
 
+
 --
 -- Constraints for table `product_search`
 --
+
 ALTER TABLE `product_search`
   ADD CONSTRAINT `product_search_ibfk_1` FOREIGN KEY (`pro_id`) REFERENCES `products` (`pro_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `product_search_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE;
