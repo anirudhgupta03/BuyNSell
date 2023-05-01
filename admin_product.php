@@ -19,6 +19,7 @@
      	$query2 = "update products set status = '$update' where pro_id = '$pro_id' ";
      	$con->query($query2);
      	header("location:product.php");
+
    }
 ?>
 
@@ -588,15 +589,15 @@
             <form method="post" >
                <table class="mt-5 mb-3" cellspacing="0" cellpadding="7" width="90%" >
                   <tr align="center">
-                     <th style="border-radius:15px 0px 0px 0px;">Product ID</th>
-                     <th >Name</th>
-                     <th >Seller Id</th>
-                     <th >Price by Seller</th>
-                     <th > Category </th>
-                     <th >Description</th>
-                     <th >Status</th>
-                     <th> Rating </th>
-                     <th style="border-radius:0px 15px 0px 0px;"colspan="2">Buyer Id </th>
+                     <th style="padding:7px; border-radius:15px 0px 0px 0px;">Product ID</th>
+                     <th style = "padding:5px;">Name</th>
+                     <th style = "padding:5px;">Seller Id</th>
+                     <th style = "padding:5px;">Price by Seller</th>
+                     <th style = "padding:5px;"> Category </th>
+                     <th style = "padding:5px;">Description</th>
+                     <th style = "padding:5px;">Status</th>
+                     <th style = "padding:5px;"> Rating </th>
+                     <th style="padding:7px; border-radius:0px 15px 0px 0px;">Buyer Id </th>
                   </tr>
                   <?php
                      $query1 = "select * from products";
@@ -605,13 +606,13 @@
                      while ($row_q1 = $run_q1->fetch_object()) {
                      ?>		
                   <tr align="center">
-                     <td><?php echo $row_q1->pro_id; ?></td>
-                     <td><?php echo $row_q1->name; ?></td>
-                     <td><?php echo $row_q1->uid; ?></td>
-                     <td><?php echo $row_q1->price; ?></td>
-                     <td><?php echo $row_q1->category_id; ?></td>
-                     <td><?php echo $row_q1->description; ?></td>
-                     <td><?php echo $row_q1->status; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->pro_id; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->name; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->uid; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->price; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->category_id; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->description; ?></td>
+                     <td style = "padding:5px;"><?php echo $row_q1->status; ?></td>
                      <?php				
                         $query2 = "select * from tbl_purchase where pro_id = '$row_q1->pro_id'";
                         $run_q2 = $con->query($query2);
@@ -624,20 +625,20 @@
                             $flg = true;
                         }
                         ?>
-                     <td> 
+                     <td style = "padding:5px;"> 
                         <?php
                            if(!$flg){
                            echo "Not Sold";
                            }
                            else{?>
-                        <a href = "show_rating_admin.php?pro_id=<?php echo $row_q1->pro_id; ?>" class="btn btn-warning" type="submit">
+                        <a  href = "show_rating_admin.php?pro_id=<?php echo $row_q1->pro_id; ?>" class="btn btn-warning" type="submit">
                         Rating
                         </a> 
                         <?php
                            }
                            ?>                        
                      </td>
-                     <td><?php echo $buyer; ?></td>
+                     <td style = "padding:5px;"><?php echo $buyer; ?></td>
                   </tr>
                   <?php 
                      }
