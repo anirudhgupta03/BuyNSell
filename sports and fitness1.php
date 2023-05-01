@@ -3,13 +3,16 @@ session_start();
 include('db.php');
 // include('pro_table_check.php');
 
+
 if(isset($_SESSION['user'])) {
-    header("location:user_home.php");
+    $row_c = $_SESSION['user'];
+	header("location:user_home.php");
 }
 
-// if(!isset($_SESSION['user'])) {
-//     header("location:index.php");
-// }
+if(isset($_SESSION['admin_login'])) {
+    $row_c = $_SESSION['admin_login'];
+	header("location:admin_home.php");
+}
 
 $home = false;
 $view = false;

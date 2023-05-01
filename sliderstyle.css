@@ -159,7 +159,7 @@
 
     height: 350px;
 
-    height: 450px;
+    /* height: 450px; */
 
     margin-right: 40px;
   }
@@ -173,8 +173,8 @@
     object-fit: contain;
 
 
-    height: 350px;
-    overflow: hidden;
+    /* height: 350px;
+    overflow: hidden; */
 
   }
   
@@ -184,7 +184,7 @@
 
     object-fit: contain;
 
-    object-fit: cover;
+    /* object-fit: cover; */
 
   }
   

@@ -6,6 +6,9 @@ if (isset($_SESSION['admin_login'])) {
 	header("location:admin_home.php");
 }
 
+if (isset($_SESSION['user'])) {
+	header("location:user_home.php");
+}
 
 if (isset($_REQUEST['login'])) {
 	$uname = $_REQUEST['uname'];

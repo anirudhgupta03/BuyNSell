@@ -7,6 +7,9 @@ if (isset($_SESSION['user'])) {
     header("location:user_home.php");
 }
 
+if (isset($_SESSION['admin_login'])) {
+  header("location:admin_home.php");
+}
 // $queryy = "Select * FROM user" ;
 // $run_queryy = $con->query($queryy);
 // while($rwoy = $run_queryy->fetch_object()){

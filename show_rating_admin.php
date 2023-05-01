@@ -9,6 +9,10 @@ if(isset($_SESSION['admin_login'])) {
     $row_c = $_SESSION['admin_login'];
 }
 
+if(!isset($_SESSION['admin_login']) || !isset($_REQUEST['pro_id'])) {
+    header("location:user_home.php");
+}
+
 if(isset($_REQUEST['pro_id']))
 {
 	echo $proid = $_REQUEST['pro_id'];

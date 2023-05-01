@@ -7,7 +7,7 @@ if(isset($_SESSION['user'])) {
 }
 
 if(!isset($_SESSION['user'])) {
-    header("location:home.php");
+    header("location:user_home.php");
 }
 
 if (!isset($_REQUEST['pro_id']) && isset($_SESSION['user'])) {
@@ -499,15 +499,14 @@ if (isset($_SESSION['user'])){
            
     </div> -->
  
-	<section class="product" style="border-color:red;"> 
+	<!-- <section class="product" style="border-color:red;"> 
 
 
-	</script> -->
+	</script> --> 
 
     
 	
 	<section class="product"> 
-        <h2 class="product-category">Inspired by your browsing history</h2>
 
         <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
         <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
@@ -524,11 +523,14 @@ if (isset($_SESSION['user'])){
                     if($mess === 'his'){
                         $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC LIMIT 20";
                         $runqueryrecommendation = $con->query($queryrecommendation);
+                        
                         if($runqueryrecommendation->num_rows == 0)
                         {?>
                             <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
                         <?php
                         }
+
+                        $cnt = 0;
                         while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
                             $pro_id = $rowqueryrecommendation -> pro_id;
                             // echo $pro_id;
@@ -538,6 +540,7 @@ if (isset($_SESSION['user'])){
 
                             if($runqueryproductdetails -> num_rows !== 0)
                             {
+                                $cnt = $cnt + 1;
                                 // echo $rowqueryproductdetails->price;
                                 $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
                                             $run_q6 = $con->query($query6);
@@ -571,6 +574,10 @@ if (isset($_SESSION['user'])){
                             }?>
                             <!-- echo $pro_id; -->
                         <?php
+                            if($cnt == 0){?>
+                                <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                            <?php                                
+                            }
                         }
                     }
                     else if($mess === 'sim'){
@@ -731,51 +738,6 @@ if (isset($_SESSION['user'])){
                     }
                 }
                 ?>
-
-                $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC";
-                $runqueryrecommendation = $con->query($queryrecommendation);
-                
-                while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
-                    $pro_id = $rowqueryrecommendation -> pro_id;
-                    // echo $pro_id;
-                    $queryproductdetails = "SELECT * FROM products WHERE pro_id = $pro_id AND status = 'On Sale' AND uid <> $usr ";
-                    $runqueryproductdetails = $con->query($queryproductdetails);
-                    $rowqueryproductdetails =  $runqueryproductdetails -> fetch_object();
-                    if($runqueryproductdetails -> num_rows !== 0)
-                    {
-                        // echo $rowqueryproductdetails->price;
-                        $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
-									$run_q6 = $con->query($query6);
-									$row_q6 = $run_q6->fetch_object();
-									$image_name = $row_q6->img_name;
-									$image_destination = "product_images/".$image_name;
-                        // $image_name = $rowqueryproductdetails->img_name;
-                        // $image_destination = "product_images/".$image_name;
-                        ?>
-                        <div class="product-card">
-                        <div class="product-image">
-                            <!-- <span class="discount-tag">50% off</span> -->
-                            <img src="<?php echo $image_destination; ?>" class="product-thumb" alt="">
-                            <!-- <button class="card-btn">add to wishlist</button> -->
-                        </div>
-                        <div class="product-info">
-                        <div>
-											<a class="card-title text-dark"   href="view_product.php?pro_id=<?php echo $pro_id; ?>"><h5><?php echo $rowqueryproductdetails->name; ?></h5></a>
-                                            <h4 class="font-weight-light" style="color:black;" >&#8377;<?php echo $rowqueryproductdetails->price; ?></h4>
-										</div>	
-										<!-- <div>
-												
-										</div> -->
-                            <!-- <h2 class="product-brand">brand</h2> -->
-                            <!-- <p class="product-short-description">a short line about the cloth..</p> -->
-                            <!-- <span class="price">$20</span><span class="actual-price">$40</span> -->
-                        </div>
-                    </div>
-                    <?php
-                    }?>
-                    <!-- echo $pro_id; -->
-                <?php
-                }?>
 
             <!-- <div class="product-card">
                 <div class="product-image">

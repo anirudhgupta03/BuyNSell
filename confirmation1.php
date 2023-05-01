@@ -37,7 +37,7 @@ if (isset($_REQUEST['cluster'])) {
         $query3 = "update products set status = 'Sold' where pro_id = '$pro_id';";
         $con->query($query3);
 
-        $query39 = "delete from tbl_wishlist where pro_id = $pro_id and uid = $usr";
+        $query39 = "delete from tbl_wishlist where pro_id = $pro_id";
         $con->query($query39);
     }
     //  $query390 = "update product_search set status = 'Sold' where pro_id = '$pro_id';";

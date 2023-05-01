@@ -6,8 +6,11 @@ include('db.php');
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
-
-if(!isset($_SESSION['user'])) {
+else if(isset($_SESSION['admin_login'])) {
+    $row_c = $_SESSION['admin_login'];
+	header("location:admin_home.php");
+}
+else {
     header("location:index.php");
 }
 
