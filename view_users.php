@@ -627,17 +627,17 @@ if (isset($_REQUEST['sid'])) {
             <form>
  		<table class="mt-5" align="center" cellspacing="0" cellpadding="10" width="96%">
  			<tr align="center">
-                <th style="border-radius:15px 0px 0px 0px;">Name</th>
+                <th style="padding:7px; border-radius:15px 0px 0px 0px;">Name</th>
                 <!-- <th>Surname</th> -->
- 				<th>Email</th>
+ 				<th style = "padding:5px;">Email</th>
  				<!-- <th>Gender</th>
  				<th>Hobby</th>
  				<th>Country</th> -->
-                <th>Registered before</th>
+                <th style = "padding:5px;">Registered before</th>
                 <?php if (isset($_SESSION['admin_login'])): ?>
-                <th>Status</th>                    
+                <th style = "padding:5px;">Status</th>                    
                 <?php endif ?>
- 				<th style="border-radius:0px 15px 0px 0px;" colspan="2">Action</th>
+ 				<th style="padding:5px; border-radius:0px 15px 0px 0px;" colspan="2">Action</th>
  			</tr>
             <?php
             if(isset($_SESSION['user'])) {
@@ -652,10 +652,10 @@ if (isset($_REQUEST['sid'])) {
             while ($row_j = $run_j->fetch_object()) {
             ?>		
  			<tr align="center">
-                <td><?php echo $row_j->name; ?></td>
+                <td style = "padding:5px;"><?php echo $row_j->name; ?></td>
                 
- 				<td><?php echo $row_j->email; ?></td>
-                <td>
+ 				<td style = "padding:5px;"><?php echo $row_j->email; ?></td>
+                <td style = "padding:5px;">
                     <?php
                     $c_date = date('Y-m-d h:i:s');
                     $tot_time = strtotime($c_date) - strtotime($row_j->dor);
@@ -697,26 +697,26 @@ if (isset($_REQUEST['sid'])) {
                     ?>
                 </td>
                 <?php if (isset($_SESSION['admin_login'])): ?>
-                <td><?php echo $row_j->status; ?></td>                    
+                <td style = "padding:5px;"><?php echo $row_j->status; ?></td>                    
                 <?php endif ?>
                 <?php
                 if(!isset($_SESSION['user'])) {
                 ?>
-                <td><a class="btn btn-primary" style = "font-size: 14px;" href="view_users.php?sid=<?php echo $row_j->uid; ?>&status=<?php echo $row_j->status; ?>">Change Status</a></td>
+                <td style = "padding:5px;"><a class="btn btn-primary" style = "font-size: 14px;" href="view_users.php?sid=<?php echo $row_j->uid; ?>&status=<?php echo $row_j->status; ?>">Change Status</a></td>
  				<?php
                 }
                 ?>
                 <?php
                 if(isset($_SESSION['user'])) {
                 ?>
-                <td><a class="btn btn-success" href="redirect.php?eid=<?php echo $row_j->uid; ?>">Edit Profile</a></td>
+                <td style = "padding:5px;"><a class="btn btn-success" href="redirect.php?eid=<?php echo $row_j->uid; ?>">Edit Profile</a></td>
                 <?php
                 }
                 ?>
                 <?php
                 if(!isset($_SESSION['user'])) {
                 ?>
-                <td><a class="btn btn-danger" style = "font-size: 17px;"href="view_users.php?did=<?php echo $row_j->uid; ?>">Delete</a></td>
+                <td style = "padding:5px;"><a class="btn btn-danger" style = "font-size: 17px;"href="view_users.php?did=<?php echo $row_j->uid; ?>">Delete</a></td>
                 <?php
                 }
                 ?>

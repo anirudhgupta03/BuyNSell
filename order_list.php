@@ -591,18 +591,18 @@ if (isset($_REQUEST['sid'])) {
             <form method="post">
 		<table class="mt-5 mb-3" align="center" cellspacing="0" cellpadding="7" width="90%" >
 			<tr align="center">
-				<th style="border-radius:15px 0px 0px 0px;"> Product ID </th>
-				<th> Product Name</th>                
-                <th> Seller Name </th>
-				<th> Seller Id </th>
-				<th> Price by Seller </th>				
-				<th> Category </th>
+				<th style="padding:5px; border-radius:15px 0px 0px 0px;"> Product ID </th>
+				<th style = "padding:5px;"> Product Name</th>                
+                <th style = "padding:5px;"> Seller Name </th>
+				<th style = "padding:5px;"> Seller Id </th>
+				<th style = "padding:5px;"> Price by Seller </th>				
+				<th style = "padding:5px;"> Category </th>
 
-				<th>Description </th>
-				<th>Status </th>
-                <th> Buyer Name </th>
-                <th> Transaction Id </th>
-				<th style="border-radius:0px 15px 0px 0px;"colspan="2">Buyer Id </th>
+				<th style = "padding:5px;">Description </th>
+				<th style = "padding:5px;">Status </th>
+                <th style = "padding:5px;"> Buyer Name </th>
+                <th style = "padding:5px;"> Transaction Id </th>
+				<th style="padding:7px; border-radius:0px 15px 0px 0px;"colspan="2">Buyer Id </th>
 				
 			</tr>
 			<?php
@@ -612,29 +612,29 @@ if (isset($_REQUEST['sid'])) {
             while ($row_q1 = $run_q1->fetch_object()) {
             ?>		
  			<tr align="center">
- 				<td><?php echo $row_q1->pro_id; ?></td>
- 				<td><?php echo $row_q1->name; ?></td>
+ 				<td style = "padding:5px;"><?php echo $row_q1->pro_id; ?></td>
+ 				<td style = "padding:5px;"><?php echo $row_q1->name; ?></td>
                 <?php
                     $query11 = "select * from user where uid = $row_q1->uid";
                     $run_q11 = $con->query($query11);
                     $row_q11 = $run_q11->fetch_object();
                 ?>
-                <td><?php echo $row_q11->name; ?></td>
+                <td style = "padding:5px;"><?php echo $row_q11->name; ?></td>
 
 
-				<td><?php echo $row_q1->uid; ?></td>
- 				<td><?php echo $row_q1->price; ?></td>
-				<td><?php echo $row_q1->category_id; ?></td>
+				<td style = "padding:5px;"><?php echo $row_q1->uid; ?></td>
+ 				<td style = "padding:5px;"><?php echo $row_q1->price; ?></td>
+				<td style = "padding:5px;"><?php echo $row_q1->category_id; ?></td>
 
- 				<td><?php echo $row_q1->description; ?></td>
-                <td><?php echo $row_q1->status; ?></td>	
+ 				<td style = "padding:5px;"><?php echo $row_q1->description; ?></td>
+                <td style = "padding:5px;"><?php echo $row_q1->status; ?></td>	
                 
                 <?php
                     $query12 = "select * from user where uid = $row_q1->buyer_id";
                     $run_q12 = $con->query($query12);
                     $row_q12 = $run_q12->fetch_object();
                 ?>
-                <td><?php echo $row_q12->name; ?></td>
+                <td style = "padding:5px;"><?php echo $row_q12->name; ?></td>
 
                 
 				<?php				
@@ -648,8 +648,8 @@ if (isset($_REQUEST['sid'])) {
                         $buyer = $row_q2->buyer_id;
                     }
                 ?>
-                <td><?php echo $row_q2->transcn_id; ?></td>
-                <td><?php echo $buyer; ?></td> 
+                <td style = "padding:5px;"><?php echo $row_q2->transcn_id; ?></td>
+                <td style = "padding:5px;"><?php echo $buyer; ?></td> 
  			</tr>
             <?php 
             }

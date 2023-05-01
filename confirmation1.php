@@ -171,7 +171,7 @@ body {
 }
 
 .item-2 {
-    background-color: #AFE1AF;
+    background: -webkit-linear-gradient(left, #a445b2, #fa4299);
 }
 
 .admin {
@@ -259,7 +259,7 @@ if (isset($_SESSION['user'])){
   <input type="submit"/>
 </form> -->
         </div>
-
+    </div>
 		<script>
 	    if ( window.history.replaceState ) {
 	        window.history.replaceState( null, null, window.location.href );

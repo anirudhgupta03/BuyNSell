@@ -15,7 +15,7 @@ if (isset($_REQUEST['eid'])) {
 
 if (isset($_REQUEST['update'])) {
 	$name = $_REQUEST['name'];
-	$surname = $_REQUEST['surname'];
+	// $surname = $_REQUEST['surname'];
 	$password = $_REQUEST['password'];
 	$password = password_hash($password, PASSWORD_DEFAULT);
  	$update = "update user set name='$name', password='$password' where uid = '$eid' ";

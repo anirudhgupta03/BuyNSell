@@ -24,6 +24,7 @@ if (isset($_REQUEST['login'])) {
     $run_q = $con->query($query);   // will select rows according to query
     $row_login = $run_q->fetch_object();    // will give rows sequence wise
     $num_rows = 0;       
+    $b = 0;
     
     if($run_q !== false){
       $num_rows = $run_q->num_rows;
