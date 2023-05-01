@@ -1,9 +1,10 @@
 <?php 
+session_start();
 include('db.php');
 // include('pro_table_check.php');
 
 if (!isset($_REQUEST['eid'])) {
-	header("location:index.php");
+	header("location:user_home.php");
 }
 if (isset($_REQUEST['eid'])) {
 	$eid = $_REQUEST['eid'];

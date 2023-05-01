@@ -7,7 +7,7 @@ if(isset($_SESSION['user'])) {
 }
 
 if (!isset($_SESSION['user'])) {
-	header("location:index.php");
+	header("location:user_home.php");
 }
 
 $home = false;

@@ -7,6 +7,10 @@ if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
 
+if(!isset($_SESSION['user'])) {
+    header("location:user_home.php");
+}
+
 $home = false;
 $view = false;
 $bids = false;

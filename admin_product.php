@@ -6,7 +6,10 @@
        $row_c = $_SESSION['admin_login'];
    }
    
-   
+   if(!isset($_SESSION['admin_login'])) {
+      header("location:user_home.php");
+  }
+  
    if (isset($_REQUEST['sid'])) {
      	$sid = $_REQUEST['sid'];
      	$status = $_REQUEST['status'];

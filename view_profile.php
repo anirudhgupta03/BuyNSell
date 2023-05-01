@@ -7,10 +7,8 @@ if(isset($_SESSION['user'])) {
 }
 
 
-if (isset($_SESSION['admin_login'])) {
-  
-} else if (!isset($_SESSION['user'])) {
-    header('location:index.php');
+if (!isset($_SESSION['user'])) {
+    header('location:user_home.php');
 }
 
 $home = false;

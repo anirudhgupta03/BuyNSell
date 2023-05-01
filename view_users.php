@@ -6,11 +6,8 @@ if(isset($_SESSION['admin_login'])) {
     $row_c = $_SESSION['admin_login'];
 }
 
-
-if (isset($_SESSION['admin_login'])) {
-  
-} else if (!isset($_SESSION['user'])) {
-    header('location:index.php');
+if (!isset($_SESSION['admin_login'])) {
+    header('location:user_home.php');
     
 }
 

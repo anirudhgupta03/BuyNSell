@@ -4,7 +4,7 @@ include('db.php');
 // include('pro_table_check.php');
 
 if(!isset($_SESSION['user'])) {
-    header("location:index.php");
+    header("location:user_home.php");
 }
 
 if(isset($_SESSION['user'])) {

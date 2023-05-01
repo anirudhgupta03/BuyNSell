@@ -5,10 +5,15 @@ include('db.php');
 
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
+	header("location:user_home.php");
 }
 
+if(isset($_SESSION['admin_login'])) {
+    $row_c = $_SESSION['admin_login'];
+	header("location:admin_home.php");
+}
 // if(!isset($_SESSION['user'])) {
-//     header("location:index.php");
+//     header("location:user_home.php");
 // }
 
 $home = true;
