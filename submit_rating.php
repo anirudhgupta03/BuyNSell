@@ -7,8 +7,7 @@ $connect = new PDO("mysql:host=localhost;dbname=buynsell", "root", "");
 if(isset($_SESSION['user'])) {
     $row_c = $_SESSION['user'];
 }
-
-if(!isset($_SESSION['user']) || !isset($_POST["rating_data"])) {
+else if(!isset($_SESSION['user']) || !isset($_POST["rating_data"])) {
     header("location:user_home.php");
 }
 // if(isset($_REQUEST['pid']))
