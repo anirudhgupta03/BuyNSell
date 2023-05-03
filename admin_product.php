@@ -613,7 +613,32 @@
                      <td style = "padding:5px;"><?php echo $row_q1->name; ?></td>
                      <td style = "padding:5px;"><?php echo $row_q1->uid; ?></td>
                      <td style = "padding:5px;"><?php echo $row_q1->price; ?></td>
-                     <td style = "padding:5px;"><?php echo $row_q1->category_id; ?></td>
+                     <?php
+                        $category = $row_q1->category_id;
+                        if($category == 1){
+                           $categoryname = "Books";
+                        }
+                        else if($category == 2){
+                           $categoryname = "Electronics";
+                        }
+                        else if($category == 3){
+                           $categoryname = "Essentials";
+                        }
+                        else if($category == 4){
+                           $categoryname = "Sports and Fitness";
+                        }
+                        else if($category == 5){
+                           $categoryname = "Stationery";
+                        }
+                        else if($category == 6){
+                           $categoryname = "Subscriptions";
+                        }
+                        else if($category == 7){
+                           $categoryname = "Music";
+                        }                    
+
+                     ?>
+                     <td style = "padding:5px;"><?php echo $categoryname; ?></td>
                      <td style = "padding:5px;"><?php echo $row_q1->description; ?></td>
                      <td style = "padding:5px;"><?php echo $row_q1->status; ?></td>
                      <?php				
