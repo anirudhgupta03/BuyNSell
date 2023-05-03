@@ -176,6 +176,7 @@ if (isset($_SESSION['user'])){
 					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
 						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+                        <a href="seller_rating.php" class="text-warning dropdown-item ">My Rating</a>
 						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
 						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
 						<!-- <a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a> -->
@@ -233,6 +234,11 @@ if (!isset($_SESSION['user'])){
         $query_pur = "select * from tbl_purchase where buyer_id = '$row_c->uid';";
         $run_pur = $con->query($query_pur);
 
+        if($run_pur->num_rows == 0){?>
+            <br>
+            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+        <?php
+        }
         while($row_pur = $run_pur->fetch_object())
         {
             $row_pur1 = $run_pur->num_rows;

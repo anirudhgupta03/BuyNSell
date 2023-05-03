@@ -78,6 +78,7 @@ body {/*
 
 .card-deck {
     flex-direction: column;
+    width:100%;
 }
 
 .align-corner {
@@ -162,15 +163,75 @@ body {/*
     padding-bottom: 20px;
     margin-top: 30px;
 }
-
+     /* Style for the categories */
+     .categories {
+        display: flex;
+        justify-content: center;
+        margin-top: 45px;
+        /* margin-left: 70px; */
+      }
+      
+      .category {
+        font-size: 20px;
+        font-weight: bold;
+        padding: 5px 20px;
+        border: 2px solid blue;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 0 10px;
+      }
+      
+      .active {
+        background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+        color: white;
+      }
+      
+      /* Style for the products */
+      .products {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      
+      .product {
+        width: 300px;
+        border: 2px solid pink;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 10px;
+      }
+      
+      .product h3 {
+        font-size: 18px;
+        margin-top: 0;
+      }
+      
+      .product p {
+        font-size: 16px;
+      }
+      
+      /* Style for the on sale products */
+      .onsale {
+        display: none;
+      }
+      
+      /* Style for the sold products */
+      .sold1 {
+        display: none;
+      }
+      
+      /* Active category styles */
+      .onsale.active ~ .products .onsale,
+      .sold1.active ~ .products .sold1 {
+        display: flex;
+      }
 </style>
 
 <body>
-<?php
-if (isset($_SESSION['user'])){
-?>
-<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
-		<div class="container">
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown ">
+		<div class="container sold1 onsale">
 
 			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
 				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
@@ -179,10 +240,8 @@ if (isset($_SESSION['user'])){
 			
 			<div class="search-box">
             	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
-              		<!-- <div class="control-group" style="display:flex;"> -->
                 		<input type = "text" name = "search" placeholder="Search here..." required/>
                 		<button type="submit"><img src = "images/search.png"> </button> 
-              		<!-- </div> -->
             	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 
@@ -191,8 +250,8 @@ if (isset($_SESSION['user'])){
 					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
 						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+                        <a href="seller_rating.php" class="text-warning dropdown-item ">My Rating</a>
 						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
-						<!-- <a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a> -->
 						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
 					</div>
 				</div>&nbsp;&nbsp;&nbsp;	
@@ -205,21 +264,64 @@ if (isset($_SESSION['user'])){
           	</div>
 		</div>
 	</nav>
-	<?php
-}
-?>
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown ">
+		<div class="container onsale sold1">
+
+			<a style="color: #ffc107;" class="navbar-brand" href="index.php">
+				<img style="max-width:190px; margin-top: -1px;" src="logo.png">
+			</a>
+
+			
+			<div class="search-box">
+            	<form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+                		<input type = "text" name = "search" placeholder="Search here..." required/>
+                		<button type="submit"><img src = "images/search.png"> </button> 
+            	</form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+				<div class="nav-item dropdown">
+					
+					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+					<div class="dropdown-menu bg-darkblue">
+						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+                        <a href="seller_rating.php" class="text-warning dropdown-item ">My Rating</a>
+						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+					</div>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class = "nav-item">
+				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+				</div>&nbsp;&nbsp;&nbsp;	
+				<div class="nav-item">
+					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+				</div>
+          	</div>
+		</div>
+	</nav>
     <br><br><br>
+    <div class="categories">
+      <div class="category active" id="onsale">On Sale</div>
+      <div class="category" id="sold1">Sold</div>
+    </div>
     <?php
-        $query1111 = "select * from products where uid = $row_c->uid ORDER BY pro_id DESC";
+        
+        $query1111 = "select * from products where uid = $row_c->uid and status = 'On Sale' ORDER BY pro_id DESC";
         $run_q1111 = $con->query($query1111);
         $showing_products = $run_q1111->num_rows;
     ?>
     <!-- <h4 class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Products&nbsp;for&nbsp;Sale</h4> -->
-    <div class="container mt-5 mb-5">
+    <div class="container mt-5 mb-5" >
         <div class="card-deck mt-5">
             <?php
-            $query1 = "select * from products where uid = $row_c->uid ORDER BY pro_id DESC";
+          
+            $query1 = "select * from products where uid = $row_c->uid and status = 'On Sale' ORDER BY pro_id DESC";
             $run_q1 = $con->query($query1);
+
+            if($run_q1->num_rows == 0){?>
+                <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+            <?php
+            }
             while ($row_q1 = $run_q1->fetch_object()) {
                 $query2 = "select * from tbl_purchase where pro_id = $row_q1->pro_id; ";
                 $run_q2 = $con->query($query2);
@@ -291,7 +393,198 @@ if (isset($_SESSION['user'])){
             ?>
         </div>
     </div>
-    
+
+    <div class="container mt-5 mb-5 onsale">
+        <div class="card-deck mt-5">
+            <?php
+            $query1 = "select * from products where uid = $row_c->uid and status = 'On Sale' ORDER BY pro_id DESC";
+            $run_q1 = $con->query($query1);
+            if($run_q1->num_rows == 0){?>
+                <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+            <?php
+            }
+            while ($row_q1 = $run_q1->fetch_object()) {
+                $query2 = "select * from tbl_purchase where pro_id = $row_q1->pro_id; ";
+                $run_q2 = $con->query($query2);
+                $bid_num = $run_q2->num_rows;
+                if($bid_num > 0)
+                {
+                    $res_q2 = $run_q2->fetch_object();
+                    $buyer_id = $res_q2->buyer_id;
+                    $query_user = "select * from user where uid = '$buyer_id'";
+                    $run_user = $con->query($query_user);
+                    $row_user = $run_user->fetch_object();
+                    $name = $row_user->name;
+                    // $final_price = ($res_q2)->bid_amount;
+                }
+                else
+                {
+                    $name = "No one";
+                    $final_price = "Unsold";
+                }
+                $run_q2 = $con->query($query2);
+                ?>
+                
+                <div class="card mt-5" style="border-radius: 15px; border-color:skyblue;">
+                    
+
+                    <div class="card-body <?php if ($row_q1->status == 'Sold') { echo 'sold';} ?>">
+                        <div class="card-header mb-3 flex-container">
+                            <div class="mr-3 ml-3 mt-1 mb-1">
+                                <?php if($row_q1->status == 'Sold') { ?> 
+                                    <h5 class="font-weight-light">This Product is&nbsp;<?php echo $row_q1->status; ?> to <?php echo $name ?> </h5> 
+                                <?php } 
+                                else { ?> 
+                                    <h5 class="font-weight-light">This Product is&nbsp;<?php echo $row_q1->status; ?></h5> 
+                                <?php } ?>
+                                
+                            </div>
+                            <div class="mr-3 ml-3 mt-1 mb-1">
+                                <?php if ($row_q1->status != 'Sold') {  $final_price = $row_q1->price;?>
+                                    <a class="btn btn-info" href="?pro_id=<?php echo $row_q1->pro_id; ?>&status=<?php echo $row_q1->status; ?>">
+                                        <?php 
+                                        if ($row_q1->status == "On Sale") {
+                                            echo "Disable this product";
+                                        } elseif ($row_q1->status == "Disable") {
+                                            echo "Enable this product";
+                                        }
+                                        ?>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <?php
+                        $query33 = "select * from product_category where category_id = $row_q1->category_id; ";
+                        $run_q33 = $con->query($query33);
+                        $row_q33 = $run_q33->fetch_object();
+                        ?>
+                        <h3 class="card-title mt-4">Product&nbsp;Name:&nbsp;<?php echo $row_q1->name; ?></h3>
+                        <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Description:&nbsp;<?php echo $row_q1->description; ?></h5></div> 
+                        <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Category:&nbsp;<?php echo $row_q33->name; ?></h5></div>
+                         <h1 class="card-text mt-4 mb-3 font-weight-light">Price:&nbsp;&#8377;&nbsp;<?php echo $row_q1->price; ?></h1>
+                        <!-- <?php if ($row_q1->status == 'Sold') { ?>
+						<h1 class="card-text mt-4 mb-3 font-weight-light">Sold Price:&nbsp;&#8377;&nbsp;<?php echo $final_price; ?></h1>
+                        <?php } ?> -->
+                        
+                        
+                    </div><!--End of card body-->
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+
+
+    <div class="container mt-5 mb-5 sold1">
+        <div class="card-deck mt-5">
+            <?php
+            $query1 = "select * from products where uid = $row_c->uid and status = 'Sold' ORDER BY pro_id DESC";
+            $run_q1 = $con->query($query1);
+            if($run_q1->num_rows == 0){?>
+                <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+            <?php
+            }
+            while ($row_q1 = $run_q1->fetch_object()) {
+                $query2 = "select * from tbl_purchase where pro_id = $row_q1->pro_id; ";
+                $run_q2 = $con->query($query2);
+                $bid_num = $run_q2->num_rows;
+                if($bid_num > 0)
+                {
+                    $res_q2 = $run_q2->fetch_object();
+                    $buyer_id = $res_q2->buyer_id;
+                    $query_user = "select * from user where uid = '$buyer_id'";
+                    $run_user = $con->query($query_user);
+                    $row_user = $run_user->fetch_object();
+                    $name = $row_user->name;
+                    // $final_price = ($res_q2)->bid_amount;
+                }
+                else
+                {
+                    $name = "No one";
+                    $final_price = "Unsold";
+                }
+                $run_q2 = $con->query($query2);
+                ?>
+                
+                <div class="card mt-5" style="border-radius: 15px; border-color:skyblue;">
+                    
+
+                    <div class="card-body <?php if ($row_q1->status == 'Sold') { echo 'sold';} ?>">
+                        <div class="card-header mb-3 flex-container">
+                            <div class="mr-3 ml-3 mt-1 mb-1">
+                                <?php if($row_q1->status == 'Sold') { ?> 
+                                    <h5 class="font-weight-light">This Product is&nbsp;<?php echo $row_q1->status; ?> to <?php echo $name ?> </h5> 
+                                <?php } 
+                                else { ?> 
+                                    <h5 class="font-weight-light">This Product is&nbsp;<?php echo $row_q1->status; ?></h5> 
+                                <?php } ?>
+                                
+                            </div>
+                            <div class="mr-3 ml-3 mt-1 mb-1">
+                                <?php if ($row_q1->status != 'Sold') {  $final_price = $row_q1->price;?>
+                                    <a class="btn btn-info" href="?pro_id=<?php echo $row_q1->pro_id; ?>&status=<?php echo $row_q1->status; ?>">
+                                        <?php 
+                                        if ($row_q1->status == "On Sale") {
+                                            echo "Disable this product";
+                                        } elseif ($row_q1->status == "Disable") {
+                                            echo "Enable this product";
+                                        }
+                                        ?>
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <?php
+                        $query33 = "select * from product_category where category_id = $row_q1->category_id; ";
+                        $run_q33 = $con->query($query33);
+                        $row_q33 = $run_q33->fetch_object();
+                        ?>
+                        <h3 class="card-title mt-4">Product&nbsp;Name:&nbsp;<?php echo $row_q1->name; ?></h3>
+                        <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Description:&nbsp;<?php echo $row_q1->description; ?></h5></div> 
+                        <div class="item"><h5 class="card-text mt-4 mr-5 font-weight-light">Product&nbsp;Category:&nbsp;<?php echo $row_q33->name; ?></h5></div>
+                         <h1 class="card-text mt-4 mb-3 font-weight-light">Price:&nbsp;&#8377;&nbsp;<?php echo $row_q1->price; ?></h1>
+                        <!-- <?php if ($row_q1->status == 'Sold') { ?>
+						<h1 class="card-text mt-4 mb-3 font-weight-light">Sold Price:&nbsp;&#8377;&nbsp;<?php echo $final_price; ?></h1>
+                        <?php } ?> -->
+                        
+                        
+                    </div><!--End of card body-->
+                </div>
+            <?php
+            }
+            ?>
+        </div>
+    </div>
+    <script>
+      // Add click event listeners to the categories
+      const onsale = document.getElementById("onsale");
+      const sold = document.getElementById("sold1");
+      
+      onsale.addEventListener("click", () => {
+        onsale.classList.add("active");
+        sold1.classList.remove("active");
+        document.querySelectorAll(".container").forEach(container => {
+          if (container.classList.contains("onsale")) {
+            container.style.display = "flex";
+          } else {
+            container.style.display = "none";
+          }
+        });
+      });
+      
+      sold.addEventListener("click", () => {
+        sold1.classList.add("active");
+        onsale.classList.remove("active");
+        document.querySelectorAll(".container").forEach(container => {
+          if (container.classList.contains("sold1")) {
+            container.style.display = "flex";
+          } else {
+            container.style.display = "none";
+          }
+        });
+      });
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

@@ -207,6 +207,7 @@ if (isset($_SESSION['user'])){
 					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
 						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+                        <a href="seller_rating.php" class="text-warning dropdown-item ">My Rating</a>
 						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
 						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
 						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>

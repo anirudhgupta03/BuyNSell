@@ -632,7 +632,8 @@ if (isset($_REQUEST['sid'])) {
  				<th>Country</th> -->
                 <th style = "padding:5px;">Registered before</th>
                 <?php if (isset($_SESSION['admin_login'])): ?>
-                <th style = "padding:5px;">Status</th>                    
+                <th style = "padding:5px;">Status</th>   
+                <th style = "padding:5px;">Rating</th>            
                 <?php endif ?>
  				<th style="padding:5px; border-radius:0px 15px 0px 0px;" colspan="2">Action</th>
  			</tr>
@@ -695,6 +696,9 @@ if (isset($_REQUEST['sid'])) {
                 </td>
                 <?php if (isset($_SESSION['admin_login'])): ?>
                 <td style = "padding:5px;"><?php echo $row_j->status; ?></td>                    
+                <?php endif ?>
+                <?php if (isset($_SESSION['admin_login'])): ?>
+                <td style = "padding:5px;"><a class="btn btn-warning" href="admin_seller_rating.php?seller_id=<?php echo $row_j->uid; ?>">Show Ratings</a></td>                    
                 <?php endif ?>
                 <?php
                 if(!isset($_SESSION['user'])) {

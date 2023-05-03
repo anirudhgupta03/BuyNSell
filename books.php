@@ -138,6 +138,7 @@ if (isset($_SESSION['user'])){
 					<a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
 					<div class="dropdown-menu bg-darkblue">
 						<a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+						<a href="seller_rating.php" class="text-warning dropdown-item ">My Rating</a>
 						<a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
 						<a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
 						<a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
@@ -167,8 +168,6 @@ if (isset($_SESSION['user'])){
 
 
     <h4 style="padding:35px 0px 0px 20px;" class="text-info" text-align = "left">Showing <?php echo $showing_products; ?>&nbsp;Books&nbsp;for&nbsp;Sale</h4>
-
-    <h4 text-align = "center" class="m-3 text-info">Showing <?php echo $showing_products; ?>&nbsp;Books&nbsp;for&nbsp;Sale</h4>
 
 
     <form>

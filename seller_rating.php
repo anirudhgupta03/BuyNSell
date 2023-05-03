@@ -5,28 +5,35 @@ include('db.php');
 
 // $connect = new PDO("mysql:host=localhost;dbname=buynsell", "root", "");
 
-if(isset($_SESSION['admin_login'])) {
-    $row_c = $_SESSION['admin_login'];
+if(!isset($_SESSION['user'])) {
+    header('location: user_home.php');
+}
+
+if(isset($_SESSION['user'])) {
+    $row_c = $_SESSION['user'];
 }
 
 // if(!isset($_SESSION['admin_login']) || !isset($_REQUEST['pro_id'])) {
 //     header("location:user_home.php");
 // }
 
-if(isset($_REQUEST['pro_id']))
-{
-	echo $proid = $_REQUEST['pro_id'];
-    $query131 = "select * from products where pro_id = $proid;";
-	$run_q131 = $con->query($query131);
-    $row_q131 = $run_q131->fetch_object();
-}
+// if(isset($_REQUEST['pro_id']))
+// {
+// 	echo $proid = $_REQUEST['pro_id'];
+//     $query131 = "select * from products where pro_id = $proid;";
+// 	$run_q131 = $con->query($query131);
+//     $row_q131 = $run_q131->fetch_object();
+// }
 
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <title><?php echo $row_q131->name;?>: Review & Rating</title>
+<meta charset="utf-8" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "style.css">
+    <title><?php echo $row_c->name;?>: Review & Rating</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -52,33 +59,51 @@ if(isset($_REQUEST['pro_id']))
 	display: flex;
 	flex-direction: column;
 }
-
+.mt-5, .my-5 {
+    margin-top: 5rem!important;
+}
 
 </style>
 <body>
 <?php
-    if (isset($_SESSION['admin_login'])) {
-        ?>
-        <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
-        <div class="container">
-          <a style="color: #ffc107;" class="navbar-brand" href="admin_home.php">
-                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
-          </a>
-          <ul class="navbar-nav">
-				<li class="nav-item">
-					<!-- <a class="nav-link text-danger" href="logout.php">Logout</a> -->
-                    <a href="admin_home.php">
-            <button class="btn btn-info" >Go to Admin Home Page</button>
-            
-            </a>
-          <a href = "logout.php">
-            <button class="btn btn-danger" type="submit">Logout</button>
-          </a>
-          
-				</li>
-			</ul>
-        </div>
-    </nav>
+if (isset($_SESSION['user'])){
+    ?>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-nav animated fadeInDown">
+            <div class="container">
+    
+                <a style="color: #ffc107;" class="navbar-brand" href="index.php">
+                    <img style="max-width:190px; margin-top: -1px;" src="logo.png">
+                </a>
+    
+                
+                <div class="search-box">
+                    <form action = "searchresult.php" method="POST" class = "search-bar" autocomplete = "off">
+                          <!-- <div class="control-group" style="display:flex;"> -->
+                            <input type = "text" name = "search" placeholder="Search here..." required/>
+                            <button type="submit"><img src = "images/search.png"> </button> 
+                          <!-- </div> -->
+                    </form>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    
+                    <div class="nav-item dropdown">
+                        
+                        <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown"><?php echo $row_c->name;?></a>
+                        <div class="dropdown-menu bg-darkblue">
+                            <a href="view_profile.php" class="text-warning dropdown-item ">View Profile</a>
+                            <a href="wishlist.php" class="text-warning dropdown-item ?>">Products in my Wishlisht </a>
+                            <a href="product.php" class="text-warning dropdown-item ">Products I put for Sale</a>
+                            <a href="got.php" class="text-warning dropdown-item ">Products I Purchased!!</a>
+                        </div>
+                    </div>&nbsp;&nbsp;&nbsp;	
+                    <div class = "nav-item">
+                    <a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
+                    </div>&nbsp;&nbsp;&nbsp;	
+                    <div class="nav-item">
+                        <a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+                    </div>
+                  </div>
+            </div>
+        </nav>
         <?php
     }
     ?>
@@ -87,7 +112,6 @@ if(isset($_REQUEST['pro_id']))
     <div class="container">
     	<h1 class="mt-5 mb-5">Review & Rating</h1>
     	<div style="border-radius: 15px; border-color: blue;" class="card" >
-    		<div style=" border-radius:15px; background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);" class="card-header"><h3 style="color:white;"><?php echo $row_q131->name; ?> </h3></div>
     		<div class="card-body">
     			<div class="row">
     				<div class="col-sm-4 text-center">
@@ -249,7 +273,7 @@ $(document).ready(function(){
             $.ajax({
                 url:"submit_rating.php",
                 method:"POST",
-                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, proid:<?php echo $proid;?>},
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
                 success:function(data)
                 {
                     $('#review_modal').modal('hide');
@@ -268,9 +292,9 @@ $(document).ready(function(){
     function load_rating_data()
     {
         $.ajax({
-            url:"submit_rating.php",
+            url:"submit_seller_rating.php",
             method:"POST",
-            data:{action:'load_data', proid:<?php echo $proid;?>},
+            data:{action:'load_data', sellerid:<?php echo $row_c->uid;?>},
             dataType:"JSON",
             success:function(data)
             {
@@ -316,14 +340,14 @@ $(document).ready(function(){
                     {
                         html += '<div class="row mb-3">';
 
-                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
-
+                        html += '<div class="col-sm-1"><div class="rounded-circle bg-danger text-white pt-2 pb-2"><h3 class="text-center">'+data.review_data[count].product_name.charAt(0)+'</h3></div></div>';
+                        
                         html += '<div class="col-sm-11">';
 
                         html += '<div style="border-color: rgb(255, 148, 114); border-radius: 15px;" class="card">';
 
-                        html += '<div style="border-radius: 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));" class="card-header"><b>'+data.review_data[count].user_name+'</b></div>';
-
+                        html += '<div style="border-radius: 15px; background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));" class="card-header"><b>'+data.review_data[count].product_name+'</b></div>';
+                        html += '<div class="card-header"><b>'+ 'User Name: ' + data.review_data[count].user_name+'</b></div>';
                         html += '<div class="card-body">';
 
                         for(var star = 1; star <= 5; star++)
