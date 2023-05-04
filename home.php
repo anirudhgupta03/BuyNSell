@@ -19,7 +19,7 @@ if (isset($_REQUEST['login'])) {
 
     $email = mysqli_real_escape_string($con, $email);
     $password = mysqli_real_escape_string($con, $password);
-    echo $password;
+    // echo $password;
     $query = "select * from user where email = '$email'";  // query
     $run_q = $con->query($query);   // will select rows according to query
     $row_login = $run_q->fetch_object();    // will give rows sequence wise
