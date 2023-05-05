@@ -305,12 +305,18 @@ $(document).ready(function(){
 
                 $('.main_star').each(function(){
                     count_star++;
-                    if(Math.ceil(data.average_rating) >= count_star)
-                    {
+                    var average_rating = parseFloat(data.average_rating);
+                    if (count_star <= average_rating) {
                         $(this).addClass('text-warning');
                         $(this).addClass('star-light');
+                    } else if (count_star - 1 < average_rating) {
+                        var remaining_rating = average_rating - (count_star - 1);
+                        $(this).addClass('text-warning');
+                        $(this).addClass('star-light');
+                        $(this).css('clip-path', 'inset(0 ' + (1 - remaining_rating) * 100 + '% 0 0)');
                     }
                 });
+
 
                 $('#total_five_star_review').text(data.five_star_review);
 

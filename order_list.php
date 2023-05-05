@@ -35,7 +35,7 @@ if (isset($_REQUEST['sid'])) {
       <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
       <!-- <link rel="stylesheet" href="style.css"> -->
       <!-- Boxicons CDN Link -->
-      <title>Admin Product</title>
+      <title>Order List</title>
       <link rel="icon" type="image/jpg" href="logo/auction.png">
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -266,8 +266,8 @@ if (isset($_REQUEST['sid'])) {
       color: #333;
       }
       .home-section .home-content{
-      /* position: absolute; */
-      padding: 80px 0px 15px 90px;
+      position: relative;
+      padding: 80px 0px 15px 60px;
       /* align-items: center;
       justify-content: center; */
       /* padding-top: 104px; */
@@ -590,7 +590,7 @@ if (isset($_REQUEST['sid'])) {
          <div class="home-content" >
             <!-- <div class="overview-boxes"> -->
             <form method="post">
-		<table class="mt-5 mb-3" align="center" cellspacing="0" cellpadding="7" width="90%" >
+		<table class="mt-5 mb-3"  cellspacing="0" cellpadding="7" width="90%" >
 			<tr align="center">
 				<th style="padding:10px; border-radius:15px 0px 0px 0px;"> Product ID </th>
 				<th style = "padding:10px;"> Product Name</th>                
@@ -603,7 +603,7 @@ if (isset($_REQUEST['sid'])) {
 				<th style = "padding:10px;">Status </th>
                 <th style = "padding:10px;"> Buyer Name </th>
                 <th style = "padding:10px;"> Transaction Id </th>
-				<th style="padding:7px; border-radius:0px 15px 0px 0px;"colspan="2">Buyer Id </th>
+				<th style="padding:7px; border-radius:0px 15px 0px 0px;">Buyer Id </th>
 				
 			</tr>
 			<?php
