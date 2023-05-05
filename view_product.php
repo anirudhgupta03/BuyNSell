@@ -242,6 +242,9 @@ input.razorpay-payment-button {
         input.razorpay-payment-button:hover {
             background: mediumseagreen;
         }
+        .checked {
+  color: orange;
+}
 </style>
 <body>
  
@@ -302,6 +305,7 @@ if (isset($_SESSION['user'])){
                     $query89 = "select * from tbl_wishlist where pro_id = $pro_id and uid = $row_c->uid";
 					$run_q89 = $con->query($query89);
                     ?>
+                    
                     <?php
                     if($run_q89->num_rows > 0) {?>
                         <a style = "float:right;" class="btn btn-warning" href="view_product.php?pid=<?php echo $pro_id; ?>&do=<?php echo "rmv"; ?>">Remove From Wishlist</a>
@@ -315,6 +319,37 @@ if (isset($_SESSION['user'])){
                     <?php
                     }
                     ?>
+                    <?php
+                        $querytofindseller = "select products.uid, user.name from products inner join user on products.uid = user.uid where pro_id = '$pro_id'";
+                        $runquerytofindseller = $con->query($querytofindseller);
+                        $rowquerytofindseller = $runquerytofindseller->fetch_object();
+
+                        $sellerid = $rowquerytofindseller->uid;
+                        $sellername = $rowquerytofindseller->name;
+                        $query_for_reviewed_products = " 
+                            SELECT review_table.user_review, review_table.user_rating, review_table.datetime, review_table.review_id, review_table.uid, review_table.pro_id, user.name, products.name as 'proname', products.uid as 'sellerid' FROM review_table INNER JOIN user ON review_table.uid = user.uid
+                            INNER JOIN products ON review_table.pro_id = products.pro_id where products.uid = '$sellerid'
+                            ORDER BY review_id DESC";
+                        
+                        $run_query_for_reviewed_products = $con->query($query_for_reviewed_products);
+                        $average_rating_seller = 0;
+                        $total_rating_seller = 0;
+                        $total_review = 0;
+
+                        while($row_query_for_reviewed_products = $run_query_for_reviewed_products->fetch_object()) {
+                            $rating_seller = $row_query_for_reviewed_products->user_rating;
+                            $total_rating_seller = $total_rating_seller + $rating_seller;
+                            $total_review = $total_review + 1;
+                        }                      
+                        if($total_review > 0){
+                            $average_rating_seller = $total_rating_seller / $total_review;
+                        }
+                    ?>
+                    <h5 style = "color:white;" > Seller: <?php echo $sellername;?> <div style="background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114)); border-radius: 5px; border: solid white; padding: 1px; display: inline-block;">
+                        <?php echo number_format($average_rating_seller, 1); echo '<span style="color:white;" class="star">&#9733;</span>';?>
+                        </div>
+                    </h5>          
+                    
             </div>
     
 			<div class="card-body">

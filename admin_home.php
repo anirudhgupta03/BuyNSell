@@ -462,7 +462,7 @@
       <!-- <link rel="stylesheet" href="style.css"> -->
       <!-- Boxicons CDN Link -->
       <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-      <title>BuyNSell</title>
+      <title>Admin Home</title>
       <link rel="icon" type="image/jpg" href="logo/auction.png">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    </head>

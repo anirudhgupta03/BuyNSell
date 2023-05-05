@@ -67,7 +67,7 @@ if (isset($_REQUEST['sid'])) {
       <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
       <!-- <link rel="stylesheet" href="style.css"> -->
       <!-- Boxicons CDN Link -->
-      <title>Admin Product</title>
+      <title>Users</title>
       <link rel="icon" type="image/jpg" href="logo/auction.png">
       <link rel="stylesheet" href="css/bootstrap.min.css">
       <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
