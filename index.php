@@ -47,13 +47,12 @@ if (isset($_SESSION['admin_login'])) {
     <link rel="stylesheet" href="assets/css/font-awesome.css">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Barlow:200,300,300i,400,400i,500,500i,600,700,800" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   </head>
-  <body class="cnt-home">
-    <!-- ============================================== HEADER ============================================== -->
-    <header class="header-style-1">
+
+  <header class="header-style-1">
       <!-- ============================================== TOP MENU ============================================== -->
       <div class="top-bar animate-dropdown">
         <div class="container">
@@ -96,38 +95,10 @@ if (isset($_SESSION['admin_login'])) {
                 <!-- /.search-area -->
                 <!-- ============================================================= SEARCH AREA : END ============================================================= -->
               </div>
-              <!-- /.top-search-holder -->
-              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 animate-dropdown top-cart-row">
-                <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-                <!-- /.dropdown-cart -->
-                <!-- ============================================================= SHOPPING CART DROPDOWN : END============================================================= -->
-              </div>
               <!-- /.top-cart-row -->
               <div class="cnt-account">
-                <ul class="list-unstyled"> <?php
-            if (isset($_SESSION['user'])){
-            ?> <li class="myaccount">
-                    <a href="#">
-                      <span>My Account</span>
-                    </a>
-                  </li>
-                  <li class="wishlist">
-                    <a href="#">
-                      <span>Wishlist</span>
-                    </a>
-                  </li>
-                  <li class="header_cart hidden-xs">
-                    <a href="#">
-                      <span>My Cart</span>
-                    </a>
-                  </li>
-                  <li class="check">
-                    <a href="#">
-                      <span>Logout</span>
-                    </a>
-                  </li> <?php
-            }
-            ?> <li class="login">
+                <ul class="list-unstyled">
+                  <li class="login">
                     <a href="home.php">
                       <span>Signup</span>
                     </a>
@@ -149,16 +120,16 @@ if (isset($_SESSION['admin_login'])) {
           </div>
           <!-- /.container -->
         </div>
-        </div>
-        <!-- /.main-header -->
-        <!-- ============================================== NAVBAR ============================================== -->
-        <!-- /.header-nav -->
-        <!-- ============================================== NAVBAR : END ============================================== -->
+      </div>
+
     </header>
+  <body class="cnt-home">
+    <!-- ============================================== HEADER ============================================== -->
+    
     <style>
       .center {
         margin: auto;
-        width: 80%;
+        width: 100%;
         justify-content: center;
         /* display:flex; */
         /* border: 3px solid green; */
@@ -170,52 +141,7 @@ if (isset($_SESSION['admin_login'])) {
     <!-- ============================================== HEADER : END ============================================== -->
     <div class="body-content outer-top-vs" id="top-banner-and-menu">
       <div class="container">
-        <div class="row">
-          <!-- ============================================== SIDEBAR ============================================== -->
-          <!-- <div class="col-xs-12 col-sm-12 col-md-3 sidebar">  -->
-          <!-- ================================== TOP NAVIGATION ================================== -->
-          <!-- <div class="side-menu animate-dropdown outer-bottom-xs"> -->
-          <!-- <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div><nav class="yamm megamenu-horizontal"> -->
-          <!-- <ul class="nav"><li class="dropdown menu-item"><a href="books1.php"><i class="icon fa fa-book" aria-hidden="true"></i>Books</a><li class="dropdown menu-item"><a href="electronics1.php" ><i class="icon fa fa-laptop" aria-hidden="true"></i>Electronics</a><li class="dropdown menu-item"><a href="essentials1.php"><i class="icon fa fa-clock-o"></i>Essentials</a><li class="dropdown menu-item"><a href="sports and fitness1.php"><i class="icon fa fa-futbol-o"></i>Sports and Fitness</a></li>
-               /.menu-item -->
-          <!-- <li class="dropdown menu-item"><a href="stationery1.php"><i class="icon fa fa-pencil"></i>Stationery</a><li class="dropdown menu-item"><a href="subscriptions1.php"><i class="icon fa fa-star"></i>Subscriptions</a><li class="dropdown menu-item"><a href="music instruments1.php"><i class="icon fa fa-music"></i>Music Instruments</a>  -->
-          <!-- </ul>  -->
-          <!-- /.nav -->
-          <!-- </nav> -->
-          <!-- /.megamenu-horizontal -->
-          <!-- W</div> -->
-          <!-- /.side-menu -->
-          <!-- ================================== TOP NAVIGATION : END ================================== -->
-          <!-- ============================================== HOT DEALS ============================================== -->
-          <!-- <div class="sidebar-widget hot-deals outer-bottom-xs"><h3 class="section-title">Hot deals</h3><div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss"><div class="item"><div class="products"><div class="hot-deal-wrapper"><div class="image"><a href="#"><img src="assets/images/hot-deals/p131.jpg" alt=""><img src="assets/images/hot-deals/p131_hover.jpg" alt="" class="hover-image"></a></div><div class="sale-offer-tag"><span>49%<br>
-                    off</span></div><div class="timing-wrapper"><div class="box-wrapper"><div class="date box"><span class="key">20</span><span class="value">DAYS</span></div></div><div class="box-wrapper"><div class="hour box"><span class="key">10</span><span class="value">HRS</span></div></div><div class="box-wrapper"><div class="minutes box"><span class="key">23</span><span class="value">MINS</span></div></div><div class="box-wrapper"><div class="seconds box"><span class="key">19</span><span class="value">SEC</span></div></div></div></div><div class="product-info text-left m-t-20"><h3 class="name"><a href="detail.html">Cooler</a></h3><div class="rating rateit-small"></div><div class="product-price"><span class="price"> Rs. 600.00 </span><span class="price-before-discount">Rs. 800.00</span></div></div><div class="cart clearfix animate-effect"><div class="action"><div class="add-cart-button btn-group"><button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button><button class="btn btn-primary cart-btn" type="button">Add to cart</button></div></div></div></div></div><div class="item"><div class="products"><div class="hot-deal-wrapper"><div class="image"><a href="#"><img src="assets/images/hot-deals/p141.jpg" alt=""><img src="assets/images/hot-deals/p141_hover.jpg" alt="" class="hover-image"></a></div><div class="sale-offer-tag"><span>35%<br>
-                    off</span></div><div class="timing-wrapper"><div class="box-wrapper"><div class="date box"><span class="key">20</span><span class="value">Days</span></div></div><div class="box-wrapper"><div class="hour box"><span class="key">10</span><span class="value">HRS</span></div></div><div class="box-wrapper"><div class="minutes box"><span class="key">30</span><span class="value">MINS</span></div></div><div class="box-wrapper"><div class="seconds box"><span class="key">50</span><span class="value">SEC</span></div></div></div></div><div class="product-info text-left m-t-20"><h3 class="name"><a href="detail.html">Room Heater</a></h3><div class="rating rateit-small"></div><div class="product-price"><span class="price"> Rs. 600.00 </span><span class="price-before-discount">Rs. 800.00</span></div></div><div class="cart clearfix animate-effect"><div class="action"><div class="add-cart-button btn-group"><button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button><button class="btn btn-primary cart-btn" type="button">Add to cart</button></div></div></div></div></div><div class="item"><div class="products"><div class="hot-deal-wrapper"><div class="image"><a href="#"><img src="assets/images/hot-deals/p151.jpg" alt=""><img src="assets/images/hot-deals/p151_hover.jpg" alt="" class="hover-image"></a></div><div class="sale-offer-tag"><span>35%<br>
-                    off</span></div><div class="timing-wrapper"><div class="box-wrapper"><div class="date box"><span class="key">20</span><span class="value">Days</span></div></div><div class="box-wrapper"><div class="hour box"><span class="key">30</span><span class="value">HRS</span></div></div><div class="box-wrapper"><div class="minutes box"><span class="key">43</span><span class="value">MINS</span></div></div><div class="box-wrapper"><div class="seconds box"><span class="key">54</span><span class="value">SEC</span></div></div></div></div><div class="product-info text-left m-t-20"><h3 class="name"><a href="detail.html">Dumbell</a></h3><div class="rating rateit-small"></div><div class="product-price"><span class="price"> Rs. 500.00 </span><span class="price-before-discount">Rs. 700.00</span></div></div><div class="cart clearfix animate-effect"><div class="action"><div class="add-cart-button btn-group"><button class="btn btn-primary icon" data-toggle="dropdown" type="button"><i class="fa fa-shopping-cart"></i></button><button class="btn btn-primary cart-btn" type="button">Add to cart</button></div></div></div></div></div></div></div> -->
-          <!-- ============================================== HOT DEALS: END ============================================== -->
-          <!-- ============================================== SPECIAL OFFER ============================================== -->
-          <!-- ============================================== SPECIAL OFFER : END ============================================== -->
-          <!-- ============================================== PRODUCT TAGS ============================================== -->
-          <!-- <div class="sidebar-widget product-tag"><h3 class="section-title">Product tags</h3><div class="sidebar-widget-body outer-top-xs"><div class="tag-list"><a class="item" title="Phone" href="category.html">Laptop</a><a class="item active" title="Vest" href="category.html">Kettle</a><a class="item" title="Smartphone" href="category.html">Guitar</a><a class="item" title="Furniture" href="category.html">Lamps</a><a class="item" title="T-shirt" href="category.html">Cooler</a><a class="item" title="Sweatpants" href="category.html">Room heaters</a><a class="item" title="Sneaker" href="category.html">Lan Cable</a><a class="item" title="Toys" href="category.html">Subscriptions</a><a class="item" title="Rose" href="category.html">Cycle</a><a class="item" title="Rose" href="category.html">Books</a><a class="item" title="Rose" href="category.html">Dumbell</a></div> -->
-          <!-- /.tag-list -->
-          <!-- </div> -->
-          <!-- /.sidebar-widget-body -->
-          <!-- </div> -->
-          <!-- /.sidebar-widget -->
-          <!-- ============================================== PRODUCT TAGS : END ============================================== -->
-          <!-- ============================================== SPECIAL DEALS ============================================== -->
-          <!-- /.sidebar-widget -->
-          <!-- ============================================== SPECIAL DEALS : END ============================================== -->
-          <!-- ============================================== NEWSLETTER ============================================== -->
-          <!-- <div class="sidebar-widget newsletter outer-bottom-small"><h3 class="section-title">Newsletters</h3><div class="sidebar-widget-body outer-top-xs"><p>Sign Up for Our Newsletter!</p><form><div class="form-group"><label class="sr-only" for="exampleInputEmail1">Email address</label><input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter"></div><button class="btn btn-primary">Subscribe</button></form></div></div> -->
-          <!-- /.sidebar-widget -->
-          <!-- ============================================== NEWSLETTER: END ============================================== -->
-          <!-- ============================================== Testimonials============================================== -->
-          <!-- <div class="sidebar-widget outer-top-vs "><div id="advertisement" class="advertisement"><div class="item"><div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image"></div><div class="testimonials"><em>"</em> Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer. Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.<em>"</em></div><div class="clients_author">John Doe <span>Abc Company</span></div></div><div class="item"><div class="avatar"><img src="assets/images/testimonials/member3.png" alt="Image"></div><div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer. Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.<em>"</em></div><div class="clients_author">Stephen Doe <span>Xperia Designs</span></div></div><div class="item"><div class="avatar"><img src="assets/images/testimonials/member2.png" alt="Image"></div><div class="testimonials"><em>"</em>Vtae sodales aliq uam morbi non sem lacus port mollis. Nunc condime tum metus eud molest sed consectetuer. Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat.<em>"</em></div><div class="clients_author">Saraha Smith <span>Datsun &amp; Co</span></div></div></div></div> -->
-          <!-- ============================================== Testimonials: END ============================================== -->
-        </div>
-        <!-- /.sidemenu-holder -->
-        <!-- ============================================== SIDEBAR : END ============================================== -->
-        <!-- ============================================== CONTENT ============================================== -->
+        
         <div class="center">
           <!-- ========================================== SECTION – HERO ========================================= -->
           <!-- <div id="hero"><div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm"><div class="item" style="background-image: url(assets/images/sliders/011.jpg);"><div class="container-fluid"><div class="caption bg-color vertical-center text-left"><div class="slider-header fadeInDown-1" style = "color:red; "><strong>Top Brands</strong></div><div class="big-text fadeInDown-1"> New Collections </div><div class="excerpt fadeInDown-2 hidden-xs " style = "color:yellow; "><span>Get functional laptops at discounts.</span></div><div class="button-holder fadeInDown-3"><a href="index6c11.html?page=single-product" class="btn-lg btn btn-uppercase btn-primary shop-now-button">Shop Now</a></div></div> -->
@@ -237,15 +163,15 @@ if (isset($_SESSION['admin_login'])) {
           <!-- ============================================== SCROLL TABS ============================================== -->
           <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
             <div class="more-info-tab clearfix " style="background:  -webkit-linear-gradient(left, yellow, #fa4299) !important;">
-              <h3 class="new-product-title pull-left">Product Categories</h3>
+              <h3 class="new-product-title pull-left" >Product Categories</h3>
               <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1"><li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li><li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Books</a></li><li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a></li><li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Music</a></li></ul> -->
               <!-- /.nav-tabs -->
             </div>
-            <div class="tab-content outer-top-xs">
+            <div class="tab-content outer-top-xs" >
               <div class="tab-pane in active" id="all">
-                <div class="product-slider">
+                <div class="product-slider" >
                   <div class="owl-carousel home-owl-carousel custom-carousel owl-theme">
-                    <div class="item item-carousel">
+                    <div class="item item-carousel" >
                       <div class="products">
                         <div class="product">
                           <div class="product-image">

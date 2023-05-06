@@ -1913,7 +1913,7 @@ header{
   margin-bottom: 20px;
 }
 .sidebar .sidebar-widget .advertisement .item {
-  background-position: center 55%;
+  background-position: center 100%;
   background-size: cover;
   padding-bottom:60px
 
@@ -2352,7 +2352,7 @@ header{
 }
 #owl-main .item {
   background-color: #FFFFFF;
-  background-position: center 55%;
+  background-position: center 100%;
   background-size: cover;
   height: 520px;
 }
@@ -2443,7 +2443,7 @@ header{
 }
 #owl-main .full-width-slider .item {
   background-color: #FFFFFF;
-  background-position: center 55%;
+  background-position: center 100%;
   background-size: cover;
   height: 449px;
 }
@@ -2754,7 +2754,8 @@ font-family: FontAwesome;
 .scroll-tabs .more-info-tab {
   border-bottom: 1px solid #eaeaea;
   padding-bottom: 10px;
-  padding: 14px 457px;
+  flex-wrap: nowrap;
+  padding: 14px 300px;
 }
 .scroll-tabs .more-info-tab .new-product-title {
   margin-bottom: 0px;
@@ -6722,7 +6723,7 @@ td.cart-product-sub-total span {
     margin-bottom: 13px;
 }
   .main-header .top-search-holder .search-area .search-field {
-    width: 55%;
+    width: 100%;
 }
 .product-tag .item {
     font-size: 14px;
