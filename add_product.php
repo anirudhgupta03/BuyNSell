@@ -151,6 +151,8 @@ if (isset($_REQUEST['insert_product'])) {
 
 <head>
 <link rel = "stylesheet" href = "style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Add Product </title>
 </head>
 <html>
 <?php include 'head.php'; ?>
