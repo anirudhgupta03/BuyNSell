@@ -2,6 +2,8 @@
 session_start();
 include 'db.php'; 
 
+$err_login = false;
+// $form_view = true;
 if (isset($_SESSION['admin_login'])) {
 	header("location:admin_home.php");
 }
@@ -31,15 +33,13 @@ if (isset($_REQUEST['login'])) {
   }
 
 	if ($num_rows > 0 && password_verify($password, $row_login->password)) {
-		// if (isset($_REQUEST['rem'])) {
-		// 	setcookie('username', $row_login->uname, time()+60);
-		// 	setcookie('password', $row_login->password, time()+60);
-		// }
+		// $err_login = false;
     $num_rows = 1;
 		$_SESSION['admin_login']=$row_login;
 		header("location:admin_home.php");  
 	}
   else{
+    $err_login = true;
     $num_rows = 0;
   }
 }
@@ -306,3 +306,4 @@ label input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
