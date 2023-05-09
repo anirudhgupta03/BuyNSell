@@ -182,7 +182,7 @@ body {/*
       }
       
       .active {
-        background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+        background: -webkit-linear-gradient(left, #a445b2, #fa4299) !important;
         color: white;
       }
       
@@ -294,7 +294,7 @@ body {/*
 				<a class="btn btn-warning" href="add_product.php">Add A Product To Sell</a>
 				</div>&nbsp;&nbsp;&nbsp;	
 				<div class="nav-item">
-					<a class="btn btn-danger <?php echo 'active';?>" href="logout.php">Logout</a>
+					<a class="btn btn-danger" href="logout.php">Logout</a>
 				</div>
           	</div>
 		</div>

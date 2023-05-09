@@ -42,6 +42,16 @@ body {
     justify-content: space-around;
 }
 
+.navbar-brand {
+    display: inline-block;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 2.5rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
 .item {
     flex-grow: 1;
     color: #fff;
@@ -73,7 +83,7 @@ p {
     <nav class="navbar navbar-expand-sm navbar-dark bg-nav" >
         <div class="container" >
           <a style="color: #ffc107;" class="navbar-brand" href="index.php">
-                <img style="max-width:130px; margin-top: -1px;" src="logo.png" >&nbsp;
+                <img style="max-width:190px; margin-top: -1px;" src="logo.png" >&nbsp;
           </a>
              
         </div>
