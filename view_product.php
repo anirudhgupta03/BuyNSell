@@ -436,7 +436,7 @@ if (isset($_SESSION['user'])){
 				<form action="confirmation.php?pro_id=<?php echo $row_q1->pro_id; ?>" method="POST">
                     <script
                     src="https://checkout.razorpay.com/v1/checkout.js"
-                    data-key="rzp_test_6ylMbjZf5RYhOG"
+                    data-key="rzp_test_SDMJHxtZKexHq1"
                     data-amount="<?= $row_q1->price * 100 ?>"
                     data-buttontext="Proceed to pay &#x20B9 <?= $row_q1->price ?>!"
                     data-name= "<?= $row_q1->name?>"

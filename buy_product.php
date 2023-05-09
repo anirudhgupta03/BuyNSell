@@ -176,7 +176,7 @@ input.razorpay-payment-button {
 			</tr>
             <script
                 src="https://checkout.razorpay.com/v1/checkout.js"
-                data-key="rzp_test_6ylMbjZf5RYhOG"
+                data-key="rzp_test_SDMJHxtZKexHq1"
                 data-amount="<?= $amount * 100 ?>"
                 data-buttontext="Proceed to pay &#x20B9 <?= $amount ?>!"
                 data-name="Impressions 2022"
