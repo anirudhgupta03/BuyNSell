@@ -442,13 +442,12 @@ if (isset($_SESSION['user'])){
                     data-amount="<?= $row_q1->price * 100 ?>"
                     data-buttontext="Proceed to pay &#x20B9 <?= $row_q1->price ?>!"
                     data-name= "<?= $row_q1->name?>"
-                    data-description="Entry Ticket Purchase"
+                    data-description="Product Purchase"
                     data-image="<?= $image_for_payment ?>"
                     data-prefill.email="<?= $row_c -> email ?>"
                     
                     data-theme.color="#b21e8e"
                     ></script>
-
                 </form>
         <br>
         <!-- <a style = "" class="btn btn-warning" href="show_rating.php?pro_id=<?php echo $pro_id; ?>">Ratings and Reviews</a> -->

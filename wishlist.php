@@ -423,7 +423,7 @@ if (!isset($_SESSION['user'])){
                                         data-amount="<?= $amount * 100 ?>"
                                         data-buttontext="Proceed to pay &#x20B9 <?= $amount ?>!"
                                         data-name= "<?= "dffff"?>"
-                                        data-description="Entry Ticket Purchase"
+                                        data-description="Product Purchase"
                                         data-image="<?= $image_for_payment ?>"
                                          data-prefill.email="<?= $row_c -> email ?>"
                                         data-theme.color="#b21e8e"
