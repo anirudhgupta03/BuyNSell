@@ -425,6 +425,7 @@ if (!isset($_SESSION['user'])){
                                         data-name= "<?= "dffff"?>"
                                         data-description="Entry Ticket Purchase"
                                         data-image="<?= $image_for_payment ?>"
+                                         data-prefill.email="<?= $row_c -> email ?>"
                                         data-theme.color="#b21e8e"
                                         ></script>
 

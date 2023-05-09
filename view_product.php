@@ -348,6 +348,7 @@ if (isset($_SESSION['user'])){
                     ?>
                     <h5 style = "color:white;" > Seller: <?php echo $sellername;?> <div style="background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114)); border-radius: 5px; border: solid white; padding: 1px; display: inline-block;">
                         <?php echo number_format($average_rating_seller, 1); echo '<span style="color:white;" class="star">&#9733;</span>';?>
+                        <?php echo '(' . $total_review . ')';?>
                         </div>
                     </h5>          
                     
@@ -443,6 +444,8 @@ if (isset($_SESSION['user'])){
                     data-name= "<?= $row_q1->name?>"
                     data-description="Entry Ticket Purchase"
                     data-image="<?= $image_for_payment ?>"
+                    data-prefill.email="<?= $row_c -> email ?>"
+                    
                     data-theme.color="#b21e8e"
                     ></script>
 
@@ -561,12 +564,6 @@ if (isset($_SESSION['user'])){
                         $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC LIMIT 20";
                         $runqueryrecommendation = $con->query($queryrecommendation);
                         
-                        if($runqueryrecommendation->num_rows == 0)
-                        {?>
-                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
-                        <?php
-                        }
-
                         $cnt = 0;
                         while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
                             $pro_id = $rowqueryrecommendation -> pro_id;
@@ -611,10 +608,11 @@ if (isset($_SESSION['user'])){
                             }?>
                             <!-- echo $pro_id; -->
                         <?php
-                            if($cnt == 0){?>
-                                <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
-                            <?php                                
-                            }
+                        }
+                        if($cnt == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
                         }
                     }
                     else if($mess === 'sim'){
@@ -725,11 +723,7 @@ if (isset($_SESSION['user'])){
                 else{
                     $queryrecommendation = "SELECT DISTINCT pro_id FROM product_search WHERE uid = $usr ORDER BY search_id DESC LIMIT 20";
                     $runqueryrecommendation = $con->query($queryrecommendation);
-                    if($runqueryrecommendation->num_rows == 0)
-                        {?>
-                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
-                        <?php
-                        }
+                    $cnt1 = 0;
                     while ($rowqueryrecommendation = $runqueryrecommendation->fetch_object()){
                         $pro_id = $rowqueryrecommendation -> pro_id;
                         // echo $pro_id;
@@ -739,6 +733,7 @@ if (isset($_SESSION['user'])){
 
                         if($runqueryproductdetails -> num_rows !== 0)
                         {
+                            $cnt1 = $cnt1 + 1;
                             // echo $rowqueryproductdetails->price;
                             $query6 = "select * from product_images where pro_id = $pro_id LIMIT 1";
                                         $run_q6 = $con->query($query6);
@@ -773,6 +768,11 @@ if (isset($_SESSION['user'])){
                         <!-- echo $pro_id; -->
                     <?php
                     }
+                    if($cnt1 == 0)
+                        {?>
+                            <h4 align="center" style="width:100%;padding: 50px;background:linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));color:white;"> <?php echo "There is no product to show";?> </h4>
+                        <?php
+                        }
                 }
                 ?>
 

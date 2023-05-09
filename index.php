@@ -163,7 +163,7 @@ if (isset($_SESSION['admin_login'])) {
           <!-- ============================================== SCROLL TABS ============================================== -->
           <div id="product-tabs-slider" class="scroll-tabs outer-top-vs">
             <div class="more-info-tab clearfix " style="background:  -webkit-linear-gradient(left, yellow, #fa4299) !important;">
-              <h3 class="new-product-title pull-left" >Product Categories</h3>
+              <h3 style="margin-top:0px; margin-bottom:0px;" align="center">Product Categories</h3>
               <!-- <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1"><li class="active"><a data-transition-type="backSlide" href="#all" data-toggle="tab">All</a></li><li><a data-transition-type="backSlide" href="#smartphone" data-toggle="tab">Books</a></li><li><a data-transition-type="backSlide" href="#laptop" data-toggle="tab">Electronics</a></li><li><a data-transition-type="backSlide" href="#apple" data-toggle="tab">Music</a></li></ul> -->
               <!-- /.nav-tabs -->
             </div>
