@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -88,30 +88,24 @@ p {
              
         </div>
     </nav>
-    
-
     <div class="container_login">
-
-        <div class="item item-2 p-4">
-            <h1 class="mb-5" align="center">Thank You!</h2>
-
-            
-            <p class="mb-5" align="center">Your details have been successfully submitted.</p>
-            <form method="post" action="index.php">
-                <table  align="center" cellspacing="0" cellpadding="5" width="500" >
-                    <tr>
-                        <td colspan="2" align="center"><input type="submit" class="btn btn-secondary" value = "Close"></td> 
-                    </tr>
-                </table>
-            </form>
-        </div>
-            <!-- <form action="nextpage.php" method="POST">
-  <input type="submit"/>
-</form> -->
+      <div class="item item-2 p-4">
+        <h1 class="mb-5" align="center">Thank You! </h2>
+          <p class="mb-5" align="center">Your details have been successfully submitted.</p>
+          <form method="post" action="index.php">
+            <table align="center" cellspacing="0" cellpadding="5" width="500">
+              <tr>
+                <td colspan="2" align="center">
+                  <input type="submit" class="btn btn-secondary" value="Close">
+                </td>
+              </tr>
+            </table>
+          </form>
+      </div>
+      <!-- <form action="nextpage.php" method="POST"><input type="submit"/></form> -->
     </div>
-    
-     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

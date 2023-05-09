@@ -235,6 +235,7 @@ label input[type="checkbox"] {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Login</title>
+    <link rel="icon" type="image/jpg" href="logo/auction.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
@@ -304,47 +305,5 @@ label input[type="checkbox"] {
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-
-<!-- <body>
-	 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-nav">
-        <div class="container">
-          <a style="color: #ffc107;" class="navbar-brand" href="index.php">
-                <img style="max-width:130px; margin-top: -1px;" src="logo.png">&nbsp;
-          </a>
-             
-        </div>
-    </nav>
-    
-
-    <div class="container_login">
-
-
-
-
-        <div class="item item-1 p-4">
-            <h2 class="mb-5" align="center">Admin Login</h2>
-            <form method="post">
-                <table border="0" align="center" cellpadding="11" cellspacing="0" width="400">
-                    <tr>
-                        <th>User Name</th>
-                        <td><input class="form-control" type="text" name="uname" required="required"></td>
-                    </tr>
-                    <tr>
-                        <th>Password</th>
-                        <td><input class="form-control" type="password" id="myInput" name="password" required="required"></td>
-                    </tr>
-                    
-                    <tr align="center">
-                        <td colspan="2" align="center"><input class="btn btn-light" type="submit" name="login" value="Login"></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body> -->
 </html>
+
